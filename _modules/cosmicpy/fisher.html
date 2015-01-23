@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>cosmicpy.fisher &mdash; CosmicPy 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-3.2.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-3.2.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/my-styles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="top" title="CosmicPy 0.1 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+  
+  <a href="https://github.com/cosmicpy/cosmicpy"
+     class="visible-desktop hidden-xs"><img
+    id="gh-banner"
+    style="position: absolute; top: 50px; right: 0; border: 0;"
+    src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
+    alt="Fork me on GitHub"></a>
+  <script>
+    // Adjust banner height.
+    $(function () {
+      var navHeight = $(".navbar .container").css("height");
+      $("#gh-banner").css("top", navHeight);
+    });
+  </script>
+
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          CosmicPy</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../../about.html">About</a></li>
+                <li><a href="../../contribute.html">Contribute</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../install.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../install.html#download-from-github">Download from GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../install.html#install">Install</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/gettingStarted.html">Getting Started with CosmicPy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/gettingStarted.html#create-and-modify-a-cosmology">Create and modify a cosmology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/gettingStarted.html#compute-distances">Compute distances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/gettingStarted.html#compute-the-matter-power-spectrum">Compute the matter power spectrum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/gettingStarted.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/BAO.html">3D Spherical Analysis of BAOs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/BAO.html#setting-up-the-cosmology-and-the-surveys">Setting up the cosmology and the surveys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/BAO.html#impact-of-the-depth-of-the-survey-on-the-sfb-window">Impact of the depth of the survey on the SFB window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/BAO.html#impact-of-baos-on-the-power-spectrum">Impact of BAOs on the power spectrum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/BAO.html#impact-of-baos-on-the-sfb-power-spectrum">Impact of BAOs on the SFB power spectrum</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/3DSFB.html">3D SFB galaxy clustering</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/3DSFB.html#setting-up-the-cosmology-and-the-surveys">Setting up the cosmology and the surveys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/3DSFB.html#computing-3d-power-spectra">Computing 3D power spectra</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/3DSFB.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicpy/index.html">Source Code Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../cosmicpy/cosmology.html"><tt class="docutils literal"><span class="pre">cosmicpy.cosmology</span></tt> &#8211; Cosmology module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cosmicpy/survey.html"><tt class="docutils literal"><span class="pre">cosmicpy.survey</span></tt> &#8211; Galaxy survey representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cosmicpy/spectra.html"><tt class="docutils literal"><span class="pre">cosmicpy.spectra</span></tt> &#8211; Clustering and lensing power spectra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cosmicpy/fisher.html"><tt class="docutils literal"><span class="pre">cosmicpy.fisher</span></tt> &#8211; Fisher forecasts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cosmicpy/utils.html"><tt class="docutils literal"><span class="pre">cosmicpy.utils</span></tt> &#8211; Utility functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cosmicpy/tests.html">Testing module (<cite>cosmicpy.tests</cite>)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/index.html">Developer Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../developer/index.html#building-the-documentation">Building the documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../developer/index.html#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../developer/index.html#making-the-build">Making the build</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../developer/index.html#documentation-guidelines">Documentation guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../developer/index.html#testing-cosmicpy">Testing cosmicpy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../developer/index.html#testing-against-icosmo">Testing against iCosmo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicpy/index.html">Source Code Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/index.html">Developer Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    <div class="col-md-9">
+      
+  <h1>Source code for cosmicpy.fisher</h1><div class="highlight"><pre>
+<span class="c"># Copyright (c) 2014-2015, CosmicPy Developers</span>
+<span class="c"># Licensed under CeCILL 2.1 - see LICENSE.rst</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">:mod:`cosmicpy.fisher` -- Fisher forecasts</span>
+<span class="sd">=========================================</span>
+
+<span class="sd">.. module:: cosmicpy.fisher</span>
+<span class="sd">    :synopsis: Computes Fisher Matrices</span>
+<span class="sd">.. moduleauthor:: Francois Lanusse &lt;francois.lanusse@cea.fr&gt;</span>
+<span class="sd">.. moduleauthor:: Anais Rassat &lt;anais.rassat@epfl.ch&gt;</span>
+<span class="sd">.. Created on Jul 9, 2013 by Francois Lanusse</span>
+
+<span class="sd">.. autosummary::</span>
+
+<span class="sd">    fisher</span>
+<span class="sd">    fisherTomo</span>
+<span class="sd">    fisher3d</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">.cosmology</span> <span class="kn">import</span> <span class="n">cosmology</span>
+<span class="kn">from</span> <span class="nn">.spectra</span> <span class="kn">import</span> <span class="n">spectra</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">brentq</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.patches</span> <span class="kn">import</span> <span class="n">Ellipse</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span>
+<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABCMeta</span><span class="p">,</span> <span class="n">abstractmethod</span>
+
+
+<div class="viewcode-block" id="fisher"><a class="viewcode-back" href="../../cosmicpy/fisher.html#cosmicpy.fisher.fisher">[docs]</a><span class="k">class</span> <span class="nc">fisher</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Base class to perform a Fisher Analysis from specified cosmology,</span>
+<span class="sd">    survey and cosmological parameters.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">__metaclass__</span> <span class="o">=</span> <span class="n">ABCMeta</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fid_cosmo</span><span class="p">,</span> <span class="n">fid_survey</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">margin_params</span><span class="o">=</span><span class="p">[]):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructor</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">step</span> <span class="o">=</span> <span class="mf">0.003</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fid_cosmo</span> <span class="o">=</span> <span class="n">fid_cosmo</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fid_surv</span> <span class="o">=</span> <span class="n">fid_survey</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">params</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c"># Check that the parameters provided are present in survey or cosmo</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
+            <span class="c"># First find the fiducial value for the parameter in question</span>
+            <span class="k">if</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fid_surv</span><span class="p">)</span> <span class="ow">or</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fid_cosmo</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&quot;Warning, unknown parameter in derivative :&quot;</span> <span class="o">+</span> <span class="n">p</span><span class="p">)</span>
+
+        <span class="c"># Checks that the marginalisation parameters are actually considered</span>
+        <span class="c"># in the Fisher analysis</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">margin_params</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">margin_params</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fid_surv</span><span class="o">.</span><span class="n">nuisances</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">margin_params</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&quot;Warning, requested marginalisation parameter &quot;</span> <span class="o">+</span> <span class="n">p</span> <span class="o">+</span>
+                      <span class="s">&quot; is not included in the analysis&quot;</span><span class="p">)</span>
+
+        <span class="c"># Create a spectra object with a copy of the fiducial cosmology</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spectra</span> <span class="o">=</span> <span class="n">spectra</span><span class="p">(</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fid_cosmo</span><span class="p">),</span>
+                               <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fid_surv</span><span class="p">))</span>
+
+        <span class="c"># Precomputed Fisher matrix</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fullMat</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fullInvMat</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mat</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_invmat</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">_computeObservables</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">_computeFullMatrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<div class="viewcode-block" id="fisher.Fij"><a class="viewcode-back" href="../../cosmicpy/fisher.html#cosmicpy.fisher.fisher.Fij">[docs]</a>    <span class="k">def</span> <span class="nf">Fij</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">param_i</span><span class="p">,</span> <span class="n">param_j</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Returns the matrix element of the Fisher matrix for parameters</span>
+<span class="sd">            param_i and param_j</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">param_i</span><span class="p">)</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">param_j</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">mat</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+</div>
+<div class="viewcode-block" id="fisher.invFij"><a class="viewcode-back" href="../../cosmicpy/fisher.html#cosmicpy.fisher.fisher.invFij">[docs]</a>    <span class="k">def</span> <span class="nf">invFij</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">param_i</span><span class="p">,</span> <span class="n">param_j</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Returns the matrix element of the inverse Fisher matrix for</span>
+<span class="sd">            parameters param_i and param_j</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">param_i</span><span class="p">)</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">param_j</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">invmat</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+</div>
+    <span class="k">def</span> <span class="nf">sigma_fix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">param</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Fij</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="n">param</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">sigma_marg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">param</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">invFij</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="n">param</span><span class="p">))</span>
+
+<div class="viewcode-block" id="fisher.sub_matrix"><a class="viewcode-back" href="../../cosmicpy/fisher.html#cosmicpy.fisher.fisher.sub_matrix">[docs]</a>    <span class="k">def</span> <span class="nf">sub_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subparams</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Extracts a submatrix from the current fisher matrix using the</span>
+<span class="sd">        parameters in params</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">subparams</span><span class="p">:</span>
+            <span class="c"># Checks that the parameter exists in the orignal matrix</span>
+            <span class="k">if</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">:</span>
+                <span class="n">params</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&quot;Warning, parameter not present in original </span><span class="se">\</span>
+<span class="s">                    Fisher matrix, left ignored :&quot;</span> <span class="o">+</span> <span class="n">p</span><span class="p">)</span>
+        <span class="n">newFisher</span> <span class="o">=</span> <span class="n">fisher</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fid_cosmo</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">fid_surv</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+
+        <span class="c"># Fill in the fisher matrix from the precomputed matrix</span>
+        <span class="n">newFisher</span><span class="o">.</span><span class="n">_mat</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">params</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">params</span><span class="p">)))</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">params</span><span class="p">)):</span>
+            <span class="n">indi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">params</span><span class="p">)):</span>
+                <span class="n">indj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+                <span class="n">newFisher</span><span class="o">.</span><span class="n">_mat</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mat</span><span class="p">[</span><span class="n">indi</span><span class="p">,</span> <span class="n">indj</span><span class="p">]</span>
+
+        <span class="n">newFisher</span><span class="o">.</span><span class="n">_invmat</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">newFisher</span><span class="o">.</span><span class="n">_mat</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">newFisher</span>
+</div>
+    <span class="k">def</span> <span class="nf">_marginalise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot; Marginalises the Fisher matrix over unwanted parameters.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        params: list</span>
+<span class="sd">            List of parameters that should not be marginalised over.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        (mat, invmat): ndarray</span>
+<span class="sd">            Marginalised Fisher matrix and its invers</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># Builds inverse matrix</span>
+        <span class="n">marg_inv</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">params</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">params</span><span class="p">)))</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">params</span><span class="p">)):</span>
+            <span class="n">indi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">params</span><span class="p">)):</span>
+                <span class="n">indj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+                <span class="n">marg_inv</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">invmat</span><span class="p">[</span><span class="n">indi</span><span class="p">,</span> <span class="n">indj</span><span class="p">]</span>
+
+        <span class="n">marg_mat</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="n">marg_inv</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="p">(</span><span class="n">marg_mat</span><span class="p">,</span> <span class="n">marg_inv</span><span class="p">)</span>
+
+<div class="viewcode-block" id="fisher.corner_plot"><a class="viewcode-back" href="../../cosmicpy/fisher.html#cosmicpy.fisher.fisher.corner_plot">[docs]</a>    <span class="k">def</span> <span class="nf">corner_plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nstd</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot; Makes a corner plot including all the parameters in the Fisher analysis</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">labels</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">labels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">)):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+                <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span> <span class="p">,</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([])</span>
+                <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([])</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">nstd</span><span class="o">=</span><span class="n">nstd</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">wspace</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="fisher.plot"><a class="viewcode-back" href="../../cosmicpy/fisher.html#cosmicpy.fisher.fisher.plot">[docs]</a>    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">nstd</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot; Plots confidence contours corresponding to the parameters</span>
+<span class="sd">        provided.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="p">[</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">]</span>
+
+        <span class="k">def</span> <span class="nf">eigsorted</span><span class="p">(</span><span class="n">cov</span><span class="p">):</span>
+            <span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">cov</span><span class="p">)</span>
+            <span class="n">order</span> <span class="o">=</span> <span class="n">vals</span><span class="o">.</span><span class="n">argsort</span><span class="p">()[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">vals</span><span class="p">[</span><span class="n">order</span><span class="p">],</span> <span class="n">vecs</span><span class="p">[:,</span> <span class="n">order</span><span class="p">]</span>
+
+        <span class="n">mat</span><span class="p">,</span> <span class="n">cov</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_marginalise</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+        <span class="c"># First find the fiducial value for the parameter in question</span>
+        <span class="n">fid_param</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="n">pos</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fid_surv</span><span class="p">):</span>
+                <span class="n">fid_param</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fid_surv</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">fid_param</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fid_cosmo</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+
+            <span class="n">pos</span><span class="p">[</span><span class="n">params</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">p</span><span class="p">)]</span> <span class="o">=</span> <span class="n">fid_param</span>
+
+        <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+
+        <span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">eigsorted</span><span class="p">(</span><span class="n">cov</span><span class="p">)</span>
+        <span class="n">theta</span> <span class="o">=</span> <span class="n">degrees</span><span class="p">(</span><span class="n">arctan2</span><span class="p">(</span><span class="o">*</span><span class="n">vecs</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+
+        <span class="c"># Width and height are &quot;full&quot; widths, not radius</span>
+        <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">nstd</span> <span class="o">*</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">vals</span><span class="p">)</span>
+        <span class="n">ellip</span> <span class="o">=</span> <span class="n">Ellipse</span><span class="p">(</span><span class="n">xy</span><span class="o">=</span><span class="n">pos</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span>
+                        <span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="n">theta</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="n">ax</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">ellip</span><span class="p">)</span>
+        <span class="n">sz</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
+        <span class="n">s1</span> <span class="o">=</span> <span class="mf">1.5</span><span class="o">*</span><span class="n">nstd</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">sigma_marg</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+        <span class="n">s2</span> <span class="o">=</span> <span class="mf">1.5</span><span class="o">*</span><span class="n">nstd</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">sigma_marg</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">s1</span><span class="p">,</span> <span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">s1</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">s2</span><span class="p">,</span> <span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">s2</span><span class="p">)</span>
+        <span class="c">#ax.set_xlim(pos[0] - sz, pos[0] + sz)</span>
+        <span class="c">#ax.set_ylim(pos[1] - sz, pos[1] + sz)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">ellip</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="fisher.FoM_DETF"><a class="viewcode-back" href="../../cosmicpy/fisher.html#cosmicpy.fisher.fisher.FoM_DETF">[docs]</a>    <span class="k">def</span> <span class="nf">FoM_DETF</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Computes the figure of merit from the Dark Energy Task Force</span>
+<span class="sd">            Albrecht et al 2006</span>
+<span class="sd">            FoM = 1/sqrt(det(F^-1_{w0,wa}))</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">det</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">invFij</span><span class="p">(</span><span class="s">&#39;w0&#39;</span><span class="p">,</span> <span class="s">&#39;w0&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">invFij</span><span class="p">(</span><span class="s">&#39;wa&#39;</span><span class="p">,</span> <span class="s">&#39;wa&#39;</span><span class="p">)</span> <span class="o">-</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">invFij</span><span class="p">(</span><span class="s">&#39;wa&#39;</span><span class="p">,</span> <span class="s">&#39;w0&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">invFij</span><span class="p">(</span><span class="s">&#39;w0&#39;</span><span class="p">,</span> <span class="s">&#39;wa&#39;</span><span class="p">))</span>
+        <span class="k">return</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">det</span><span class="p">)</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="fisher.FoM"><a class="viewcode-back" href="../../cosmicpy/fisher.html#cosmicpy.fisher.fisher.FoM">[docs]</a>    <span class="k">def</span> <span class="nf">FoM</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Total figure of merit : ln (1/det(F^{-1}))</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">log</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="nb">abs</span><span class="p">(</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">invmat</span><span class="p">)))</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="fisher.invmat"><a class="viewcode-back" href="../../cosmicpy/fisher.html#cosmicpy.fisher.fisher.invmat">[docs]</a>    <span class="k">def</span> <span class="nf">invmat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the inverse fisher matrix</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_invmat</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_invmat</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mat</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_invmat</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="fisher.mat"><a class="viewcode-back" href="../../cosmicpy/fisher.html#cosmicpy.fisher.fisher.mat">[docs]</a>    <span class="k">def</span> <span class="nf">mat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the fisher matrix marginalised over nuisance parameters</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># If the matrix is not already computed, compute it</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mat</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_fullMat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_computeFullMatrix</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_fullInvMat</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_fullMat</span><span class="p">)</span>
+
+            <span class="c"># Apply marginalisation over nuisance parameters</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_invmat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fullInvMat</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">),</span>
+                                     <span class="mi">0</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">)]</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_mat</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_invmat</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mat</span>
+</div>
+    <span class="k">def</span> <span class="nf">_computeDerivatives</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Computes all the derivatives of the specified observable with</span>
+<span class="sd">        respect to the parameters and nuisance parameters in the analysis&quot;&quot;&quot;</span>
+        <span class="c"># List the derivatives with respect to all the parameters</span>
+        <span class="n">dcldp</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="n">old_fid_param</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="n">old_param</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="c"># Computes all the derivatives with respect to the main parameters</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;varying :&quot;</span> <span class="o">+</span> <span class="n">p</span><span class="p">)</span>
+            <span class="c"># First find the fiducial value for the parameter in question</span>
+            <span class="n">fid_param</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="k">if</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fid_surv</span><span class="p">):</span>
+                <span class="n">fid_param</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fid_surv</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">fid_param</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fid_cosmo</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+
+            <span class="n">step</span> <span class="o">=</span> <span class="n">fid_param</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">step</span>
+            <span class="k">if</span> <span class="n">fid_param</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">step</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">step</span>
+            <span class="c"># Compute derivative using the 2 point formula</span>
+            <span class="k">if</span> <span class="n">old_param</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="n">kw</span> <span class="o">=</span> <span class="p">{</span><span class="n">p</span><span class="p">:</span> <span class="n">fid_param</span> <span class="o">+</span> <span class="n">step</span><span class="p">,</span> <span class="s">&#39;makeFlat&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">}</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">kw</span> <span class="o">=</span> <span class="p">{</span><span class="n">p</span><span class="p">:</span> <span class="n">fid_param</span> <span class="o">+</span> <span class="n">step</span><span class="p">,</span> <span class="n">old_param</span><span class="p">:</span> <span class="n">old_fid_param</span><span class="p">,</span>
+                      <span class="s">&#39;makeFlat&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">}</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">spectra</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+
+            <span class="n">clp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_computeObservables</span><span class="p">()</span>
+
+            <span class="n">kw</span> <span class="o">=</span> <span class="p">{</span><span class="n">p</span><span class="p">:</span> <span class="n">fid_param</span> <span class="o">-</span> <span class="n">step</span><span class="p">,</span> <span class="s">&#39;makeFlat&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">}</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">spectra</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+
+            <span class="n">clm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_computeObservables</span><span class="p">()</span>
+            <span class="n">dcl</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="p">(</span><span class="n">pl</span><span class="p">,</span> <span class="n">mi</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">clp</span><span class="p">,</span> <span class="n">clm</span><span class="p">):</span>
+                <span class="n">dcl</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">pl</span> <span class="o">-</span> <span class="n">mi</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">step</span><span class="p">))</span>
+
+            <span class="n">dcldp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dcl</span><span class="p">)</span>
+            <span class="n">old_fid_param</span> <span class="o">=</span> <span class="n">fid_param</span>
+            <span class="n">old_param</span> <span class="o">=</span> <span class="n">p</span>
+
+        <span class="c"># Reset everything to the fiducial value</span>
+        <span class="n">kw</span> <span class="o">=</span> <span class="p">{</span><span class="n">old_param</span><span class="p">:</span> <span class="n">old_fid_param</span><span class="p">,</span> <span class="s">&#39;makeFlat&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spectra</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+
+        <span class="c"># Now, computing derivatives with respect to the nuisance parameters</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">margin_params</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;Varying nuisance parameter :&quot;</span> <span class="o">+</span> <span class="n">p</span><span class="p">)</span>
+            <span class="n">nuisance</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fid_surv</span><span class="o">.</span><span class="n">nuisances</span><span class="p">[</span><span class="n">p</span><span class="p">]</span>
+            <span class="n">np</span> <span class="o">=</span> <span class="n">nuisance</span><span class="o">.</span><span class="n">Np</span>
+
+            <span class="c"># Start varying each nuisance parameter</span>
+            <span class="k">for</span> <span class="n">ind_param</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">np</span><span class="p">):</span>
+                <span class="n">fid_param</span> <span class="o">=</span> <span class="n">nuisance</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="n">ind_param</span><span class="p">)</span>
+
+                <span class="n">step</span> <span class="o">=</span> <span class="n">fid_param</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">step</span>
+                <span class="k">if</span> <span class="n">fid_param</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">step</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">step</span>
+
+                <span class="n">kw</span> <span class="o">=</span> <span class="p">{</span><span class="n">p</span> <span class="o">+</span> <span class="s">&#39;_p&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">ind_param</span><span class="p">):</span> <span class="n">fid_param</span> <span class="o">+</span> <span class="n">step</span><span class="p">}</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">spectra</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+
+                <span class="n">clp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_computeObservables</span><span class="p">()</span>
+
+                <span class="n">kw</span> <span class="o">=</span> <span class="p">{</span><span class="n">p</span> <span class="o">+</span> <span class="s">&#39;_p&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">ind_param</span><span class="p">):</span> <span class="n">fid_param</span> <span class="o">-</span> <span class="n">step</span><span class="p">}</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">spectra</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+
+                <span class="n">clm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_computeObservables</span><span class="p">()</span>
+                <span class="n">dcl</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="p">(</span><span class="n">pl</span><span class="p">,</span> <span class="n">mi</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">clp</span><span class="p">,</span> <span class="n">clm</span><span class="p">):</span>
+                    <span class="n">dcl</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">pl</span> <span class="o">-</span> <span class="n">mi</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">step</span><span class="p">))</span>
+
+                <span class="n">dcldp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dcl</span><span class="p">)</span>
+
+                <span class="c"># Resetting nuisance parameter</span>
+                <span class="n">kw</span> <span class="o">=</span> <span class="p">{</span><span class="n">p</span> <span class="o">+</span> <span class="s">&#39;_p&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">ind_param</span><span class="p">):</span> <span class="n">fid_param</span><span class="p">}</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">spectra</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">dcldp</span>
+
+</div>
+<div class="viewcode-block" id="fisherTomo"><a class="viewcode-back" href="../../cosmicpy/fisher.html#cosmicpy.fisher.fisherTomo">[docs]</a><span class="k">class</span> <span class="nc">fisherTomo</span><span class="p">(</span><span class="n">fisher</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Tomographic Fisher matrix &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fid_cosmo</span><span class="p">,</span> <span class="n">fid_survey</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">probes</span><span class="p">,</span> <span class="n">margin_params</span><span class="o">=</span><span class="p">[],</span>
+                 <span class="n">cutNonLinearScales</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">lmax</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">nl</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">lmin</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">diagonal</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Initializes a tomographic Fisher Matrix using the probes given</span>
+<span class="sd">        in probes</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">probes</span> <span class="o">=</span> <span class="n">probes</span>
+        <span class="c"># Calls super class initialization</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">fisherTomo</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">fid_cosmo</span><span class="p">,</span> <span class="n">fid_survey</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span>
+                                         <span class="n">margin_params</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">diagonal</span> <span class="o">=</span> <span class="n">diagonal</span>
+        <span class="c"># Create a list of redshift bins</span>
+        <span class="k">if</span> <span class="n">diagonal</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">bins</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fid_surv</span><span class="o">.</span><span class="n">nzbins</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">bins</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">bins</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">combinations_with_replacement</span><span class="p">(</span>
+                    <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fid_surv</span><span class="o">.</span><span class="n">nzbins</span><span class="p">),</span> <span class="n">r</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+
+        <span class="c"># Create a list of spectra from the probes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">crossprobes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+            <span class="n">itertools</span><span class="o">.</span><span class="n">combinations_with_replacement</span><span class="p">(</span><span class="n">probes</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+
+        <span class="c"># Create list of power spectra from probes and redshift bins</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cls</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">crossprobes</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">bins</span><span class="p">))</span>
+
+        <span class="c"># Compute l range for each redshift bin</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lmax</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cls</span><span class="p">))</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cls</span><span class="p">)):</span>
+            <span class="n">zmin</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fid_surv</span><span class="o">.</span><span class="n">zbins</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">cls</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">zmed</span><span class="p">,</span>
+                       <span class="bp">self</span><span class="o">.</span><span class="n">fid_surv</span><span class="o">.</span><span class="n">zbins</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">cls</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">zmed</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">cutNonLinearScales</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">lmax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">lmax</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">cutNonLinearScales</span> <span class="ow">is</span> <span class="s">&#39;optimistic&#39;</span><span class="p">:</span>
+                    <span class="n">kmax</span> <span class="o">=</span> <span class="mf">0.25</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">kmax</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fid_surv</span><span class="o">.</span><span class="n">zbins</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">cls</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">kmax_lin</span><span class="p">,</span>
+                               <span class="bp">self</span><span class="o">.</span><span class="n">fid_surv</span><span class="o">.</span><span class="n">zbins</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">cls</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">kmax_lin</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">lmax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">kmax</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">fid_cosmo</span><span class="o">.</span><span class="n">a2chi</span><span class="p">(</span><span class="n">z2a</span><span class="p">(</span><span class="n">zmin</span><span class="p">))</span>
+
+        <span class="n">lmax</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lmax</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+        <span class="c"># Generating an hybrid array</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_l</span> <span class="o">=</span> <span class="n">logspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">log10</span><span class="p">(</span><span class="n">lmax</span><span class="p">),</span> <span class="n">nl</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nl</span><span class="p">):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_l</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">lmin</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_l</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">lmin</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nl</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_l</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_computeObservables</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shotNoise</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="n">obs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">cl</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cls</span><span class="p">:</span>
+            <span class="n">obs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spectra</span><span class="p">,</span> <span class="s">&#39;cl_&#39;</span> <span class="o">+</span> <span class="n">cl</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">cl</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+                       <span class="p">(</span><span class="n">cl</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">cl</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_l</span><span class="p">,</span> <span class="n">shotNoise</span><span class="o">=</span><span class="n">shotNoise</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">obs</span>
+
+    <span class="k">def</span> <span class="nf">_computeFullMatrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the full fisher matrix.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">def</span> <span class="nf">find_index</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+            <span class="k">if</span> <span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span>  <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">))</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cls</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cls</span><span class="o">.</span><span class="n">index</span><span class="p">(((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cls</span><span class="o">.</span><span class="n">index</span><span class="p">(((</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">),</span> <span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">)))</span>
+
+        <span class="c"># Prefactor</span>
+        <span class="n">geom</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_l</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">fid_surv</span><span class="o">.</span><span class="n">fsky</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Computing derivatives&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dcldp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_computeDerivatives</span><span class="p">()</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Computing covariance matrix&quot;</span><span class="p">)</span>
+        <span class="n">cl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_computeObservables</span><span class="p">(</span><span class="n">shotNoise</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+        <span class="c"># Precompute all the covariance matrices</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cov</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cls</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cls</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nl</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">ind1</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cls</span><span class="p">)):</span>
+            
+            <span class="k">for</span> <span class="n">ind2</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ind1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">diagonal</span> <span class="ow">and</span> <span class="n">ind1</span> <span class="o">!=</span> <span class="n">ind2</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="n">cl1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cls</span><span class="p">[</span><span class="n">ind1</span><span class="p">]</span>
+                <span class="n">cl2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cls</span><span class="p">[</span><span class="n">ind2</span><span class="p">]</span>
+                <span class="n">C02</span> <span class="o">=</span> <span class="n">find_index</span><span class="p">(</span><span class="n">cl1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">cl2</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+                                 <span class="n">cl1</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">cl2</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">C13</span> <span class="o">=</span> <span class="n">find_index</span><span class="p">(</span><span class="n">cl1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">cl2</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span>
+                                 <span class="n">cl1</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">cl2</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+                <span class="n">C03</span> <span class="o">=</span> <span class="n">find_index</span><span class="p">(</span><span class="n">cl1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">cl2</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span>
+                                 <span class="n">cl1</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">cl2</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+                <span class="n">C12</span> <span class="o">=</span> <span class="n">find_index</span><span class="p">(</span><span class="n">cl1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">cl2</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+                                 <span class="n">cl1</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">cl2</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">_cov</span><span class="p">[</span><span class="n">ind1</span><span class="p">,</span> <span class="n">ind2</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">geom</span> <span class="o">*</span> <span class="p">(</span><span class="n">cl</span><span class="p">[</span><span class="n">C02</span><span class="p">]</span> <span class="o">*</span> <span class="n">cl</span><span class="p">[</span><span class="n">C13</span><span class="p">]</span> <span class="o">+</span>
+                                                   <span class="n">cl</span><span class="p">[</span><span class="n">C03</span><span class="p">]</span> <span class="o">*</span> <span class="n">cl</span><span class="p">[</span><span class="n">C12</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_cov</span><span class="p">[</span><span class="n">ind2</span><span class="p">,</span> <span class="n">ind1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cov</span><span class="p">[</span><span class="n">ind1</span><span class="p">,</span> <span class="n">ind2</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="c"># Precomputes the inverse of the covariance matrix for each l</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_invcov</span> <span class="o">=</span> <span class="n">zeros_like</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cov</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">indl</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_l</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_invcov</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">indl</span><span class="p">]</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cov</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">indl</span><span class="p">])</span>
+
+        <span class="c"># Computes the fisher Matrix</span>
+        <span class="c"># The size of the Fisher matrix is given by the number of derivatives</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Computing full Fisher matrix&quot;</span><span class="p">)</span>
+        <span class="n">nparams</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dcldp</span><span class="p">)</span>
+        <span class="n">mat</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">((</span><span class="n">nparams</span><span class="p">,</span> <span class="n">nparams</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nparams</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">res</span> <span class="o">=</span> <span class="n">zeros_like</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_l</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">double</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">ind1</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cls</span><span class="p">)):</span>
+                    <span class="k">for</span> <span class="n">ind2</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cls</span><span class="p">)):</span>
+                        <span class="n">temp</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dcldp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">ind1</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dcldp</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">ind2</span><span class="p">]</span> <span class="o">*</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">_invcov</span><span class="p">[</span><span class="n">ind1</span><span class="p">,</span> <span class="n">ind2</span><span class="p">,</span> <span class="p">:])</span>
+                        <span class="n">lmax</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lmax</span><span class="p">[</span><span class="n">ind1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">lmax</span><span class="p">[</span><span class="n">ind2</span><span class="p">])</span>
+                        <span class="n">temp</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_l</span> <span class="o">&gt;</span> <span class="n">lmax</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                        <span class="n">res</span> <span class="o">+=</span> <span class="n">temp</span>
+                <span class="n">mat</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">simps</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_l</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s">&#39;float&#39;</span><span class="p">))</span>
+                <span class="n">mat</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">mat</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">mat</span>
+
+</div>
+<div class="viewcode-block" id="fisher3d"><a class="viewcode-back" href="../../cosmicpy/fisher.html#cosmicpy.fisher.fisher3d">[docs]</a><span class="k">class</span> <span class="nc">fisher3d</span><span class="p">(</span><span class="n">fisher</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Full 3D fisher analysis using the Spherical Fourier-Bessel expansion</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fid_cosmo</span><span class="p">,</span> <span class="n">fid_survey</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">margin_params</span><span class="o">=</span><span class="p">[],</span>
+                 <span class="n">cutNonLinearScales</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">fisher3d</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">fid_cosmo</span><span class="p">,</span> <span class="n">fid_survey</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span>
+                                       <span class="n">margin_params</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">cutNonLinearScales</span> <span class="o">=</span> <span class="n">cutNonLinearScales</span>
+
+        <span class="c"># TODO : Adapt the l range</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_l</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_l</span><span class="p">[</span><span class="mi">29</span><span class="p">:]</span> <span class="o">=</span> <span class="n">around</span><span class="p">(</span><span class="n">logspace</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="o">/</span> <span class="n">log</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+                               <span class="n">log</span><span class="p">(</span><span class="mi">900</span><span class="p">)</span> <span class="o">/</span> <span class="n">log</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+                               <span class="mi">70</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_l</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_l</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s">&#39;int&#39;</span><span class="p">)</span>
+
+        <span class="c"># Compute the mask of admissible values i.e. corresponding to the linear part of the power spectrum</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_linearcut</span> <span class="o">=</span> <span class="n">ones_like</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_l</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.25</span>
+        <span class="k">if</span> <span class="n">cutNonLinearScales</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_l</span><span class="p">)):</span>
+                <span class="n">cut</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">k</span><span class="p">:</span> <span class="n">k</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">fid_cosmo</span><span class="o">.</span><span class="n">a2chi</span><span class="p">(</span><span class="n">z2a</span><span class="p">(</span><span class="n">k</span><span class="o">/</span><span class="mf">0.132</span><span class="p">))</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_l</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_linearcut</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">brentq</span><span class="p">(</span><span class="n">cut</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_computeObservables</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shotNoise</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="n">cl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spectra</span><span class="o">.</span><span class="n">cl_sfb</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_l</span><span class="p">,</span> <span class="n">kmax</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_linearcut</span><span class="p">,</span>
+                                  <span class="n">shotNoise</span><span class="o">=</span><span class="n">shotNoise</span><span class="p">,</span>
+                                  <span class="n">fid_cosmo</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">fid_cosmo</span><span class="p">)</span>
+        <span class="n">obs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_l</span><span class="p">)):</span>
+            <span class="n">obs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cl</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">obs</span>
+
+    <span class="k">def</span> <span class="nf">_computeFullMatrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="c"># Prefactor</span>
+        <span class="n">geom</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">fid_surv</span><span class="o">.</span><span class="n">fsky</span> <span class="o">*</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_l</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">)</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Computing covariance matrix&quot;</span><span class="p">)</span>
+        <span class="c"># Computing eigen decomposition of the covariance matrix</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_computeObservables</span><span class="p">(</span><span class="n">shotNoise</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="c"># Invert the covariance matrix for every l</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_invcov</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_l</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_invcov</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cl</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Computing derivatives&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dcldp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_computeDerivatives</span><span class="p">()</span>
+        <span class="n">nparams</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dcldp</span><span class="p">)</span>
+        <span class="c"># Apply inverse covariance matrix</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_l</span><span class="p">)):</span>
+            <span class="n">v</span><span class="p">,</span> <span class="n">q</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_invcov</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nparams</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_dcldp</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">dot</span><span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dcldp</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">q</span><span class="p">)),</span>
+                                        <span class="n">diag</span><span class="p">(</span><span class="mf">1.0</span><span class="o">/</span><span class="n">v</span><span class="p">))</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Computing Full Fisher matrix&quot;</span><span class="p">)</span>
+        <span class="c"># Computes the fisher Matrix</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_integrand</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">((</span><span class="n">nparams</span><span class="p">,</span> <span class="n">nparams</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_l</span><span class="p">)))</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nparams</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_l</span><span class="p">)):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_integrand</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">trace</span><span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dcldp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">n</span><span class="p">],</span>
+                                                         <span class="bp">self</span><span class="o">.</span><span class="n">_dcldp</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">n</span><span class="p">]))</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_integrand</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_integrand</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">n</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_integrand</span> <span class="o">*=</span> <span class="n">geom</span>
+        <span class="n">mat</span> <span class="o">=</span> <span class="n">simps</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_integrand</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_l</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s">&#39;float&#39;</span><span class="p">))</span>
+<span class="c">#        integrand = interp1d(self._l, self._integrand, kind=&#39;cubic&#39;)</span>
+<span class="c">#        l = arange(self._l.min(), self._l.max()+1)</span>
+<span class="c">#        self._mat = 0.5 * self.fid_surv.fsky * sum(integrand(l) *</span>
+<span class="c">#                                                   (2.0*l + 1.0),</span>
+<span class="c">#                                                   axis=2)</span>
+        <span class="k">return</span> <span class="n">mat</span></div>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2015, Francois Lanusse, Anais Rassat, Jean-Luc Starck.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3.<br/>
+    </p>
+  </div>
+</footer>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58875004-1', 'auto');
+  ga('send', 'pageview');
+  
+</script>
+
+
+  </body>
+</html>

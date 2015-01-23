@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>cosmicpy.survey &mdash; CosmicPy 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-3.2.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-3.2.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/my-styles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="top" title="CosmicPy 0.1 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+  
+  <a href="https://github.com/cosmicpy/cosmicpy"
+     class="visible-desktop hidden-xs"><img
+    id="gh-banner"
+    style="position: absolute; top: 50px; right: 0; border: 0;"
+    src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
+    alt="Fork me on GitHub"></a>
+  <script>
+    // Adjust banner height.
+    $(function () {
+      var navHeight = $(".navbar .container").css("height");
+      $("#gh-banner").css("top", navHeight);
+    });
+  </script>
+
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          CosmicPy</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../../about.html">About</a></li>
+                <li><a href="../../contribute.html">Contribute</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../install.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../install.html#download-from-github">Download from GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../install.html#install">Install</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/gettingStarted.html">Getting Started with CosmicPy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/gettingStarted.html#create-and-modify-a-cosmology">Create and modify a cosmology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/gettingStarted.html#compute-distances">Compute distances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/gettingStarted.html#compute-the-matter-power-spectrum">Compute the matter power spectrum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/gettingStarted.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/BAO.html">3D Spherical Analysis of BAOs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/BAO.html#setting-up-the-cosmology-and-the-surveys">Setting up the cosmology and the surveys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/BAO.html#impact-of-the-depth-of-the-survey-on-the-sfb-window">Impact of the depth of the survey on the SFB window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/BAO.html#impact-of-baos-on-the-power-spectrum">Impact of BAOs on the power spectrum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/BAO.html#impact-of-baos-on-the-sfb-power-spectrum">Impact of BAOs on the SFB power spectrum</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/3DSFB.html">3D SFB galaxy clustering</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/3DSFB.html#setting-up-the-cosmology-and-the-surveys">Setting up the cosmology and the surveys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/3DSFB.html#computing-3d-power-spectra">Computing 3D power spectra</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/3DSFB.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicpy/index.html">Source Code Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../cosmicpy/cosmology.html"><tt class="docutils literal"><span class="pre">cosmicpy.cosmology</span></tt> &#8211; Cosmology module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cosmicpy/survey.html"><tt class="docutils literal"><span class="pre">cosmicpy.survey</span></tt> &#8211; Galaxy survey representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cosmicpy/spectra.html"><tt class="docutils literal"><span class="pre">cosmicpy.spectra</span></tt> &#8211; Clustering and lensing power spectra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cosmicpy/fisher.html"><tt class="docutils literal"><span class="pre">cosmicpy.fisher</span></tt> &#8211; Fisher forecasts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cosmicpy/utils.html"><tt class="docutils literal"><span class="pre">cosmicpy.utils</span></tt> &#8211; Utility functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cosmicpy/tests.html">Testing module (<cite>cosmicpy.tests</cite>)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/index.html">Developer Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../developer/index.html#building-the-documentation">Building the documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../developer/index.html#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../developer/index.html#making-the-build">Making the build</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../developer/index.html#documentation-guidelines">Documentation guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../developer/index.html#testing-cosmicpy">Testing cosmicpy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../developer/index.html#testing-against-icosmo">Testing against iCosmo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicpy/index.html">Source Code Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/index.html">Developer Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    <div class="col-md-9">
+      
+  <h1>Source code for cosmicpy.survey</h1><div class="highlight"><pre>
+<span class="c"># Copyright (c) 2014-2015, CosmicPy Developers</span>
+<span class="c"># Licensed under CeCILL 2.1 - see LICENSE.rst</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">:mod:`cosmicpy.survey` -- Galaxy survey representation</span>
+<span class="sd">=====================================================</span>
+
+<span class="sd">.. module:: cosmicpy.survey</span>
+<span class="sd">    :synopsis: Contains surveys related objects and functions</span>
+<span class="sd">.. moduleauthor:: Francois Lanusse &lt;francois.lanusse@cea.fr&gt;</span>
+<span class="sd">.. moduleauthor:: Anais Rassat &lt;anais.rassat@epfl.ch&gt;</span>
+<span class="sd">.. Created on Jun 13, 2013 by Francois Lanusse</span>
+
+<span class="sd">.. autosummary::</span>
+
+<span class="sd">    survey</span>
+<span class="sd">    redshift_bin</span>
+<span class="sd">    nuisance</span>
+<span class="sd">    grid_nuisance</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">romberg</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">brentq</span>
+<span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">erf</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp2d</span>
+<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABCMeta</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="o">*</span>
+
+
+<div class="viewcode-block" id="nuisance"><a class="viewcode-back" href="../../cosmicpy/survey.html#cosmicpy.survey.nuisance">[docs]</a><span class="k">class</span> <span class="nc">nuisance</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">r&quot;&quot;&quot;Generic nuisance representation of a 2D function&quot;&quot;&quot;</span>
+    <span class="n">__metaclass__</span> <span class="o">=</span> <span class="n">ABCMeta</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="n">Nx</span><span class="p">,</span> <span class="n">Ny</span><span class="p">,</span> <span class="n">xlim</span><span class="p">,</span> <span class="n">ylim</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_xlim</span> <span class="o">=</span> <span class="n">xlim</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ylim</span> <span class="o">=</span> <span class="n">ylim</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_Ny</span> <span class="o">=</span> <span class="n">Ny</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_Nx</span> <span class="o">=</span> <span class="n">Nx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_params_values</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">((</span><span class="n">Nx</span><span class="p">,</span> <span class="n">Ny</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_params_amplitude</span> <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_model</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
+
+<div class="viewcode-block" id="nuisance.update"><a class="viewcode-back" href="../../cosmicpy/survey.html#cosmicpy.survey.nuisance.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot;Update the nuisance parameters&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span> <span class="ow">is</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="c"># Looks for keywords and update the survey parameters</span>
+        <span class="k">for</span> <span class="n">kw</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="ow">in</span> <span class="n">kw</span><span class="p">:</span>
+                <span class="c"># Extract the number of the parameter</span>
+                <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">kw</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;_p&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+                <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_params_amplitude</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">kw</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_params_values</span><span class="o">.</span><span class="n">flat</span><span class="p">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">kw</span><span class="p">]</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="nuisance.Np"><a class="viewcode-back" href="../../cosmicpy/survey.html#cosmicpy.survey.nuisance.Np">[docs]</a>    <span class="k">def</span> <span class="nf">Np</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot;</span>
+<span class="sd">        Number of nuisance parameters&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Nx</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Ny</span> <span class="o">+</span> <span class="mi">1</span>
+</div>
+    <span class="k">def</span> <span class="nf">get_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ind</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">ind</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_params_amplitude</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_params_values</span><span class="o">.</span><span class="n">flat</span><span class="p">[</span><span class="n">ind</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+
+    <span class="nd">@abstractmethod</span>
+<div class="viewcode-block" id="nuisance.__call__"><a class="viewcode-back" href="../../cosmicpy/survey.html#cosmicpy.survey.nuisance.__call__">[docs]</a>    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot; Evaluates the function for the given set of nuisance parameters&quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+</div>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot; Models the given function using the nuisance parameters&quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+</div>
+<div class="viewcode-block" id="grid_nuisance"><a class="viewcode-back" href="../../cosmicpy/survey.html#cosmicpy.survey.grid_nuisance">[docs]</a><span class="k">class</span> <span class="nc">grid_nuisance</span><span class="p">(</span><span class="n">nuisance</span><span class="p">):</span>
+    <span class="sd">r&quot;&quot;&quot; Generic nuisance parametrisation on a grid</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+        <span class="c"># Compute the position of the grid nodes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">logspace</span><span class="p">(</span><span class="n">log10</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_xlim</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">log10</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_xlim</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
+                           <span class="bp">self</span><span class="o">.</span><span class="n">_Nx</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_y</span> <span class="o">=</span> <span class="n">logspace</span><span class="p">(</span><span class="n">log10</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ylim</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">log10</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ylim</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
+                           <span class="bp">self</span><span class="o">.</span><span class="n">_Ny</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_params_values</span> <span class="o">*=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_border</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">_Nx</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Ny</span> <span class="o">+</span> <span class="mi">2</span><span class="p">))</span>
+        <span class="c"># for i in range(self._Nx + 2):</span>
+        <span class="c">#    for j in range(self._Ny + 2):</span>
+        <span class="c">#        self._border[i, j] = func(self._x[i], self._y[j])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_params_amplitude</span> <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_func</span> <span class="o">=</span> <span class="n">func</span>
+
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">atleast_1d</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">atleast_1d</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="c"># Compute the bilinear interpolation of the logarithmique grid at the</span>
+        <span class="c"># requested position</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_border</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_params_values</span><span class="p">[:,</span> <span class="p">:]</span>
+        <span class="n">lnQ</span> <span class="o">=</span> <span class="n">interp2d</span><span class="p">(</span><span class="n">log10</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_y</span><span class="p">),</span> <span class="n">log10</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_x</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_border</span><span class="p">,</span>
+                       <span class="n">copy</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">bounds_error</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_params_amplitude</span> <span class="o">*</span> <span class="n">exp</span><span class="p">(</span><span class="n">lnQ</span><span class="p">(</span><span class="n">log10</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">log10</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+</div>
+<div class="viewcode-block" id="survey"><a class="viewcode-back" href="../../cosmicpy/survey.html#cosmicpy.survey.survey">[docs]</a><span class="k">class</span> <span class="nc">survey</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">r&quot;&quot;&quot; Contains all the parameters corresponding to a survey.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    nzparams : dict, optional</span>
+<span class="sd">        Dictionary containing the parameters of the desired redshift</span>
+<span class="sd">        distribution.</span>
+<span class="sd">    nzbins : int, optional</span>
+<span class="sd">        Number of redshift bins in the survey (def: 1).</span>
+<span class="sd">    bintype : str, optional</span>
+<span class="sd">        Type of redshift binning. Either &#39;eq_dens&#39; or &#39;eq_size&#39;</span>
+<span class="sd">        (def: &#39;eq_dens&#39;).</span>
+<span class="sd">    ngal : float, optional</span>
+<span class="sd">        Number of galaxies per square arcmins (def: 40).</span>
+<span class="sd">    zmin : float, optional</span>
+<span class="sd">        Minimum redshift considered in the survey (def: 0).</span>
+<span class="sd">    zmax : float, optional</span>
+<span class="sd">        Maximum redshift considered in the survey (def: 5).</span>
+<span class="sd">    chicut : float, optional</span>
+<span class="sd">        Level of the cut to apply to the selection function, relative to</span>
+<span class="sd">        the maximum of the selection fuction. If 0, :math:`\chi_\max` is set to</span>
+<span class="sd">        :math:`\chi(z_\max)` (def : 1e-5).</span>
+<span class="sd">    zphot_sig : float, optional</span>
+<span class="sd">        Standard variation of photometric redshift errors (def: 0.05).</span>
+<span class="sd">    zphot_bias : float, optional</span>
+<span class="sd">        Bias of photometric redshift errors (def: 0).</span>
+<span class="sd">    fsky : float, optional</span>
+<span class="sd">        Sky fraction covered by the survey (def: 0.4848).</span>
+<span class="sd">    biastype : str, optional</span>
+<span class="sd">        Type of galaxy bias. Either &#39;constant&#39; or &#39;sqrt&#39; (def: &#39;sqrt&#39;)</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Several parametrisations for the redshifts can be specified:</span>
+<span class="sd">        * &#39;smail&#39;    : n(z) = z^a exp( - (z/z0)^b)</span>
+<span class="sd">        * &#39;gaussian&#39; : n(z) = exp(-(r/r0)^2) * r ^2 * dr/dz</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nuisances</span><span class="o">=</span><span class="p">[],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nzparams</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;type&#39;</span><span class="p">:</span> <span class="s">&#39;smail&#39;</span><span class="p">,</span>
+                          <span class="s">&#39;a&#39;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span>
+                          <span class="s">&#39;b&#39;</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">,</span>
+                          <span class="s">&#39;z0&#39;</span><span class="p">:</span> <span class="mf">0.9</span> <span class="o">/</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_zmin</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_zmax</span> <span class="o">=</span> <span class="mi">5</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_chicut</span> <span class="o">=</span> <span class="mf">1e-5</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nzbins</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_zphot_sig</span> <span class="o">=</span> <span class="mf">0.05</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_zphot_bias</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ngal</span> <span class="o">=</span> <span class="mi">40</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fsky</span> <span class="o">=</span> <span class="mf">0.4848</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_bintype</span> <span class="o">=</span> <span class="s">&#39;eq_dens&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_biastype</span> <span class="o">=</span> <span class="s">&#39;sqrt&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nuisances</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_norm</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_zmean</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_zmed</span> <span class="o">=</span> <span class="bp">None</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<div class="viewcode-block" id="survey.addNuisance"><a class="viewcode-back" href="../../cosmicpy/survey.html#cosmicpy.survey.survey.addNuisance">[docs]</a>    <span class="k">def</span> <span class="nf">addNuisance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Adds nuisance parameters to the survey</span>
+<span class="sd">            params is of the form</span>
+<span class="sd">            {&#39;name&#39;:&#39;bias&#39;, &#39;type&#39;:&#39;grid&#39;, &#39;Nx&#39;:3,&#39;Ny&#39;:4,&#39;xlim&#39;:[0.001,1],&#39;ylim&#39;:[0.001,0.1]}</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">params</span><span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;bias&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">params</span><span class="p">[</span><span class="s">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;grid&#39;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_biastype</span> <span class="o">==</span> <span class="s">&#39;sqrt&#39;</span><span class="p">:</span>
+                    <span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">zp</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+                        <span class="n">zp</span> <span class="o">=</span> <span class="n">atleast_1d</span><span class="p">(</span><span class="n">zp</span><span class="p">)</span>
+                        <span class="n">k</span> <span class="o">=</span> <span class="n">atleast_1d</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+                        <span class="k">return</span> <span class="n">einsum</span><span class="p">(</span><span class="s">&#39;i,j-&gt;ij&#39;</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">zp</span><span class="p">),</span> <span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">k</span><span class="p">)))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">zp</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+                        <span class="n">zp</span> <span class="o">=</span> <span class="n">atleast_1d</span><span class="p">(</span><span class="n">zp</span><span class="p">)</span>
+                        <span class="n">k</span> <span class="o">=</span> <span class="n">atleast_1d</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+                        <span class="k">return</span> <span class="n">ones</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">zp</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">k</span><span class="p">)))</span>
+
+                <span class="n">nuisance</span> <span class="o">=</span> <span class="n">grid_nuisance</span><span class="p">(</span><span class="s">&#39;bias&#39;</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">params</span><span class="p">[</span><span class="s">&#39;Nx&#39;</span><span class="p">],</span>
+                                          <span class="n">params</span><span class="p">[</span><span class="s">&#39;Ny&#39;</span><span class="p">],</span> <span class="n">array</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s">&#39;xlim&#39;</span><span class="p">])</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">params</span><span class="p">[</span><span class="s">&#39;ylim&#39;</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">nuisances</span><span class="p">[</span><span class="s">&#39;bias&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nuisance</span>
+</div>
+<div class="viewcode-block" id="survey.update"><a class="viewcode-back" href="../../cosmicpy/survey.html#cosmicpy.survey.survey.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot; Updates the survey after parameters have been modified.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        nzparams : dict, optional</span>
+<span class="sd">            Dictionary containing the parameters of the desired redshift</span>
+<span class="sd">            distribution.</span>
+<span class="sd">        nzbins : int, optional</span>
+<span class="sd">            Number of redshift bins in the survey.</span>
+<span class="sd">        bintype : str, optional</span>
+<span class="sd">            Type of redshift binning. Either &#39;eq_dens&#39; or &#39;eq_size&#39;.</span>
+<span class="sd">        ngal : float, optional</span>
+<span class="sd">            Number of galaxies per square arcmins.</span>
+<span class="sd">        zmin : float, optional</span>
+<span class="sd">            Minimum redshift considered in the survey.</span>
+<span class="sd">        zmax : float, optional</span>
+<span class="sd">            Maximum redshift considered in the survey.</span>
+<span class="sd">        chicut : float, optional</span>
+<span class="sd">            Level of the cut to apply to the selection function, relative to</span>
+<span class="sd">            the maximum of the selection fuction. If 0, :math:`\chi_\max` is</span>
+<span class="sd">            set to :math:`\chi(z_\max)` (def : 1e-5).</span>
+<span class="sd">        zphot_sig : float, optional</span>
+<span class="sd">            Standard variation of photometric redshift errors.</span>
+<span class="sd">        zphot_bias : float, optional</span>
+<span class="sd">            Bias of photometric redshift errors.</span>
+<span class="sd">        fsky : float, optional</span>
+<span class="sd">            Sky fraction covered by the survey.</span>
+<span class="sd">        biastype : str, optional</span>
+<span class="sd">            Type of galaxy bias. Either &#39;constant&#39; or &#39;sqrt&#39;.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span> <span class="ow">is</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="c"># Looks for keywords and update the survey parameters</span>
+        <span class="k">for</span> <span class="n">kw</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">kw</span> <span class="o">==</span> <span class="s">&#39;nzbins&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_nzbins</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">kw</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">kw</span> <span class="o">==</span> <span class="s">&#39;nzparams&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_nzparams</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">kw</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">kw</span> <span class="o">==</span> <span class="s">&#39;zmin&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_zmin</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">kw</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">kw</span> <span class="o">==</span> <span class="s">&#39;zmax&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_zmax</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">kw</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">kw</span> <span class="o">==</span> <span class="s">&#39;chicut&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_chicut</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">kw</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">kw</span> <span class="o">==</span> <span class="s">&#39;zphot_sig&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_zphot_sig</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">kw</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">kw</span> <span class="o">==</span> <span class="s">&#39;zphot_bias&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_zphot_bias</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">kw</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">kw</span> <span class="o">==</span> <span class="s">&#39;ngal&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_ngal</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">kw</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">kw</span> <span class="o">==</span> <span class="s">&#39;bintype&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_bintype</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">kw</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">kw</span> <span class="o">==</span> <span class="s">&#39;fsky&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_fsky</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">kw</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">kw</span> <span class="o">==</span> <span class="s">&#39;biastype&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_biastype</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">kw</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nuisances</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="n">n</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_norm</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_zmean</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_zmed</span> <span class="o">=</span> <span class="bp">None</span>
+
+        <span class="c"># Updates the redshift bins</span>
+        <span class="n">nztot</span> <span class="o">=</span> <span class="n">redshift_bin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zphot_min</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_zmin</span><span class="p">,</span> <span class="n">zphot_max</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_zmax</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">zbins</span> <span class="o">=</span> <span class="n">nztot</span><span class="o">.</span><span class="n">subdivide</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_nzbins</span><span class="p">,</span> <span class="n">bintype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_bintype</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="survey.nz_unorm"><a class="viewcode-back" href="../../cosmicpy/survey.html#cosmicpy.survey.survey.nz_unorm">[docs]</a>    <span class="k">def</span> <span class="nf">nz_unorm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot; Computes the non normalized n(z)</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        z : array_like</span>
+<span class="sd">            Redshift</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        n : ndarray, or float if input scalar</span>
+<span class="sd">            Non normalised redshift distribution evaluated at the specified</span>
+<span class="sd">            redshift</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nzparams</span><span class="p">[</span><span class="s">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;smail&#39;</span><span class="p">:</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nzparams</span><span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">]</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nzparams</span><span class="p">[</span><span class="s">&#39;b&#39;</span><span class="p">]</span>
+            <span class="n">z0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nzparams</span><span class="p">[</span><span class="s">&#39;z0&#39;</span><span class="p">]</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="n">z</span><span class="o">**</span><span class="n">a</span> <span class="o">*</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">z</span> <span class="o">/</span> <span class="n">z0</span><span class="p">)</span><span class="o">**</span><span class="n">b</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nzparams</span><span class="p">[</span><span class="s">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;gaussian&#39;</span><span class="p">:</span>
+            <span class="n">r0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nzparams</span><span class="p">[</span><span class="s">&#39;r0&#39;</span><span class="p">]</span>
+            <span class="n">cosmo</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nzparams</span><span class="p">[</span><span class="s">&#39;cosmology&#39;</span><span class="p">]</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="n">z2a</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">cosmo</span><span class="o">.</span><span class="n">a2chi</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">r</span> <span class="o">/</span> <span class="n">r0</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">r</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">cosmo</span><span class="o">.</span><span class="n">dchioverda</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">/</span>
+                                            <span class="n">cosmo</span><span class="o">.</span><span class="n">dzoverda</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span> <span class="p">(</span><span class="s">&#39;ERROR : unknown redshift bin type &#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s">&#39;type&#39;</span><span class="p">])</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="n">p</span>
+</div>
+<div class="viewcode-block" id="survey.nz"><a class="viewcode-back" href="../../cosmicpy/survey.html#cosmicpy.survey.survey.nz">[docs]</a>    <span class="k">def</span> <span class="nf">nz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot; Computes the normalized n(z)</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        z : array_like</span>
+<span class="sd">            Redshift</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        n : ndarray, or float if input scalar</span>
+<span class="sd">            Normalised redshift distribution evaluated at the specified</span>
+<span class="sd">            redshift</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        nz_unorm : Non normalised n(z)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">nz_unorm</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">norm</span>
+</div>
+<div class="viewcode-block" id="survey.phi"><a class="viewcode-back" href="../../cosmicpy/survey.html#cosmicpy.survey.survey.phi">[docs]</a>    <span class="k">def</span> <span class="nf">phi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cosmo</span><span class="p">,</span> <span class="n">chi</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot; Computes the normalised survey selection function at</span>
+<span class="sd">        a given comoving distance.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        cosmo : cosmology</span>
+<span class="sd">            Cosmology object required to convert comoving distances.</span>
+<span class="sd">        chi : array_like</span>
+<span class="sd">            Comoving distance.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        phi : ndarray, or float if input is scalar</span>
+<span class="sd">            Normalised selection function of the survey.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        The survey selection function :math:`\phi` verifies:</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            \int d^3 r \phi (r) = V</span>
+
+<span class="sd">        where :math:`V` is a characteristic volume of the survey chosen such</span>
+<span class="sd">        that :math:`\phi \rightarrow 1` as :math:`V \rightarrow \infty`.</span>
+
+<span class="sd">        .. warning::</span>
+
+<span class="sd">            This function returns the selection function scaled by</span>
+<span class="sd">            the survey volume i.e. :math:`\frac{\phi}{V}`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">chi</span> <span class="o">=</span> <span class="n">atleast_1d</span><span class="p">(</span><span class="n">chi</span><span class="p">)</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">cosmo</span><span class="o">.</span><span class="n">chi2a</span><span class="p">(</span><span class="n">chi</span><span class="p">)</span>
+        <span class="n">phi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nz</span><span class="p">(</span><span class="n">a2z</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mf">4.</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">chi</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">cosmo</span><span class="o">.</span><span class="n">dzoverda</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">/</span>
+                                                  <span class="n">cosmo</span><span class="o">.</span><span class="n">dchioverda</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+        <span class="c"># Apply zmax cut</span>
+        <span class="n">phi</span><span class="p">[</span><span class="n">a2z</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">zmax</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">return</span> <span class="n">phi</span>
+</div>
+<div class="viewcode-block" id="survey.chimax"><a class="viewcode-back" href="../../cosmicpy/survey.html#cosmicpy.survey.survey.chimax">[docs]</a>    <span class="k">def</span> <span class="nf">chimax</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cosmo</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot; Computes the maximum comoving distance for the survey by</span>
+<span class="sd">        corresponding to the point where the selection function reaches the cut</span>
+<span class="sd">        level.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        cosmo : cosmology</span>
+<span class="sd">            Cosmology object required to convert comoving distances.</span>
+<span class="sd">        cut : float, optional</span>
+<span class="sd">            Level of the cut to apply to the selection function, relative to</span>
+<span class="sd">            the maximum of the selection fuction (def : 1e-5)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        chi : float</span>
+<span class="sd">            Maximum survey comoving distance</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># If chicut is set to 0, chimax is set to zmax</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chicut</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">cosmo</span><span class="o">.</span><span class="n">a2chi</span><span class="p">(</span><span class="n">z2a</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zmax</span><span class="p">))</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="c"># First, find approximate maximum of the selection function</span>
+        <span class="n">chi</span> <span class="o">=</span> <span class="n">cosmo</span><span class="o">.</span><span class="n">a2chi</span><span class="p">(</span><span class="n">z2a</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zmax</span><span class="p">))</span>
+        <span class="n">chi</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">chi</span><span class="p">)</span>
+        <span class="n">phitab</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">phi</span><span class="p">(</span><span class="n">cosmo</span><span class="p">,</span> <span class="n">chi</span><span class="p">)</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">log10</span><span class="p">(</span><span class="n">phitab</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_chicut</span><span class="p">)</span>
+        <span class="n">phi</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">log10</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">phi</span><span class="p">(</span><span class="n">cosmo</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span> <span class="o">-</span> <span class="n">m</span>
+        <span class="n">chimax</span> <span class="o">=</span> <span class="n">brentq</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">chi</span><span class="p">[</span><span class="n">argmax</span><span class="p">(</span><span class="n">phitab</span><span class="p">)],</span>
+                        <span class="n">cosmo</span><span class="o">.</span><span class="n">a2chi</span><span class="p">(</span><span class="n">cosmo</span><span class="o">.</span><span class="n">_amin</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">chimax</span> <span class="o">&gt;=</span> <span class="n">cosmo</span><span class="o">.</span><span class="n">a2chi</span><span class="p">(</span><span class="n">cosmo</span><span class="o">.</span><span class="n">_amin</span><span class="p">):</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;Warning : reaching maximum tabulated comoving distance&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">chimax</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="survey.norm"><a class="viewcode-back" href="../../cosmicpy/survey.html#cosmicpy.survey.survey.norm">[docs]</a>    <span class="k">def</span> <span class="nf">norm</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot; Normalisation factor of the redshift distribution&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_norm</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nzparams</span><span class="p">[</span><span class="s">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;smail&#39;</span><span class="p">:</span>
+                <span class="n">z0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nzparams</span><span class="p">[</span><span class="s">&#39;z0&#39;</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nzparams</span><span class="p">[</span><span class="s">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;gaussian&#39;</span><span class="p">:</span>
+                <span class="n">r0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nzparams</span><span class="p">[</span><span class="s">&#39;r0&#39;</span><span class="p">]</span>
+                <span class="n">cosmo</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nzparams</span><span class="p">[</span><span class="s">&#39;cosmology&#39;</span><span class="p">]</span>
+                <span class="n">z0</span> <span class="o">=</span> <span class="n">a2z</span><span class="p">(</span><span class="n">cosmo</span><span class="o">.</span><span class="n">chi2a</span><span class="p">(</span><span class="n">r0</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&#39;ERROR : unknown redshift bin type &#39;</span> <span class="o">+</span>
+                      <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s">&#39;type&#39;</span><span class="p">])</span>
+            <span class="c"># The normalisation factor is computed in 2 steps to avoid failure</span>
+            <span class="c"># of the integration scheme</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_norm</span> <span class="o">=</span> <span class="n">romberg</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nz_unorm</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">zmin</span><span class="p">,</span> <span class="n">z0</span><span class="p">)</span> <span class="o">+</span> \
+                <span class="n">romberg</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nz_unorm</span><span class="p">,</span> <span class="n">z0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">zmax</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_norm</span>
+</div>
+<div class="viewcode-block" id="survey.bias"><a class="viewcode-back" href="../../cosmicpy/survey.html#cosmicpy.survey.survey.bias">[docs]</a>    <span class="k">def</span> <span class="nf">bias</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot; Galaxy bias b(z,k)</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        z : array_like</span>
+<span class="sd">            Redshift</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        b : ndarray, or float if input is scalar</span>
+<span class="sd">            Galaxy bias evaluated at the specified redshift</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        The galaxy bias follows the</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">atleast_1d</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">atleast_1d</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s">&#39;bias&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nuisances</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">nuisances</span><span class="p">[</span><span class="s">&#39;bias&#39;</span><span class="p">](</span><span class="mi">1</span><span class="o">+</span><span class="n">z</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_biastype</span> <span class="o">==</span> <span class="s">&#39;sqrt&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">einsum</span><span class="p">(</span><span class="s">&#39;i,j-&gt;ij&#39;</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">z</span><span class="p">),</span> <span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">k</span><span class="p">)))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">ones</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">k</span><span class="p">)))</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="survey.zmed"><a class="viewcode-back" href="../../cosmicpy/survey.html#cosmicpy.survey.survey.zmed">[docs]</a>    <span class="k">def</span> <span class="nf">zmed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot; Median of the redshift distribution.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_zmed</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">romberg</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nz</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">zmin</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_zmed</span> <span class="o">=</span> <span class="n">brentq</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">zmin</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">zmax</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_zmed</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="survey.zmean"><a class="viewcode-back" href="../../cosmicpy/survey.html#cosmicpy.survey.survey.zmean">[docs]</a>    <span class="k">def</span> <span class="nf">zmean</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot; Mean of the redshift distribution.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_zmean</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_zmean</span> <span class="o">=</span> <span class="n">romberg</span><span class="p">(</span><span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">z</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">nz</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">zmin</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">zmax</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_zmean</span>
+</div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">zmin</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot; Minimun Redshift</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_zmin</span>
+
+    <span class="nd">@zmin.setter</span>
+<div class="viewcode-block" id="survey.zmin"><a class="viewcode-back" href="../../cosmicpy/survey.html#cosmicpy.survey.survey.zmin">[docs]</a>    <span class="k">def</span> <span class="nf">zmin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot; Sets the minimum redshift</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">wa</span><span class="o">=</span><span class="n">val</span><span class="p">)</span>
+</div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">zmax</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_zmax</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">zphot_sig</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_zphot_sig</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">zphot_bias</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_zphot_bias</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ngal</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ngal</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">N</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ngal</span>
+        <span class="n">res</span> <span class="o">*=</span> <span class="mf">60.0</span><span class="o">*</span><span class="mf">60.0</span> <span class="c"># gal/deg^2</span>
+        <span class="n">res</span> <span class="o">*=</span> <span class="p">(</span><span class="mf">180.0</span><span class="o">/</span><span class="n">pi</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="c"># gal/stradian</span>
+        <span class="n">res</span> <span class="o">*=</span> <span class="mf">4.0</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">fsky</span>
+        <span class="k">return</span> <span class="n">res</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">nzbins</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nzbins</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">fsky</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fsky</span>
+
+</div>
+<div class="viewcode-block" id="redshift_bin"><a class="viewcode-back" href="../../cosmicpy/survey.html#cosmicpy.survey.redshift_bin">[docs]</a><span class="k">class</span> <span class="nc">redshift_bin</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Represents a redshift bin</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">surv</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">surv</span> <span class="o">=</span> <span class="n">surv</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">zphot_min</span> <span class="o">=</span> <span class="n">surv</span><span class="o">.</span><span class="n">zmin</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">zphot_max</span> <span class="o">=</span> <span class="n">surv</span><span class="o">.</span><span class="n">zmax</span>
+
+        <span class="k">for</span> <span class="n">kw</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">kw</span> <span class="o">==</span> <span class="s">&#39;zphot_min&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">zphot_min</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">kw</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">kw</span> <span class="o">==</span> <span class="s">&#39;zphot_max&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">zphot_max</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">kw</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">print</span> <span class="p">(</span><span class="s">&#39;WARNING : Unknown keyword &#39;</span> <span class="o">+</span> <span class="n">kw</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">zmin</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">zphot_min</span> <span class="o">-</span> <span class="mi">10</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">surv</span><span class="o">.</span><span class="n">zphot_sig</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">zmax</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">zphot_max</span> <span class="o">+</span> <span class="mi">10</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">surv</span><span class="o">.</span><span class="n">zphot_sig</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_norm</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_zmean</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_zmed</span> <span class="o">=</span> <span class="bp">None</span>
+
+<div class="viewcode-block" id="redshift_bin.nz_unorm"><a class="viewcode-back" href="../../cosmicpy/survey.html#cosmicpy.survey.redshift_bin.nz_unorm">[docs]</a>    <span class="k">def</span> <span class="nf">nz_unorm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Computes the un-normalized n(z) &quot;&quot;&quot;</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">surv</span><span class="o">.</span><span class="n">nz</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+
+        <span class="c"># Apply photo-z errors</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">surv</span><span class="o">.</span><span class="n">zphot_sig</span><span class="o">*</span><span class="p">(</span><span class="mf">1.0</span><span class="o">+</span><span class="n">z</span><span class="p">))</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span> <span class="n">p</span> <span class="o">*</span><span class="p">(</span> <span class="n">erf</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">zphot_max</span> <span class="o">-</span> <span class="n">z</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">surv</span><span class="o">.</span><span class="n">zphot_bias</span><span class="p">)</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">erf</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">zphot_min</span> <span class="o">-</span> <span class="n">z</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">surv</span><span class="o">.</span><span class="n">zphot_bias</span><span class="p">)</span><span class="o">*</span><span class="n">x</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">res</span>
+</div>
+    <span class="k">def</span> <span class="nf">nz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">nz_unorm</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">norm</span>
+
+<div class="viewcode-block" id="redshift_bin.subdivide"><a class="viewcode-back" href="../../cosmicpy/survey.html#cosmicpy.survey.redshift_bin.subdivide">[docs]</a>    <span class="k">def</span> <span class="nf">subdivide</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nbins</span><span class="p">,</span> <span class="n">bintype</span><span class="o">=</span><span class="s">&#39;eq_dens&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Divide this redshift bins into sub-bins </span>
+<span class="sd">            nbins : Number of bins to generate</span>
+<span class="sd">            bintype : &#39;eq_dens&#39; or &#39;eq_size&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># Compute the redshift boundaries for each bin generated</span>
+        <span class="n">zbounds</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">zphot_min</span><span class="p">]</span>
+        <span class="n">bins</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">n_per_bin</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">norm</span> <span class="o">/</span> <span class="n">nbins</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nbins</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">bintype</span> <span class="o">==</span> <span class="s">&#39;eq_dens&#39;</span><span class="p">:</span>
+                    <span class="n">zbound</span> <span class="o">=</span> <span class="n">brentq</span><span class="p">(</span><span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">romberg</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nz</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">zphot_min</span><span class="p">,</span><span class="n">z</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mf">1.0</span><span class="p">)</span><span class="o">*</span><span class="n">n_per_bin</span><span class="p">,</span> <span class="n">zbounds</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">zmax</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">bintype</span> <span class="o">!=</span> <span class="s">&#39;eq_size&#39;</span><span class="p">:</span>
+                    <span class="k">print</span> <span class="p">(</span><span class="s">&#39;WARNING : unknown binning scheme &#39;</span> <span class="o">+</span> <span class="n">bintype</span> <span class="o">+</span> <span class="s">&#39;. Assuming equal size bins&#39;</span><span class="p">)</span>
+                <span class="n">zbound</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mf">1.</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zphot_max</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">zphot_min</span><span class="p">)</span><span class="o">/</span><span class="n">nbins</span>
+
+            <span class="n">zbounds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">zbound</span><span class="p">)</span>
+
+            <span class="n">new_bin</span> <span class="o">=</span> <span class="n">redshift_bin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">surv</span><span class="p">,</span> <span class="n">zphot_min</span><span class="o">=</span><span class="n">zbounds</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">zphot_max</span><span class="o">=</span><span class="n">zbounds</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+
+            <span class="n">bins</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_bin</span><span class="p">)</span>
+
+        <span class="n">zbounds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zmax</span><span class="p">)</span>
+        <span class="n">new_bin</span> <span class="o">=</span> <span class="n">redshift_bin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">surv</span><span class="p">,</span> <span class="n">zphot_min</span><span class="o">=</span><span class="n">zbounds</span><span class="p">[</span><span class="n">nbins</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">zphot_max</span><span class="o">=</span><span class="n">zbounds</span><span class="p">[</span><span class="n">nbins</span><span class="p">])</span>
+        <span class="n">bins</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_bin</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">bins</span>
+</div>
+<div class="viewcode-block" id="redshift_bin.phi"><a class="viewcode-back" href="../../cosmicpy/survey.html#cosmicpy.survey.redshift_bin.phi">[docs]</a>    <span class="k">def</span> <span class="nf">phi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cosmo</span><span class="p">,</span> <span class="n">chi</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot; Computes the normalised selection function for the bin at</span>
+<span class="sd">        a given comoving distance.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        cosmo : cosmology</span>
+<span class="sd">            Cosmology object required to convert comoving distances.</span>
+<span class="sd">        chi : array_like</span>
+<span class="sd">            Comoving distance.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        phi : ndarray, or float if input is scalar</span>
+<span class="sd">            Normalised selection function of the bin.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        The normalised survey selection function :math:`\phi` verifies:</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            \int d^3 r \phi (r) = 1</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">chi</span> <span class="o">=</span> <span class="n">atleast_1d</span><span class="p">(</span><span class="n">chi</span><span class="p">)</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">cosmo</span><span class="o">.</span><span class="n">chi2a</span><span class="p">(</span><span class="n">chi</span><span class="p">)</span>
+        <span class="n">phi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nz</span><span class="p">(</span><span class="n">a2z</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mf">4.</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">chi</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">cosmo</span><span class="o">.</span><span class="n">dzoverda</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">/</span>
+                                                  <span class="n">cosmo</span><span class="o">.</span><span class="n">dchioverda</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+        <span class="c"># Apply zmax cut</span>
+        <span class="n">phi</span><span class="p">[</span><span class="n">a2z</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">zmax</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">return</span> <span class="n">phi</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="redshift_bin.kmax_lin"><a class="viewcode-back" href="../../cosmicpy/survey.html#cosmicpy.survey.redshift_bin.kmax_lin">[docs]</a>    <span class="k">def</span> <span class="nf">kmax_lin</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Maximum linear scale at the median redshift in h^-1 Mpc&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="mf">0.132</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">zmed</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="redshift_bin.zmed"><a class="viewcode-back" href="../../cosmicpy/survey.html#cosmicpy.survey.redshift_bin.zmed">[docs]</a>    <span class="k">def</span> <span class="nf">zmed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Median of the redshift distribution &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_zmed</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">romberg</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nz</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">zmin</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_zmed</span> <span class="o">=</span> <span class="n">brentq</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">zmin</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">zmax</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_zmed</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="redshift_bin.zmean"><a class="viewcode-back" href="../../cosmicpy/survey.html#cosmicpy.survey.redshift_bin.zmean">[docs]</a>    <span class="k">def</span> <span class="nf">zmean</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Mean of the distribution &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_zmean</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_zmean</span> <span class="o">=</span> <span class="n">romberg</span><span class="p">(</span><span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">z</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">nz</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">zmin</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">zmax</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_zmean</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="redshift_bin.norm"><a class="viewcode-back" href="../../cosmicpy/survey.html#cosmicpy.survey.redshift_bin.norm">[docs]</a>    <span class="k">def</span> <span class="nf">norm</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Normalisation of the distribution &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_norm</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_norm</span> <span class="o">=</span> <span class="n">romberg</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nz_unorm</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">zmin</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">zmax</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_norm</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="redshift_bin.ngal"><a class="viewcode-back" href="../../cosmicpy/survey.html#cosmicpy.survey.redshift_bin.ngal">[docs]</a>    <span class="k">def</span> <span class="nf">ngal</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Returns the number of galaxies in this photo-z bin in steradian&quot;&quot;&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">surv</span><span class="o">.</span><span class="n">ngal</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">norm</span>
+        <span class="n">res</span> <span class="o">*=</span> <span class="mf">60.0</span><span class="o">*</span><span class="mf">60.0</span> <span class="c">#gal/deg^2</span>
+        <span class="n">res</span> <span class="o">*=</span> <span class="p">(</span><span class="mf">180.0</span><span class="o">/</span><span class="n">pi</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="c">#gal/stradian</span>
+        <span class="k">return</span> <span class="n">res</span></div></div>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2015, Francois Lanusse, Anais Rassat, Jean-Luc Starck.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3.<br/>
+    </p>
+  </div>
+</footer>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58875004-1', 'auto');
+  ga('send', 'pageview');
+  
+</script>
+
+
+  </body>
+</html>

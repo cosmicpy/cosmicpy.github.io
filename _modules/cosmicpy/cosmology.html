@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>cosmicpy.cosmology &mdash; CosmicPy 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-3.2.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-3.2.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/my-styles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="top" title="CosmicPy 0.1 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+  
+  <a href="https://github.com/cosmicpy/cosmicpy"
+     class="visible-desktop hidden-xs"><img
+    id="gh-banner"
+    style="position: absolute; top: 50px; right: 0; border: 0;"
+    src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
+    alt="Fork me on GitHub"></a>
+  <script>
+    // Adjust banner height.
+    $(function () {
+      var navHeight = $(".navbar .container").css("height");
+      $("#gh-banner").css("top", navHeight);
+    });
+  </script>
+
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          CosmicPy</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../../about.html">About</a></li>
+                <li><a href="../../contribute.html">Contribute</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../install.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../install.html#download-from-github">Download from GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../install.html#install">Install</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/gettingStarted.html">Getting Started with CosmicPy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/gettingStarted.html#create-and-modify-a-cosmology">Create and modify a cosmology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/gettingStarted.html#compute-distances">Compute distances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/gettingStarted.html#compute-the-matter-power-spectrum">Compute the matter power spectrum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/gettingStarted.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/BAO.html">3D Spherical Analysis of BAOs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/BAO.html#setting-up-the-cosmology-and-the-surveys">Setting up the cosmology and the surveys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/BAO.html#impact-of-the-depth-of-the-survey-on-the-sfb-window">Impact of the depth of the survey on the SFB window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/BAO.html#impact-of-baos-on-the-power-spectrum">Impact of BAOs on the power spectrum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/BAO.html#impact-of-baos-on-the-sfb-power-spectrum">Impact of BAOs on the SFB power spectrum</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/3DSFB.html">3D SFB galaxy clustering</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/3DSFB.html#setting-up-the-cosmology-and-the-surveys">Setting up the cosmology and the surveys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/3DSFB.html#computing-3d-power-spectra">Computing 3D power spectra</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/3DSFB.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicpy/index.html">Source Code Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../cosmicpy/cosmology.html"><tt class="docutils literal"><span class="pre">cosmicpy.cosmology</span></tt> &#8211; Cosmology module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cosmicpy/survey.html"><tt class="docutils literal"><span class="pre">cosmicpy.survey</span></tt> &#8211; Galaxy survey representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cosmicpy/spectra.html"><tt class="docutils literal"><span class="pre">cosmicpy.spectra</span></tt> &#8211; Clustering and lensing power spectra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cosmicpy/fisher.html"><tt class="docutils literal"><span class="pre">cosmicpy.fisher</span></tt> &#8211; Fisher forecasts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cosmicpy/utils.html"><tt class="docutils literal"><span class="pre">cosmicpy.utils</span></tt> &#8211; Utility functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cosmicpy/tests.html">Testing module (<cite>cosmicpy.tests</cite>)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/index.html">Developer Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../developer/index.html#building-the-documentation">Building the documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../developer/index.html#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../developer/index.html#making-the-build">Making the build</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../developer/index.html#documentation-guidelines">Documentation guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../developer/index.html#testing-cosmicpy">Testing cosmicpy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../developer/index.html#testing-against-icosmo">Testing against iCosmo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicpy/index.html">Source Code Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/index.html">Developer Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    <div class="col-md-9">
+      
+  <h1>Source code for cosmicpy.cosmology</h1><div class="highlight"><pre>
+<span class="c"># Copyright (c) 2014-2015, CosmicPy Developers</span>
+<span class="c"># Licensed under CeCILL 2.1 - see LICENSE.rst</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">:mod:`cosmicpy.cosmology` -- Cosmology module</span>
+<span class="sd">============================================</span>
+
+<span class="sd">.. module:: cosmicpy.cosmology</span>
+<span class="sd">    :synopsis: Performs cosmology related computations</span>
+<span class="sd">.. moduleauthor:: Francois Lanusse &lt;francois.lanusse@cea.fr&gt;</span>
+<span class="sd">.. moduleauthor:: Anais Rassat &lt;anais.rassat@epfl.ch&gt;</span>
+<span class="sd">.. Created on Jun 10, 2013 by Francois Lanusse</span>
+
+<span class="sd">.. autosummary::</span>
+
+<span class="sd">    cosmology</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">romberg</span><span class="p">,</span> <span class="n">odeint</span><span class="p">,</span> <span class="n">romb</span><span class="p">,</span> <span class="n">quad</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">brentq</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">constants</span> <span class="k">as</span> <span class="n">const</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="o">*</span>
+
+
+<div class="viewcode-block" id="cosmology"><a class="viewcode-back" href="../../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology">[docs]</a><span class="k">class</span> <span class="nc">cosmology</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">r&quot;&quot;&quot;Stores all cosmological parameters and performs the computation</span>
+<span class="sd">    of derived quantities (distances, matter power spectra, etc...)</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    h : float</span>
+<span class="sd">        Reduced hubble constant (def: 0.7)</span>
+
+<span class="sd">    Omega_b : float</span>
+<span class="sd">        Baryonic matter density (def: 0.045)</span>
+
+<span class="sd">    Omega_m : float</span>
+<span class="sd">        Matter density (def: 0.25)</span>
+
+<span class="sd">    Omega_de : float</span>
+<span class="sd">        Dark energy density (def: 0.75)</span>
+
+<span class="sd">    w0, wa : float</span>
+<span class="sd">        Dark energy equation of state parameters</span>
+<span class="sd">        (def: w0 = -0.95, wa = 0.0)</span>
+
+<span class="sd">    n : float</span>
+<span class="sd">        Scalar spectral index (def: 1.0)</span>
+
+<span class="sd">    tau : float</span>
+<span class="sd">        Reionization optical depth (def: 0.09)</span>
+
+<span class="sd">    sigma8 : float</span>
+<span class="sd">        Fluctuation amplitude at 8 Mpc/h (def: 0.8)</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+
+<span class="sd">    .. bibliography:: biblio.bib</span>
+<span class="sd">        :all:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c"># initialize default cosmology parameters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_h</span> <span class="o">=</span> <span class="mf">0.7</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_Omega_b</span> <span class="o">=</span> <span class="mf">0.045</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_Omega_m</span> <span class="o">=</span> <span class="mf">0.25</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_Omega_de</span> <span class="o">=</span> <span class="mf">0.75</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_w0</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.95</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_wa</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_n</span> <span class="o">=</span> <span class="mf">1.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tau</span> <span class="o">=</span> <span class="mf">0.09</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sigma8</span> <span class="o">=</span> <span class="mf">0.8</span>
+
+        <span class="c"># initialize computation parameters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_amin</span> <span class="o">=</span> <span class="mf">0.001</span>    <span class="c"># minimum scale factor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_amax</span> <span class="o">=</span> <span class="mf">1.0</span>      <span class="c"># maximum scale factor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_na</span> <span class="o">=</span> <span class="mi">512</span>        <span class="c"># number of points in interpolation arrays</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_kmin</span> <span class="o">=</span> <span class="mf">0.0001</span>     <span class="c"># minimum scale in power spectrum, in Mpc/h</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_kmax</span> <span class="o">=</span> <span class="mf">1000.0</span>     <span class="c"># maximum scale, in Mpc/h</span>
+
+        <span class="c"># Uses the input keywords to update the cosmology</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<div class="viewcode-block" id="cosmology.update"><a class="viewcode-back" href="../../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot;Updates the current cosmology based on the parameters specified</span>
+<span class="sd">        in input.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        h : float</span>
+<span class="sd">            Reduced hubble constant</span>
+
+<span class="sd">        Omega_b : float</span>
+<span class="sd">            Baryonic matter density</span>
+
+<span class="sd">        Omega_m : float</span>
+<span class="sd">            Matter density</span>
+
+<span class="sd">        Omega_de : float</span>
+<span class="sd">            Dark energy density</span>
+
+<span class="sd">        w0, wa : float</span>
+<span class="sd">            Dark energy equation of state parameters</span>
+
+<span class="sd">        n : float</span>
+<span class="sd">            Scalar spectral index</span>
+
+<span class="sd">        tau : float</span>
+<span class="sd">            Reionization optical depth</span>
+
+<span class="sd">        sigma8: float</span>
+<span class="sd">            Fluctuation amplitude at 8 Mpc/h</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c"># Look for keywords and update cosmological parameters</span>
+        <span class="k">for</span> <span class="n">kw</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">kw</span> <span class="o">==</span> <span class="s">&#39;h&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_h</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">kw</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">kw</span> <span class="o">==</span> <span class="s">&#39;Omega_b&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_Omega_b</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">kw</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">kw</span> <span class="o">==</span> <span class="s">&#39;Omega_m&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_Omega_m</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">kw</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">kw</span> <span class="o">==</span> <span class="s">&#39;Omega_de&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_Omega_de</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">kw</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">kw</span> <span class="o">==</span> <span class="s">&#39;w0&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_w0</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">kw</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">kw</span> <span class="o">==</span> <span class="s">&#39;wa&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_wa</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">kw</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">kw</span> <span class="o">==</span> <span class="s">&#39;n&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_n</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">kw</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">kw</span> <span class="o">==</span> <span class="s">&#39;tau&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_tau</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">kw</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">kw</span> <span class="o">==</span> <span class="s">&#39;sigma8&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_sigma8</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">kw</span><span class="p">]</span>
+
+        <span class="c"># Check if the makeFlat keyword was used</span>
+        <span class="k">if</span> <span class="s">&#39;makeFlat&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_Omega_de</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Omega_m</span>
+
+        <span class="c"># Setup constant attributes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_Omega_dm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Omega_m</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">_Omega_b</span>    <span class="c"># Dark matter density</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_Omega</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Omega_m</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">_Omega_de</span>      <span class="c"># Total density</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_Omega_k</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Omega</span>               <span class="c"># Curvature</span>
+
+        <span class="c"># Sugiyama (1995, APJS, 100, 281)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_gamma</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Omega_m</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_h</span> <span class="o">*</span> \
+            <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">_Omega_b</span><span class="o">*</span><span class="p">(</span><span class="mf">1.</span> <span class="o">+</span> <span class="n">sqrt</span><span class="p">(</span><span class="mf">2.</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_h</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">_Omega_m</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Omega</span> <span class="o">&gt;</span> <span class="mf">1.0</span><span class="p">:</span>   <span class="c"># Closed universe</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_k</span> <span class="o">=</span> <span class="mf">1.0</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_sqrtk</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_Omega_k</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Omega</span> <span class="o">==</span> <span class="mf">1.0</span><span class="p">:</span>  <span class="c"># Flat universe</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_k</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_sqrtk</span> <span class="o">=</span> <span class="mf">1.</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Omega</span> <span class="o">&lt;</span> <span class="mf">1.0</span><span class="p">:</span>  <span class="c"># Open Universe</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_k</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_sqrtk</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_Omega_k</span><span class="p">))</span>
+
+        <span class="c">#############################################</span>
+        <span class="c"># Quantities computed from 1998:EisensteinHu</span>
+        <span class="c"># Provides : - k_eq   : scale of the particle horizon at equality epoch</span>
+        <span class="c">#            - z_eq   : redshift of equality epoch</span>
+        <span class="c">#            - R_eq   : ratio of the baryon to photon momentum density</span>
+        <span class="c">#                       at z_eq</span>
+        <span class="c">#            - z_d    : redshift of drag epoch</span>
+        <span class="c">#            - R_d    : ratio of the baryon to photon momentum density</span>
+        <span class="c">#                       at z_d</span>
+        <span class="c">#            - sh_d   : sound horizon at drag epoch</span>
+        <span class="c">#            - k_silk : Silk damping scale</span>
+        <span class="n">T_2_7_sqr</span> <span class="o">=</span> <span class="p">(</span><span class="n">const</span><span class="o">.</span><span class="n">tcmb</span><span class="o">/</span><span class="mf">2.7</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">h2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">w_m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Omega_m</span><span class="o">*</span><span class="n">h2</span>
+        <span class="n">w_b</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Omega_b</span><span class="o">*</span><span class="n">h2</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_k_eq</span> <span class="o">=</span> <span class="mf">7.46e-2</span><span class="o">*</span><span class="n">w_m</span><span class="o">/</span><span class="n">T_2_7_sqr</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span>     <span class="c"># Eq. (3) [h/Mpc]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_z_eq</span> <span class="o">=</span> <span class="mf">2.50e4</span><span class="o">*</span><span class="n">w_m</span><span class="o">/</span><span class="p">(</span><span class="n">T_2_7_sqr</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>          <span class="c"># Eq. (2)</span>
+
+        <span class="c"># z drag from Eq. (4)</span>
+        <span class="n">b1</span> <span class="o">=</span> <span class="mf">0.313</span><span class="o">*</span><span class="nb">pow</span><span class="p">(</span><span class="n">w_m</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.419</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">1.0</span><span class="o">+</span><span class="mf">0.607</span><span class="o">*</span><span class="nb">pow</span><span class="p">(</span><span class="n">w_m</span><span class="p">,</span> <span class="mf">0.674</span><span class="p">))</span>
+        <span class="n">b2</span> <span class="o">=</span> <span class="mf">0.238</span><span class="o">*</span><span class="nb">pow</span><span class="p">(</span><span class="n">w_m</span><span class="p">,</span> <span class="mf">0.223</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_z_d</span> <span class="o">=</span> <span class="mf">1291.0</span><span class="o">*</span><span class="nb">pow</span><span class="p">(</span><span class="n">w_m</span><span class="p">,</span> <span class="mf">0.251</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">1.0</span><span class="o">+</span><span class="mf">0.659</span><span class="o">*</span><span class="nb">pow</span><span class="p">(</span><span class="n">w_m</span><span class="p">,</span> <span class="mf">0.828</span><span class="p">))</span> <span class="o">*</span> \
+            <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">b1</span><span class="o">*</span><span class="nb">pow</span><span class="p">(</span><span class="n">w_b</span><span class="p">,</span> <span class="n">b2</span><span class="p">))</span>
+
+        <span class="c"># Ratio of the baryon to photon momentum density at z_d  Eq. (5)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_R_d</span> <span class="o">=</span> <span class="mf">31.5</span> <span class="o">*</span> <span class="n">w_b</span> <span class="o">/</span> <span class="p">(</span><span class="n">T_2_7_sqr</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.e3</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">_z_d</span><span class="p">)</span>
+        <span class="c"># Ratio of the baryon to photon momentum density at z_eq Eq. (5)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_R_eq</span> <span class="o">=</span> <span class="mf">31.5</span> <span class="o">*</span> <span class="n">w_b</span> <span class="o">/</span> <span class="p">(</span><span class="n">T_2_7_sqr</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.e3</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">_z_eq</span><span class="p">)</span>
+        <span class="c"># Sound horizon at drag epoch in h^-1 Mpc Eq. (6)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sh_d</span> <span class="o">=</span> <span class="mf">2.0</span><span class="o">/</span><span class="p">(</span><span class="mf">3.0</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_k_eq</span><span class="p">)</span> <span class="o">*</span> <span class="n">sqrt</span><span class="p">(</span><span class="mf">6.0</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">_R_eq</span><span class="p">)</span> <span class="o">*</span> \
+            <span class="n">log</span><span class="p">((</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_R_d</span><span class="p">)</span> <span class="o">+</span> <span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_R_eq</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_R_d</span><span class="p">))</span> <span class="o">/</span>
+                <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_R_eq</span><span class="p">)))</span>
+        <span class="c"># Eq. (7) but in [hMpc^{-1}]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_k_silk</span> <span class="o">=</span> <span class="mf">1.6</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">w_b</span><span class="p">,</span> <span class="mf">0.52</span><span class="p">)</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">w_m</span><span class="p">,</span> <span class="mf">0.73</span><span class="p">)</span> <span class="o">*</span> \
+            <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="nb">pow</span><span class="p">(</span><span class="mf">10.4</span><span class="o">*</span><span class="n">w_m</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.95</span><span class="p">))</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span>
+        <span class="c">#############################################</span>
+
+        <span class="c">#############################################</span>
+        <span class="c"># Quantities computed from 1999:EfstathiouBond</span>
+        <span class="c"># Provides : - z_r   : redshift of recombination</span>
+        <span class="c">#            - sh_r  : sound horizon at recombination</span>
+        <span class="c"># z recombination from Eq. (20)</span>
+        <span class="n">g1</span> <span class="o">=</span> <span class="mf">0.078</span><span class="o">*</span><span class="n">w_b</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mf">0.238</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="mf">39.5</span><span class="o">*</span><span class="n">w_b</span><span class="o">**</span><span class="mf">0.7630</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">g2</span> <span class="o">=</span> <span class="mf">0.56</span><span class="o">*</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="mf">21.1</span><span class="o">*</span><span class="n">w_b</span><span class="o">**</span><span class="mf">1.81</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">a_r</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="mf">1048.</span><span class="o">*</span><span class="p">(</span><span class="mf">1.0</span><span class="o">+</span><span class="mf">0.00124</span><span class="o">*</span><span class="n">w_b</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mf">0.738</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="mf">1.0</span><span class="o">+</span><span class="n">g1</span><span class="o">*</span><span class="n">w_m</span><span class="o">**</span><span class="n">g2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_z_r</span> <span class="o">=</span> <span class="n">a2z</span><span class="p">(</span><span class="n">a_r</span><span class="p">)</span>
+
+        <span class="c"># sound horizon at recombination from Eq. (18) and (19)</span>
+        <span class="n">a_eq</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="mf">24185.0</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.6813</span><span class="o">/</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">const</span><span class="o">.</span><span class="n">eta_nu</span><span class="p">))</span> <span class="o">*</span> <span class="n">w_m</span><span class="p">)</span>  <span class="c"># Eq. (18)</span>
+        <span class="n">R_eq</span> <span class="o">=</span> <span class="mf">30496.</span><span class="o">*</span><span class="n">w_b</span><span class="o">*</span><span class="n">a_eq</span>  <span class="c"># Eq. (18)</span>
+        <span class="n">R_zr</span> <span class="o">=</span> <span class="mf">30496.</span><span class="o">*</span><span class="n">w_b</span><span class="o">*</span><span class="n">a_r</span>   <span class="c"># Eq. (18)</span>
+        <span class="n">frac</span> <span class="o">=</span> <span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">1.0</span><span class="o">+</span><span class="n">R_zr</span><span class="p">)</span><span class="o">+</span><span class="n">sqrt</span><span class="p">(</span><span class="n">R_zr</span><span class="o">+</span><span class="n">R_eq</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mf">1.0</span><span class="o">+</span><span class="n">sqrt</span><span class="p">(</span><span class="n">R_eq</span><span class="p">))</span>    <span class="c"># Eq. (19)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sh_r</span> <span class="o">=</span> <span class="mf">4000.0</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">w_b</span><span class="p">)</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="n">a_eq</span><span class="p">)</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">1.0</span><span class="o">+</span><span class="n">const</span><span class="o">.</span><span class="n">eta_nu</span><span class="p">)</span> <span class="o">*</span> \
+            <span class="n">log</span><span class="p">(</span><span class="n">frac</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span>  <span class="c"># Eq. (19) converted to Mpc/h</span>
+        <span class="c">#############################################</span>
+
+        <span class="c"># Computes interpolation arrays</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">atab</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_amin</span><span class="p">,</span>
+                             <span class="bp">self</span><span class="o">.</span><span class="n">_amax</span><span class="p">,</span>
+                             <span class="bp">self</span><span class="o">.</span><span class="n">_na</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_chi_a_interp</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_a_chi_interp</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_da_interp</span> <span class="o">=</span> <span class="bp">None</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pknorm</span> <span class="o">=</span> <span class="bp">None</span>
+</div>
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&#39;FLRW Cosmology with the following parameters: </span><span class="se">\n</span><span class="s">&#39;</span> <span class="o">+</span> \
+            <span class="s">&#39;    h:        &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39; </span><span class="se">\n</span><span class="s">&#39;</span> <span class="o">+</span> \
+            <span class="s">&#39;    Omega_b:  &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Omega_b</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39; </span><span class="se">\n</span><span class="s">&#39;</span> <span class="o">+</span> \
+            <span class="s">&#39;    Omega_m:  &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Omega_m</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39; </span><span class="se">\n</span><span class="s">&#39;</span> <span class="o">+</span> \
+            <span class="s">&#39;    Omega_de: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Omega_de</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39; </span><span class="se">\n</span><span class="s">&#39;</span> <span class="o">+</span> \
+            <span class="s">&#39;    w0:       &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">w0</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39; </span><span class="se">\n</span><span class="s">&#39;</span> <span class="o">+</span> \
+            <span class="s">&#39;    wa:       &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wa</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39; </span><span class="se">\n</span><span class="s">&#39;</span> <span class="o">+</span> \
+            <span class="s">&#39;    n:        &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39; </span><span class="se">\n</span><span class="s">&#39;</span> <span class="o">+</span> \
+            <span class="s">&#39;    tau:      &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tau</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39; </span><span class="se">\n</span><span class="s">&#39;</span> <span class="o">+</span> \
+            <span class="s">&#39;    sigma8:   &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sigma8</span><span class="p">)</span>
+
+<div class="viewcode-block" id="cosmology.w"><a class="viewcode-back" href="../../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.w">[docs]</a>    <span class="k">def</span> <span class="nf">w</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot;Dark Energy equation of state parameter using the Linder</span>
+<span class="sd">        parametrisation.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        a : array_like</span>
+<span class="sd">            Scale factor</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        w : ndarray, or float if input scalar</span>
+<span class="sd">            The Dark Energy equation of state parameter at the specified</span>
+<span class="sd">            scale factor</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+
+<span class="sd">        The Linder parametrization :cite:`2003:Linder` for the Dark Energy</span>
+<span class="sd">        equation of state :math:`p = w \rho` is given by:</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            w(a) = w_0 + w (1 -a)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">w0</span> <span class="o">+</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">wa</span>  <span class="c"># Equation (6) in Linder (2003)</span>
+</div>
+<div class="viewcode-block" id="cosmology.f_de"><a class="viewcode-back" href="../../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.f_de">[docs]</a>    <span class="k">def</span> <span class="nf">f_de</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot;Evolution parameter for the Dark Energy density.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        a : array_like</span>
+<span class="sd">            Scale factor</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        f : ndarray, or float if input scalar</span>
+<span class="sd">            The evolution parameter of the Dark Energy density as a function</span>
+<span class="sd">            of scale factor</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+
+<span class="sd">        For a given parametrisation of the Dark Energy equation of state,</span>
+<span class="sd">        the scaling of the Dark Energy density with time can be written as:</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            \rho_{de}(a) \propto a^{f(a)}</span>
+
+<span class="sd">        (see :cite:`2005:Percival`) where :math:`f(a)` is computed as</span>
+<span class="sd">        :math:`f(a) = \frac{-3}{\ln(a)} \int_0^{\ln(a)} [1 + w(a^\prime)]</span>
+<span class="sd">        d \ln(a^\prime)`. In the case of Linder&#39;s parametrisation for the</span>
+<span class="sd">        dark energy in Eq. :eq:`linderParam` :math:`f(a)` becomes:</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            f(a) = -3(1 + w_0) + 3 w \left[ \frac{a - 1}{ \ln(a) } - 1 \right]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># Just to make sure we are not diving by 0</span>
+        <span class="n">epsilon</span> <span class="o">=</span> <span class="mf">0.000000001</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mf">3.0</span><span class="o">*</span><span class="p">(</span><span class="mf">1.0</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">w0</span><span class="p">)</span> <span class="o">+</span> <span class="mf">3.0</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">wa</span><span class="o">*</span><span class="p">((</span><span class="n">a</span><span class="o">-</span><span class="mf">1.0</span><span class="p">)</span><span class="o">/</span><span class="n">log</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="n">epsilon</span><span class="p">)</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="cosmology.Esqr"><a class="viewcode-back" href="../../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.Esqr">[docs]</a>    <span class="k">def</span> <span class="nf">Esqr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot;Square of the scale factor dependent factor E(a) in the Hubble</span>
+<span class="sd">        parameter.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        a : array_like</span>
+<span class="sd">            Scale factor</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        E^2 : ndarray, or float if input scalar</span>
+<span class="sd">            Square of the scaling of the Hubble constant as a function of</span>
+<span class="sd">            scale factor</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+
+<span class="sd">        The Hubble parameter at scale factor `a` is given by</span>
+<span class="sd">        :math:`H^2(a) = E^2(a) H_o^2` where :math:`E^2` is obtained through</span>
+<span class="sd">        Friedman&#39;s Equation (see :cite:`2005:Percival`) :</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            E^2(a) = \Omega_m a^{-3} + \Omega_k a^{-2} + \Omega_{de} a^{f(a)}</span>
+
+<span class="sd">        where :math:`f(a)` is the Dark Energy evolution parameter computed</span>
+<span class="sd">        by :py:meth:`.f_de`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">Omega_m</span><span class="o">*</span><span class="nb">pow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">Omega_k</span><span class="o">*</span><span class="nb">pow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> \
+            <span class="bp">self</span><span class="o">.</span><span class="n">Omega_de</span><span class="o">*</span><span class="nb">pow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">f_de</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+</div>
+<div class="viewcode-block" id="cosmology.H"><a class="viewcode-back" href="../../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.H">[docs]</a>    <span class="k">def</span> <span class="nf">H</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot;Hubble parameter [km/s/(Mpc/h)] at scale factor `a`</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        a : array_like</span>
+<span class="sd">            Scale factor</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        H : ndarray, or float if input scalar</span>
+<span class="sd">            Hubble parameter at the requested scale factor.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">const</span><span class="o">.</span><span class="n">H0</span> <span class="o">*</span> <span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Esqr</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+</div>
+<div class="viewcode-block" id="cosmology.Omega_m_a"><a class="viewcode-back" href="../../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.Omega_m_a">[docs]</a>    <span class="k">def</span> <span class="nf">Omega_m_a</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot;Matter density at scale factor `a`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        a : array_like</span>
+<span class="sd">            Scale factor</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Omega_m : ndarray, or float if input scalar</span>
+<span class="sd">            Non-relativistic matter density at the requested scale factor</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        The evolution of matter density :math:`\Omega_m(a)` is given by:</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            \Omega_m(a) = \frac{\Omega_m a^{-3}}{E^2(a)}</span>
+
+<span class="sd">        see :cite:`2005:Percival` Eq. (6)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">Omega_m</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">Esqr</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="cosmology.Omega_de_a"><a class="viewcode-back" href="../../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.Omega_de_a">[docs]</a>    <span class="k">def</span> <span class="nf">Omega_de_a</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot;Dark Energy density at scale factor `a`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        a : array_like</span>
+<span class="sd">            Scale factor</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Omega_de : ndarray, or float if input scalar</span>
+<span class="sd">            Dark Energy density at the requested scale factor</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        The evolution of Dark Energy density :math:`\Omega_{de}(a)` is given</span>
+<span class="sd">        by:</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            \Omega_{de}(a) = \frac{\Omega_{de} a^{f(a)}}{E^2(a)}</span>
+
+<span class="sd">        where :math:`f(a)` is the Dark Energy evolution parameter computed by</span>
+<span class="sd">        :py:meth:`.f_de` (see :cite:`2005:Percival` Eq. (6)).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">Omega_de</span><span class="o">*</span><span class="nb">pow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">f_de</span><span class="p">(</span><span class="n">a</span><span class="p">))</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">Esqr</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="cosmology.chi2a"><a class="viewcode-back" href="../../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.chi2a">[docs]</a>    <span class="k">def</span> <span class="nf">chi2a</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chi</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot;Scale factor for the radial comoving distance specified in [Mpc/h].</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        chi : array_like</span>
+<span class="sd">            Radial comoving distance in [Mpc/h]</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        a : ndarray, or float if input scalar</span>
+<span class="sd">            Scale factor corresponding to the specified radial comoving</span>
+<span class="sd">            distance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_a_chi_interp</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">a2chi</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_a_chi_interp</span><span class="p">(</span><span class="n">chi</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="cosmology.a2chi"><a class="viewcode-back" href="../../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.a2chi">[docs]</a>    <span class="k">def</span> <span class="nf">a2chi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot;Radial comoving distance in [Mpc/h] for a given scale factor.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        a : array_like</span>
+<span class="sd">            Scale factor</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        chi : ndarray, or float if input scalar</span>
+<span class="sd">            Radial comoving distance corresponding to the specified scale</span>
+<span class="sd">            factor.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        The radial comoving distance is computed by performing the following</span>
+<span class="sd">        integration:</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            \chi(a) = \int_a^1 \frac{da^\prime}{a^\prime H(a^\prime)}</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">def</span> <span class="nf">dchioverdlna</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+            <span class="n">xa</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dchioverda</span><span class="p">(</span><span class="n">xa</span><span class="p">)</span> <span class="o">*</span> <span class="n">xa</span>
+
+        <span class="n">chi</span> <span class="o">=</span> <span class="n">vectorize</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">romberg</span><span class="p">(</span><span class="n">dchioverdlna</span><span class="p">,</span> <span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span>
+                                          <span class="n">vec_func</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span>
+
+        <span class="c"># Initialize interpolation array</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chi_a_interp</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">chitab</span> <span class="o">=</span> <span class="n">chi</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">atab</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_chi_a_interp</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">atab</span><span class="p">,</span> <span class="n">chitab</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s">&#39;quadratic&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_a_chi_interp</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">chitab</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">atab</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+                                          <span class="n">kind</span><span class="o">=</span><span class="s">&#39;quadratic&#39;</span><span class="p">)</span>
+
+        <span class="c"># For values within the interpolation array use _chi_interp,</span>
+        <span class="c"># otherwise perform the integration</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">vectorize</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chi_a_interp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="p">((</span><span class="n">x</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_amin</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_amax</span><span class="p">))</span>
+                        <span class="k">else</span> <span class="n">chi</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">res</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="cosmology.f_k"><a class="viewcode-back" href="../../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.f_k">[docs]</a>    <span class="k">def</span> <span class="nf">f_k</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot;Transverse comoving distance in [Mpc/h] for a given scale factor.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        a : array_like</span>
+<span class="sd">            Scale factor</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        f_k : ndarray, or float if input scalar</span>
+<span class="sd">            Transverse comoving distance corresponding to the specified</span>
+<span class="sd">            scale factor.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        The transverse comoving distance depends on the curvature of the</span>
+<span class="sd">        universe and is related to the radial comoving distance through:</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            f_k(a) = \left\lbrace</span>
+<span class="sd">            \begin{matrix}</span>
+<span class="sd">            R_H \frac{1}{\sqrt{\Omega_k}}\sinh(\sqrt{|\Omega_k|}\chi(a)R_H)&amp;</span>
+<span class="sd">                \mbox{for }\Omega_k &gt; 0 \\</span>
+<span class="sd">            \chi(a)&amp;</span>
+<span class="sd">                \mbox{for } \Omega_k = 0 \\</span>
+<span class="sd">            R_H \frac{1}{\sqrt{\Omega_k}} \sin(\sqrt{|\Omega_k|}\chi(a)R_H)&amp;</span>
+<span class="sd">                \mbox{for } \Omega_k &lt; 0</span>
+<span class="sd">            \end{matrix}</span>
+<span class="sd">            \right.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">chi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">a2chi</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">k</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>      <span class="c"># Open universe</span>
+            <span class="k">return</span> <span class="n">const</span><span class="o">.</span><span class="n">rh</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">sqrtk</span><span class="o">*</span><span class="n">sinh</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sqrtk</span> <span class="o">*</span> <span class="n">chi</span><span class="o">/</span><span class="n">const</span><span class="o">.</span><span class="n">rh</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">k</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>    <span class="c"># Closed Universe</span>
+            <span class="k">return</span> <span class="n">const</span><span class="o">.</span><span class="n">rh</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">sqrtk</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sqrtk</span> <span class="o">*</span> <span class="n">chi</span><span class="o">/</span><span class="n">const</span><span class="o">.</span><span class="n">rh</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">chi</span>
+</div>
+<div class="viewcode-block" id="cosmology.d_A"><a class="viewcode-back" href="../../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.d_A">[docs]</a>    <span class="k">def</span> <span class="nf">d_A</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot;Angular diameter distance in [Mpc/h] for a given scale factor.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        a : array_like</span>
+<span class="sd">            Scale factor</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        d_A : ndarray, or float if input scalar</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        Angular diameter distance is expressed in terms of the transverse</span>
+<span class="sd">        comoving distance as:</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            d_A(a) = a f_k(a)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">f_k</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="cosmology.dchioverda"><a class="viewcode-back" href="../../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.dchioverda">[docs]</a>    <span class="k">def</span> <span class="nf">dchioverda</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot;Derivative of the radial comoving distance with respect to the</span>
+<span class="sd">        scale factor.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        a : array_like</span>
+<span class="sd">            Scale factor</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dchi/da :  ndarray, or float if input scalar</span>
+<span class="sd">            Derivative of the radial comoving distance with respect to the</span>
+<span class="sd">            scale factor at the specified scale factor.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+
+<span class="sd">        The expression for :math:`\frac{d \chi}{da}` is:</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            \frac{d \chi}{da}(a) = \frac{R_H}{a^2 \sqrt{E(a)}}</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">const</span><span class="o">.</span><span class="n">rh</span><span class="o">/</span><span class="p">(</span><span class="n">a</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Esqr</span><span class="p">(</span><span class="n">a</span><span class="p">)))</span>
+</div>
+<div class="viewcode-block" id="cosmology.dzoverda"><a class="viewcode-back" href="../../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.dzoverda">[docs]</a>    <span class="k">def</span> <span class="nf">dzoverda</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot;Derivative of the redshift with respect to the scale factor.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        a : array_like</span>
+<span class="sd">            Scale factor</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dz/da :  ndarray, or float if input scalar</span>
+<span class="sd">            Derivative of the redshift with respect to the scale factor at</span>
+<span class="sd">            the specified scale factor.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        The expression for :math:`\frac{d z}{da}` is:</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            \frac{d z}{da}(a) = \frac{1}{a^2}</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="n">a</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="cosmology.T"><a class="viewcode-back" href="../../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.T">[docs]</a>    <span class="k">def</span> <span class="nf">T</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s">&#39;eisenhu_osc&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Computes the matter transfer function.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        k: array_like</span>
+<span class="sd">            Wave number in h Mpc^{-1}</span>
+
+<span class="sd">        type: str, optional</span>
+<span class="sd">            Type of transfer function. Either &#39;eisenhu&#39; or &#39;eisenhu_osc&#39;</span>
+<span class="sd">            (def: &#39;eisenhu_osc&#39;)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        T: array_like</span>
+<span class="sd">            Value of the transfer function at the requested wave number</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        The Eisenstein &amp; Hu transfer functions are computed using the fitting</span>
+<span class="sd">        formulae of :cite:`1998:EisensteinHu`</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">w_m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Omega_m</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">w_b</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Omega_b</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">fb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Omega_b</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">Omega_m</span>
+        <span class="n">fc</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Omega_m</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">Omega_b</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">Omega_m</span>
+
+        <span class="n">alpha_gamma</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">-</span><span class="mf">0.328</span><span class="o">*</span><span class="n">log</span><span class="p">(</span><span class="mf">431.</span><span class="o">*</span><span class="n">w_m</span><span class="p">)</span><span class="o">*</span><span class="n">w_b</span><span class="o">/</span><span class="n">w_m</span> <span class="o">+</span> \
+            <span class="mf">0.38</span><span class="o">*</span><span class="n">log</span><span class="p">(</span><span class="mf">22.3</span><span class="o">*</span><span class="n">w_m</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Omega_b</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">Omega_m</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">gamma_eff</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Omega_m</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">h</span> <span class="o">*</span> \
+            <span class="p">(</span><span class="n">alpha_gamma</span> <span class="o">+</span> <span class="p">(</span><span class="mf">1.</span><span class="o">-</span><span class="n">alpha_gamma</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">1.</span><span class="o">+</span><span class="p">(</span><span class="mf">0.43</span><span class="o">*</span><span class="n">k</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">sh_d</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="p">))</span>
+
+        <span class="n">res</span> <span class="o">=</span> <span class="n">zeros_like</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="nb">type</span> <span class="o">==</span> <span class="s">&#39;eisenhu&#39;</span><span class="p">):</span>
+
+            <span class="n">q</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">const</span><span class="o">.</span><span class="n">tcmb</span><span class="o">/</span><span class="mf">2.7</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">gamma_eff</span>
+
+            <span class="c"># EH98 (29) #</span>
+            <span class="n">L</span> <span class="o">=</span> <span class="n">log</span><span class="p">(</span><span class="mf">2.</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.8</span><span class="o">*</span><span class="n">q</span><span class="p">)</span>
+            <span class="n">C</span> <span class="o">=</span> <span class="mf">14.2</span> <span class="o">+</span> <span class="mf">731.0</span><span class="o">/</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="mf">62.5</span><span class="o">*</span><span class="n">q</span><span class="p">)</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">L</span><span class="o">/</span><span class="p">(</span><span class="n">L</span> <span class="o">+</span> <span class="n">C</span><span class="o">*</span><span class="n">q</span><span class="o">*</span><span class="n">q</span><span class="p">)</span>
+
+        <span class="k">elif</span><span class="p">(</span><span class="nb">type</span> <span class="o">==</span> <span class="s">&#39;eisenhu_osc&#39;</span><span class="p">):</span>
+            <span class="c"># Cold dark matter transfer function</span>
+
+            <span class="c"># EH98 (11, 12)</span>
+            <span class="n">a1</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="mf">46.9</span><span class="o">*</span><span class="n">w_m</span><span class="p">,</span> <span class="mf">0.670</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="nb">pow</span><span class="p">(</span><span class="mf">32.1</span><span class="o">*</span><span class="n">w_m</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.532</span><span class="p">))</span>
+            <span class="n">a2</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="mf">12.0</span><span class="o">*</span><span class="n">w_m</span><span class="p">,</span> <span class="mf">0.424</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="nb">pow</span><span class="p">(</span><span class="mf">45.0</span><span class="o">*</span><span class="n">w_m</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.582</span><span class="p">))</span>
+            <span class="n">alpha_c</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="o">-</span><span class="n">fb</span><span class="p">)</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">a2</span><span class="p">,</span> <span class="o">-</span><span class="n">fb</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+            <span class="n">b1</span> <span class="o">=</span> <span class="mf">0.944</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="nb">pow</span><span class="p">(</span><span class="mf">458.0</span><span class="o">*</span><span class="n">w_m</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.708</span><span class="p">))</span>
+            <span class="n">b2</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="mf">0.395</span><span class="o">*</span><span class="n">w_m</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0266</span><span class="p">)</span>
+            <span class="n">beta_c</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">+</span> <span class="n">b1</span><span class="o">*</span><span class="p">(</span><span class="nb">pow</span><span class="p">(</span><span class="n">fc</span><span class="p">,</span> <span class="n">b2</span><span class="p">)</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span>
+            <span class="n">beta_c</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">beta_c</span>
+
+            <span class="c"># EH98 (19). [k] = h/Mpc</span>
+            <span class="k">def</span> <span class="nf">T_tilde</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">):</span>
+                <span class="c"># EH98 (10); [q] = 1 BUT [k] = h/Mpc</span>
+                <span class="n">q</span> <span class="o">=</span> <span class="n">k1</span> <span class="o">/</span> <span class="p">(</span><span class="mf">13.41</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_k_eq</span><span class="p">)</span>
+                <span class="n">L</span> <span class="o">=</span> <span class="n">log</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.8</span> <span class="o">*</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">q</span><span class="p">)</span>
+                <span class="n">C</span> <span class="o">=</span> <span class="mf">14.2</span> <span class="o">/</span> <span class="n">alpha</span> <span class="o">+</span> <span class="mf">386.0</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="mf">69.9</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="mf">1.08</span><span class="p">))</span>
+                <span class="n">T0</span> <span class="o">=</span> <span class="n">L</span><span class="o">/</span><span class="p">(</span><span class="n">L</span> <span class="o">+</span> <span class="n">C</span><span class="o">*</span><span class="n">q</span><span class="o">*</span><span class="n">q</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">T0</span>
+
+            <span class="c"># EH98 (17, 18)</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="p">(</span><span class="n">k</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">sh_d</span> <span class="o">/</span> <span class="mf">5.4</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
+            <span class="n">Tc</span> <span class="o">=</span> <span class="n">f</span> <span class="o">*</span> <span class="n">T_tilde</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">beta_c</span><span class="p">)</span> <span class="o">+</span> \
+                <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">f</span><span class="p">)</span> <span class="o">*</span> <span class="n">T_tilde</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">alpha_c</span><span class="p">,</span> <span class="n">beta_c</span><span class="p">)</span>
+
+            <span class="c"># Baryon transfer function</span>
+            <span class="c"># EH98 (19, 14, 21)</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_z_eq</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_z_d</span><span class="p">)</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+            <span class="n">G_EH98</span> <span class="o">=</span> <span class="n">y</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="mf">6.0</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span>
+                          <span class="p">(</span><span class="mf">2.0</span> <span class="o">+</span> <span class="mf">3.0</span><span class="o">*</span><span class="n">y</span><span class="p">)</span> <span class="o">*</span> <span class="n">log</span><span class="p">((</span><span class="n">x</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)))</span>
+            <span class="n">alpha_b</span> <span class="o">=</span> <span class="mf">2.07</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_k_eq</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">sh_d</span> <span class="o">*</span> \
+                <span class="nb">pow</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_R_d</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.75</span><span class="p">)</span> <span class="o">*</span> <span class="n">G_EH98</span>
+
+            <span class="n">beta_node</span> <span class="o">=</span> <span class="mf">8.41</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">w_m</span><span class="p">,</span> <span class="mf">0.435</span><span class="p">)</span>
+            <span class="n">tilde_s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sh_d</span> <span class="o">/</span> <span class="nb">pow</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="p">(</span><span class="n">beta_node</span> <span class="o">/</span>
+                                             <span class="p">(</span><span class="n">k</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">sh_d</span><span class="p">))</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">/</span><span class="mf">3.0</span><span class="p">)</span>
+
+            <span class="n">beta_b</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">+</span> <span class="n">fb</span> <span class="o">+</span> <span class="p">(</span><span class="mf">3.0</span> <span class="o">-</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">fb</span><span class="p">)</span> <span class="o">*</span> <span class="n">sqrt</span><span class="p">((</span><span class="mf">17.2</span> <span class="o">*</span> <span class="n">w_m</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">)</span>
+
+            <span class="c"># [tilde_s] = Mpc/h</span>
+            <span class="n">Tb</span> <span class="o">=</span> <span class="p">(</span><span class="n">T_tilde</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="p">(</span><span class="n">k</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">sh_d</span> <span class="o">/</span> <span class="mf">5.2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span>
+                  <span class="n">alpha_b</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="p">(</span><span class="n">beta_b</span><span class="o">/</span><span class="p">(</span><span class="n">k</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">sh_d</span><span class="p">))</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span>
+                  <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="nb">pow</span><span class="p">(</span><span class="n">k</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_k_silk</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">)))</span> <span class="o">*</span> <span class="n">sinc</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">tilde_s</span><span class="o">/</span><span class="n">pi</span><span class="p">)</span>
+
+            <span class="c"># Total transfer function</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">fb</span> <span class="o">*</span> <span class="n">Tb</span> <span class="o">+</span> <span class="n">fc</span> <span class="o">*</span> <span class="n">Tc</span>
+        <span class="k">return</span> <span class="n">res</span>
+</div>
+<div class="viewcode-block" id="cosmology.G"><a class="viewcode-back" href="../../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.G">[docs]</a>    <span class="k">def</span> <span class="nf">G</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Compute Growth factor at a given scale factor, normalised such</span>
+<span class="sd">        that G(a=1) = 1.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        a: array_like</span>
+<span class="sd">            Scale factor</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        G:  ndarray, or float if input scalar</span>
+<span class="sd">            Growth factor computed at requested scale factor</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_da_interp</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">def</span> <span class="nf">D_derivs</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+                <span class="n">q</span> <span class="o">=</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Omega_m_a</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span>
+                                  <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="mf">3.0</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+                                  <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">Omega_de_a</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span><span class="o">/</span><span class="n">x</span>
+                <span class="n">r</span> <span class="o">=</span> <span class="mf">1.5</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">Omega_m_a</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">x</span><span class="o">/</span><span class="n">x</span>
+                <span class="k">return</span> <span class="p">[</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="o">-</span><span class="n">q</span> <span class="o">*</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">r</span> <span class="o">*</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+            <span class="n">y0</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_amin</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+            <span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">D_derivs</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">atab</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_da_interp</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">atab</span><span class="p">,</span> <span class="n">y</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">kind</span><span class="o">=</span><span class="s">&#39;linear&#39;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_da_interp</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">_da_interp</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="cosmology.pk_lin"><a class="viewcode-back" href="../../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.pk_lin">[docs]</a>    <span class="k">def</span> <span class="nf">pk_lin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot; Computes the linear matter power spectrum.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        k: array_like</span>
+<span class="sd">            Wave number in h Mpc^{-1}</span>
+
+<span class="sd">        a: array_like, optional</span>
+<span class="sd">            Scale factor (def: 1.0)</span>
+
+<span class="sd">        type: str, optional</span>
+<span class="sd">            Type of transfer function. Either &#39;eisenhu&#39; or &#39;eisenhu_osc&#39;</span>
+<span class="sd">            (def: &#39;eisenhu_osc&#39;)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        pk: array_like</span>
+<span class="sd">            Linear matter power spectrum at the specified scale</span>
+<span class="sd">            and scale factor.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">atleast_1d</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">atleast_1d</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">G</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">T</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="n">pknorm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigma8</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">sigmasqr</span><span class="p">(</span><span class="mf">8.0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">k</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">pk</span> <span class="o">=</span> <span class="n">outer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pk_prim</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="nb">pow</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">pk</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pk_prim</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+        <span class="c"># Apply normalisation</span>
+        <span class="n">pk</span> <span class="o">=</span> <span class="n">pk</span><span class="o">*</span><span class="n">pknorm</span>
+
+        <span class="k">return</span> <span class="n">pk</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+</div>
+    <span class="k">def</span> <span class="nf">_smith_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span>  <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot; Computes the non linear scale, effective spectral index</span>
+<span class="sd">        and spectral curvature&quot;&quot;&quot;</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">atleast_1d</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+        <span class="n">R_nl</span> <span class="o">=</span> <span class="n">zeros_like</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">zeros_like</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+        <span class="n">C</span> <span class="o">=</span> <span class="n">zeros_like</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+        <span class="n">ksamp</span> <span class="o">=</span> <span class="n">logspace</span><span class="p">(</span><span class="n">log10</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_kmin</span><span class="p">),</span> <span class="n">log10</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_kmax</span><span class="p">),</span> <span class="mi">1024</span><span class="p">)</span>
+        <span class="n">pklog</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">ksamp</span><span class="p">),</span> <span class="n">ksamp</span><span class="o">**</span><span class="mi">3</span> <span class="o">*</span>
+                         <span class="bp">self</span><span class="o">.</span><span class="n">pk_lin</span><span class="p">(</span><span class="n">ksamp</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">pi</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">G</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">int_sigma</span><span class="p">(</span><span class="n">logk</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">_g</span><span class="p">):</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="n">logk</span><span class="p">)</span><span class="o">*</span><span class="n">r</span>
+            <span class="k">return</span> <span class="n">pklog</span><span class="p">(</span><span class="n">logk</span><span class="p">)</span> <span class="o">*</span> <span class="n">_g</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">int_neff</span><span class="p">(</span><span class="n">logk</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">_g</span><span class="p">):</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="n">logk</span><span class="p">)</span><span class="o">*</span><span class="n">r</span>
+            <span class="k">return</span> <span class="n">pklog</span><span class="p">(</span><span class="n">logk</span><span class="p">)</span> <span class="o">*</span> <span class="n">_g</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">int_C</span><span class="p">(</span><span class="n">logk</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">_g</span><span class="p">):</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="n">logk</span><span class="p">)</span><span class="o">*</span><span class="n">r</span>
+            <span class="k">return</span> <span class="n">pklog</span><span class="p">(</span><span class="n">logk</span><span class="p">)</span> <span class="o">*</span> <span class="n">_g</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">y</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span> <span class="o">*</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">R_nl</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
+            <span class="n">sigm</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="n">romberg</span><span class="p">(</span><span class="n">int_sigma</span><span class="p">,</span> <span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_kmin</span><span class="p">),</span> <span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_kmax</span><span class="p">),</span>
+                                     <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="n">r</span><span class="p">),</span> <span class="n">g</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="n">vec_func</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="n">R_nl</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="n">brentq</span><span class="p">(</span><span class="n">sigm</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">))</span>
+
+            <span class="n">n</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">romberg</span><span class="p">(</span><span class="n">int_neff</span><span class="p">,</span> <span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_kmin</span><span class="p">),</span> <span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_kmax</span><span class="p">),</span>
+                                    <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">R_nl</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">g</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span>  <span class="n">vec_func</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> <span class="o">-</span> <span class="mi">3</span>
+
+            <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="n">n</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">romberg</span><span class="p">(</span><span class="n">int_C</span><span class="p">,</span> <span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_kmin</span><span class="p">),</span> <span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_kmax</span><span class="p">),</span>
+                                                  <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">R_nl</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">g</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span>  <span class="n">vec_func</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">k_nl</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">R_nl</span>
+        <span class="k">return</span> <span class="n">k_nl</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">C</span>
+
+<div class="viewcode-block" id="cosmology.pk"><a class="viewcode-back" href="../../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.pk">[docs]</a>    <span class="k">def</span> <span class="nf">pk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">nl_type</span><span class="o">=</span><span class="s">&#39;smith2003&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot; Computes the full non linear matter power spectrum.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        k: array_like</span>
+<span class="sd">            Wave number in h Mpc^{-1}</span>
+
+<span class="sd">        a: array_like, optional</span>
+<span class="sd">            Scale factor (def: 1.0)</span>
+
+<span class="sd">        nl_type: str, optional</span>
+<span class="sd">            Type of non linear corrections. Only &#39;smith2003&#39; is implemented</span>
+
+<span class="sd">        type: str, optional</span>
+<span class="sd">            Type of transfer function. Either &#39;eisenhu&#39; or &#39;eisenhu_osc&#39;</span>
+<span class="sd">            (def: &#39;eisenhu_osc&#39;)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        pk: array_like</span>
+<span class="sd">            Non linear matter power spectrum at the specified scale</span>
+<span class="sd">            and scale factor.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        The non linear corrections are implemented following :cite:`2003:smith`</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">atleast_1d</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">atleast_1d</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+        <span class="n">pklin</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pk_lin</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">nl_type</span> <span class="o">==</span> <span class="s">&#39;smith2003&#39;</span><span class="p">):</span>
+
+            <span class="c"># Compute non linear scale, effective spectral index and curvature</span>
+            <span class="n">k_nl</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_smith_parameters</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+            <span class="n">om_m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Omega_m_a</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+            <span class="n">frac</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Omega_de_a</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">om_m</span><span class="p">)</span>
+
+            <span class="c"># eq C9 to C18</span>
+            <span class="n">a_n</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="mf">1.4861</span> <span class="o">+</span> <span class="mf">1.8369</span><span class="o">*</span><span class="n">n</span> <span class="o">+</span> <span class="mf">1.6762</span><span class="o">*</span><span class="n">n</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">0.7940</span><span class="o">*</span><span class="n">n</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span>
+                       <span class="mf">0.1670</span><span class="o">*</span><span class="n">n</span><span class="o">**</span><span class="mi">4</span> <span class="o">-</span> <span class="mf">0.6206</span><span class="o">*</span><span class="n">C</span><span class="p">)</span>
+            <span class="n">b_n</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="mf">0.9463</span> <span class="o">+</span> <span class="mf">0.9466</span><span class="o">*</span><span class="n">n</span> <span class="o">+</span> <span class="mf">0.3084</span><span class="o">*</span><span class="n">n</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mf">0.9400</span><span class="o">*</span><span class="n">C</span><span class="p">)</span>
+            <span class="n">c_n</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2807</span> <span class="o">+</span> <span class="mf">0.6669</span><span class="o">*</span><span class="n">n</span> <span class="o">+</span> <span class="mf">0.3214</span><span class="o">*</span><span class="n">n</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mf">0.0793</span><span class="o">*</span><span class="n">C</span><span class="p">)</span>
+            <span class="n">gamma_n</span> <span class="o">=</span> <span class="mf">0.8649</span> <span class="o">+</span> <span class="mf">0.2989</span><span class="o">*</span><span class="n">n</span> <span class="o">+</span> <span class="mf">0.1631</span><span class="o">*</span><span class="n">C</span>
+            <span class="n">alpha_n</span> <span class="o">=</span> <span class="mf">1.3884</span> <span class="o">+</span> <span class="mf">0.3700</span><span class="o">*</span><span class="n">n</span> <span class="o">-</span> <span class="mf">0.1452</span><span class="o">*</span><span class="n">n</span><span class="o">**</span><span class="mi">2</span>
+            <span class="n">beta_n</span> <span class="o">=</span> <span class="mf">0.8291</span> <span class="o">+</span> <span class="mf">0.9854</span><span class="o">*</span><span class="n">n</span> <span class="o">+</span> <span class="mf">0.3401</span><span class="o">*</span><span class="n">n</span><span class="o">**</span><span class="mi">2</span>
+            <span class="n">mu_n</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mf">3.5442</span> <span class="o">+</span> <span class="mf">0.1908</span><span class="o">*</span><span class="n">n</span><span class="p">)</span>
+            <span class="n">nu_n</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="mf">0.9585</span> <span class="o">+</span> <span class="mf">1.2857</span><span class="o">*</span><span class="n">n</span><span class="p">)</span>
+
+            <span class="n">f1a</span> <span class="o">=</span> <span class="n">om_m</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mf">0.0732</span><span class="p">)</span>
+            <span class="n">f2a</span> <span class="o">=</span> <span class="n">om_m</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1423</span><span class="p">)</span>
+            <span class="n">f3a</span> <span class="o">=</span> <span class="n">om_m</span><span class="o">**</span><span class="mf">0.0725</span>
+            <span class="n">f1b</span> <span class="o">=</span> <span class="n">om_m</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mf">0.0307</span><span class="p">)</span>
+            <span class="n">f2b</span> <span class="o">=</span> <span class="n">om_m</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mf">0.0585</span><span class="p">)</span>
+            <span class="n">f3b</span> <span class="o">=</span> <span class="n">om_m</span><span class="o">**</span><span class="p">(</span><span class="mf">0.0743</span><span class="p">)</span>
+
+            <span class="n">f1</span> <span class="o">=</span> <span class="n">frac</span><span class="o">*</span><span class="n">f1b</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">frac</span><span class="p">)</span><span class="o">*</span><span class="n">f1a</span>
+            <span class="n">f2</span> <span class="o">=</span> <span class="n">frac</span><span class="o">*</span><span class="n">f2b</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">frac</span><span class="p">)</span><span class="o">*</span><span class="n">f2a</span>
+            <span class="n">f3</span> <span class="o">=</span> <span class="n">frac</span><span class="o">*</span><span class="n">f3b</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">frac</span><span class="p">)</span><span class="o">*</span><span class="n">f3a</span>
+
+            <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">/</span><span class="mf">4.</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mf">8.</span>
+
+            <span class="n">d2l</span> <span class="o">=</span> <span class="n">einsum</span><span class="p">(</span><span class="s">&#39;i...,i...-&gt;i...&#39;</span><span class="p">,</span> <span class="n">k</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="n">pklin</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">pi</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">k</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">y</span> <span class="o">=</span> <span class="n">k</span><span class="o">/</span><span class="n">k_nl</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">y</span> <span class="o">=</span> <span class="n">outer</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">k_nl</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+            <span class="c"># Eq C2</span>
+            <span class="n">d2q</span> <span class="o">=</span> <span class="n">d2l</span> <span class="o">*</span> <span class="p">((</span><span class="mf">1.0</span><span class="o">+</span><span class="n">d2l</span><span class="p">)</span><span class="o">**</span><span class="n">beta_n</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">alpha_n</span><span class="o">*</span><span class="n">d2l</span><span class="p">))</span> <span class="o">*</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+            <span class="n">d2hprime</span> <span class="o">=</span> <span class="n">a_n</span><span class="o">*</span><span class="n">y</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">f1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">b_n</span> <span class="o">*</span> <span class="n">y</span><span class="o">**</span><span class="n">f2</span> <span class="o">+</span>
+                                      <span class="p">(</span><span class="n">c_n</span><span class="o">*</span><span class="n">f3</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mf">3.0</span> <span class="o">-</span> <span class="n">gamma_n</span><span class="p">))</span>
+            <span class="n">d2h</span> <span class="o">=</span> <span class="n">d2hprime</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">mu_n</span><span class="o">/</span><span class="n">y</span> <span class="o">+</span> <span class="n">nu_n</span><span class="o">/</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+            <span class="c"># Eq. C1</span>
+            <span class="n">d2nl</span> <span class="o">=</span> <span class="n">d2q</span> <span class="o">+</span> <span class="n">d2h</span>
+            <span class="n">pk_nl</span> <span class="o">=</span> <span class="n">einsum</span><span class="p">(</span><span class="s">&#39;i...,i...-&gt;i...&#39;</span><span class="p">,</span> <span class="mf">2.0</span><span class="o">*</span><span class="n">pi</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">k</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="n">d2nl</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;unknown non linear prescription&quot;</span><span class="p">)</span>
+            <span class="n">pk_nl</span> <span class="o">=</span> <span class="n">pklin</span>
+
+        <span class="k">return</span> <span class="n">pk_nl</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="cosmology.pl"><a class="viewcode-back" href="../../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.pl">[docs]</a>    <span class="k">def</span> <span class="nf">pl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot;</span>
+<span class="sd">        Computes the non linear matter power spectrum at a given angular scale</span>
+<span class="sd">        using the Limber approximation</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">outer</span><span class="p">(</span><span class="n">l</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">a2chi</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pk</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="cosmology.pl_lin"><a class="viewcode-back" href="../../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.pl_lin">[docs]</a>    <span class="k">def</span> <span class="nf">pl_lin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Computes the linear matter power spectrum at the specified scale</span>
+<span class="sd">        and scale factor</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">k</span> <span class="o">=</span> <span class="n">outer</span><span class="p">(</span><span class="n">l</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">a2chi</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+
+        <span class="n">g</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">G</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">T</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="n">pknorm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigma8</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">sigmasqr</span><span class="p">(</span><span class="mf">8.0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="n">pk</span> <span class="o">=</span> <span class="n">multiply</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pk_prim</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="nb">pow</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+
+        <span class="c"># Apply normalisation</span>
+        <span class="n">pk</span> <span class="o">=</span> <span class="n">pk</span><span class="o">*</span><span class="n">pknorm</span>
+
+        <span class="k">return</span> <span class="n">pk</span>
+</div>
+<div class="viewcode-block" id="cosmology.pk_prim"><a class="viewcode-back" href="../../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.pk_prim">[docs]</a>    <span class="k">def</span> <span class="nf">pk_prim</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Primordial power spectrum</span>
+<span class="sd">            Pk = k^n</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">k</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span>
+</div>
+<div class="viewcode-block" id="cosmology.sigmasqr"><a class="viewcode-back" href="../../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.sigmasqr">[docs]</a>    <span class="k">def</span> <span class="nf">sigmasqr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Computes the energy of the fluctuations within a sphere of R h^{-1} Mpc</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">           \\sigma^2(R)= \\frac{1}{2 \\pi^2} \\int_0^\\infty \\frac{dk}{k} k^3 P(k,z) W^2(kR)</span>
+
+<span class="sd">        where</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">           W(kR) = \\frac{3j_1(kR)}{kR}</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">def</span> <span class="nf">int_sigma</span><span class="p">(</span><span class="n">logk</span><span class="p">):</span>
+            <span class="n">k</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="n">logk</span><span class="p">)</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="n">R</span>
+            <span class="n">w</span> <span class="o">=</span> <span class="mf">3.0</span><span class="o">*</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">x</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+            <span class="n">pk</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">T</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">pk_prim</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="n">k</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">pk</span>
+
+        <span class="k">return</span> <span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">pi</span><span class="o">**</span><span class="mf">2.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">romberg</span><span class="p">(</span><span class="n">int_sigma</span><span class="p">,</span> <span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_kmin</span><span class="p">),</span>
+                                           <span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_kmax</span><span class="p">))</span>
+</div>
+<div class="viewcode-block" id="cosmology.g"><a class="viewcode-back" href="../../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.g">[docs]</a>    <span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">a_s</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Lensing efficiency kernel computed a distance chi for sources</span>
+<span class="sd">        placed at distance chi_s</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">a_s</span> <span class="o">=</span> <span class="n">atleast_1d</span><span class="p">(</span><span class="n">a_s</span><span class="p">)</span>
+        <span class="n">a</span>   <span class="o">=</span> <span class="n">atleast_1d</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+        <span class="n">factor</span> <span class="o">=</span> <span class="mf">3.0</span> <span class="o">*</span> <span class="n">const</span><span class="o">.</span><span class="n">H0</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">Omega_m</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">const</span><span class="o">.</span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">a</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">a2chi</span><span class="p">(</span><span class="n">a_s</span><span class="p">)</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">a2chi</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">a2chi</span><span class="p">(</span><span class="n">a_s</span><span class="p">)</span>
+        <span class="n">res</span><span class="p">[</span><span class="n">a_s</span> <span class="o">&gt;</span> <span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">return</span> <span class="n">factor</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">f_k</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">res</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">dchioverda</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+    <span class="c"># Derived constants</span></div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">Omega_dm</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Omega_dm</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">Omega</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Omega</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">Omega_k</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Omega_k</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">gamma</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gamma</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">k</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_k</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sqrtk</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sqrtk</span>
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="cosmology.sh_d"><a class="viewcode-back" href="../../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.sh_d">[docs]</a>    <span class="k">def</span> <span class="nf">sh_d</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot;</span>
+<span class="sd">        Sound horizon at drag epoch in Mpc/h</span>
+
+<span class="sd">        Computed from Equation (6) in :cite:`1998:EisensteinHu` :</span>
+
+<span class="sd">        .. math ::</span>
+
+<span class="sd">            r_s(z_d) = \frac{2}{3 k_{eq}} \sqrt{ \frac{6}{R_{eq}} } \ln \frac{ \sqrt{1 + R_d} + \sqrt{R_d + R_{eq}}}{1 + \sqrt{R_{eq}}}</span>
+
+<span class="sd">        where :math:`R_d` and :math:`R_{eq}` are respectively the ratio of baryon to photon momentum density at drag epoch and equality epoch (see Equation (5) in :cite:`1998:EisensteinHu`)</span>
+<span class="sd">        and :math:`k_{eq}` is the scale of the scale of the particle horizon at equality epoch.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sh_d</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="cosmology.sh_r"><a class="viewcode-back" href="../../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.sh_r">[docs]</a>    <span class="k">def</span> <span class="nf">sh_r</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot;</span>
+<span class="sd">        Sound horizon at recombination in Mpc/h</span>
+
+<span class="sd">        Computed from Equation (19) in :cite:`1999:EfstathiouBond` :</span>
+
+<span class="sd">        .. math ::</span>
+
+<span class="sd">            r_s(z_r) = \frac{4000 \sqrt{a_{equ}}}{\sqrt{\omega_b (1 + \eta_\nu)}} \ln \frac{ \sqrt{1 + R_r} + \sqrt{R_r + R_{eq}}}{1 + \sqrt{R_{eq}}} </span>
+<span class="sd">   </span>
+<span class="sd">        where :math:`R_r` and :math:`R_{eq}` are respectively the ratio of baryon to photon momentum density at recombination epoch and equality epoch (see Equation (18) in :cite:`1999:EfstathiouBond`)</span>
+<span class="sd">        and :math:`\eta_{\nu}` denotes the relative densities of massless neutrinos and photons.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sh_r</span>
+
+    <span class="c"># Settable cosmological parameters</span></div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">h</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_h</span>
+
+    <span class="nd">@h.setter</span>
+    <span class="k">def</span> <span class="nf">h</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">val</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">val</span><span class="p">)</span>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">Omega_b</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            baryon density</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Omega_b</span>
+    <span class="nd">@Omega_b.setter</span>
+<div class="viewcode-block" id="cosmology.Omega_b"><a class="viewcode-back" href="../../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.Omega_b">[docs]</a>    <span class="k">def</span> <span class="nf">Omega_b</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">val</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">Omega_b</span><span class="o">=</span><span class="n">val</span><span class="p">)</span>
+</div>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">Omega_m</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Omega_m</span>
+    <span class="nd">@Omega_m.setter</span>
+    <span class="k">def</span> <span class="nf">Omega_m</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">val</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">Omega_m</span> <span class="o">=</span> <span class="n">val</span><span class="p">)</span>
+        
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">Omega_de</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Omega_de</span>
+    <span class="nd">@Omega_de.setter</span>
+    <span class="k">def</span> <span class="nf">Omega_de</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">val</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">Omega_de</span> <span class="o">=</span> <span class="n">val</span><span class="p">)</span>
+        
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">w0</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_w0</span>
+    <span class="nd">@w0.setter</span>
+    <span class="k">def</span> <span class="nf">w0</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">val</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">w0</span> <span class="o">=</span> <span class="n">val</span><span class="p">)</span>
+        
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">wa</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wa</span>
+    <span class="nd">@wa.setter</span>
+    <span class="k">def</span> <span class="nf">wa</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">val</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">wa</span><span class="o">=</span><span class="n">val</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">n</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n</span>
+    <span class="nd">@n.setter</span>
+    <span class="k">def</span> <span class="nf">n</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">val</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">val</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">tau</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tau</span>
+    <span class="nd">@tau.setter</span>
+    <span class="k">def</span> <span class="nf">tau</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">tau</span><span class="o">=</span><span class="n">val</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sigma8</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sigma8</span>
+    <span class="nd">@sigma8.setter</span>
+    <span class="k">def</span> <span class="nf">sigma8</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">sigma8</span><span class="o">=</span><span class="n">val</span><span class="p">)</span></div>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2015, Francois Lanusse, Anais Rassat, Jean-Luc Starck.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3.<br/>
+    </p>
+  </div>
+</footer>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58875004-1', 'auto');
+  ga('send', 'pageview');
+  
+</script>
+
+
+  </body>
+</html>

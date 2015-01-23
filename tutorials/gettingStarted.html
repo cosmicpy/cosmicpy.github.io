@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Getting Started with CosmicPy &mdash; CosmicPy 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.2.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.2.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/my-styles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CosmicPy 0.1 documentation" href="../index.html" />
+    <link rel="up" title="Tutorials" href="index.html" />
+    <link rel="next" title="3D Spherical Analysis of BAOs" href="BAO.html" />
+    <link rel="prev" title="Tutorials" href="index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+  
+  <a href="https://github.com/cosmicpy/cosmicpy"
+     class="visible-desktop hidden-xs"><img
+    id="gh-banner"
+    style="position: absolute; top: 50px; right: 0; border: 0;"
+    src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
+    alt="Fork me on GitHub"></a>
+  <script>
+    // Adjust banner height.
+    $(function () {
+      var navHeight = $(".navbar .container").css("height");
+      $("#gh-banner").css("top", navHeight);
+    });
+  </script>
+
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          CosmicPy</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../contribute.html">Contribute</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#download-from-github">Download from GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#install">Install</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Getting Started with CosmicPy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-and-modify-a-cosmology">Create and modify a cosmology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compute-distances">Compute distances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compute-the-matter-power-spectrum">Compute the matter power spectrum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="BAO.html">3D Spherical Analysis of BAOs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="BAO.html#setting-up-the-cosmology-and-the-surveys">Setting up the cosmology and the surveys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BAO.html#impact-of-the-depth-of-the-survey-on-the-sfb-window">Impact of the depth of the survey on the SFB window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BAO.html#impact-of-baos-on-the-power-spectrum">Impact of BAOs on the power spectrum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BAO.html#impact-of-baos-on-the-sfb-power-spectrum">Impact of BAOs on the SFB power spectrum</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3DSFB.html">3D SFB galaxy clustering</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3DSFB.html#setting-up-the-cosmology-and-the-surveys">Setting up the cosmology and the surveys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3DSFB.html#computing-3d-power-spectra">Computing 3D power spectra</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3DSFB.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cosmicpy/index.html">Source Code Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/cosmology.html"><tt class="docutils literal"><span class="pre">cosmicpy.cosmology</span></tt> &#8211; Cosmology module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/survey.html"><tt class="docutils literal"><span class="pre">cosmicpy.survey</span></tt> &#8211; Galaxy survey representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/spectra.html"><tt class="docutils literal"><span class="pre">cosmicpy.spectra</span></tt> &#8211; Clustering and lensing power spectra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/fisher.html"><tt class="docutils literal"><span class="pre">cosmicpy.fisher</span></tt> &#8211; Fisher forecasts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/utils.html"><tt class="docutils literal"><span class="pre">cosmicpy.utils</span></tt> &#8211; Utility functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/tests.html">Testing module (<cite>cosmicpy.tests</cite>)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/index.html">Developer Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/index.html#building-the-documentation">Building the documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/index.html#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/index.html#making-the-build">Making the build</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/index.html#documentation-guidelines">Documentation guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/index.html#testing-cosmicpy">Testing cosmicpy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/index.html#testing-against-icosmo">Testing against iCosmo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Getting Started with CosmicPy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-and-modify-a-cosmology">Create and modify a cosmology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compute-distances">Compute distances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compute-the-matter-power-spectrum">Compute the matter power spectrum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="BAO.html">3D Spherical Analysis of BAOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3DSFB.html">3D SFB galaxy clustering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cosmicpy/index.html">Source Code Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/index.html">Developer Documentation</a></li>
+</ul>
+
+<div id="sourcelink">
+  <a href="../_sources/tutorials/gettingStarted.txt"
+     rel="nofollow">Source</a>
+</div>
+        </div>
+      </div>
+    <div class="col-md-9">
+      
+  <div class="section" id="getting-started-with-cosmicpy">
+<h1>Getting Started with CosmicPy<a class="headerlink" href="#getting-started-with-cosmicpy" title="Permalink to this headline">¶</a></h1>
+<p>First, start an <strong class="program">ipython</strong> sesion in pylab mode:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ipython --pylab
+</pre></div>
+</div>
+<p>This will automatically load <strong class="program">numpy</strong> and <strong class="program">matplolib</strong> and enable the
+interactive plotting environment.</p>
+<p>Once <strong class="program">ipython</strong> is running, you can import the cosmicpy package:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">cosmicpy</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+<div class="section" id="create-and-modify-a-cosmology">
+<h2>Create and modify a cosmology<a class="headerlink" href="#create-and-modify-a-cosmology" title="Permalink to this headline">¶</a></h2>
+<p>The next step is to create a <a class="reference internal" href="../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology" title="cosmicpy.cosmology.cosmology"><tt class="xref py py-class docutils literal"><span class="pre">cosmology</span></tt></a> object. Let us start with a default cosmology:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [2]: </span><span class="n">cosmo</span> <span class="o">=</span> <span class="n">cosmology</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>To get a summary of the cosmological parameters defined in this object, you can use the <a class="reference external" href="http://docs.python.org/library/functions.html#print" title="(in Python v2.7)"><tt class="xref py py-func docutils literal"><span class="pre">print()</span></tt></a> fucntion:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [3]: </span><span class="k">print</span> <span class="n">cosmo</span>
+<span class="go">FLRW Cosmology with the following parameters: </span>
+<span class="go">    h:        0.7 </span>
+<span class="go">    Omega_b:  0.045 </span>
+<span class="go">    Omega_m:  0.25 </span>
+<span class="go">    Omega_de: 0.75 </span>
+<span class="go">    w0:       -0.95 </span>
+<span class="go">    wa:       0.0 </span>
+<span class="go">    n:        1.0 </span>
+<span class="go">    tau:      0.09 </span>
+<span class="go">    sigma8:   0.8</span>
+</pre></div>
+</div>
+<p>All the cosmological parameters are accessible as attributes of the <a class="reference internal" href="../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology" title="cosmicpy.cosmology.cosmology"><tt class="xref py py-class docutils literal"><span class="pre">cosmology</span></tt></a> object. For instance, to check the value of the matter density today <span class="math">\(\Omega_m\)</span> run:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [4]: </span><span class="n">cosmo</span><span class="o">.</span><span class="n">Omega_m</span>
+<span class="gh">Out[4]: </span><span class="go">0.25</span>
+</pre></div>
+</div>
+<p>The values for the cosmological parameters can be modified which will automatically trigger an update of all the derived quantities.</p>
+<p>To illustrate this, let&#8217;s see the value of the sound horizon at recombination <span class="math">\(s_h\)</span> with the default cosmology, update <span class="math">\(\Omega_m\)</span> and check that the value of <span class="math">\(s_h\)</span> has changed:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [5]: </span><span class="n">cosmo</span><span class="o">.</span><span class="n">sh_r</span>
+<span class="gh">Out[5]: </span><span class="go">105.27381988350771</span>
+
+<span class="gp">In [6]: </span><span class="n">cosmo</span><span class="o">.</span><span class="n">Omega_m</span> <span class="o">=</span> <span class="mf">0.3</span>
+
+<span class="gp">In [7]: </span><span class="n">cosmo</span><span class="o">.</span><span class="n">sh_r</span>
+<span class="gh">Out[7]: </span><span class="go">100.59308203228834</span>
+</pre></div>
+</div>
+<p>The cosmological parameters can also be set at the creation of the <a class="reference internal" href="../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology" title="cosmicpy.cosmology.cosmology"><tt class="xref py py-class docutils literal"><span class="pre">cosmology</span></tt></a> object by specifying their values to the constructor.
+For instance, to create a cosmology with <span class="math">\(\Omega_m = 0.2\)</span> and <span class="math">\(\Omega_{de} = 0.8\)</span>:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [8]: </span><span class="n">cosmo2</span> <span class="o">=</span> <span class="n">cosmology</span><span class="p">(</span><span class="n">Omega_m</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">Omega_de</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+
+<span class="gp">In [9]: </span><span class="k">print</span> <span class="n">cosmo2</span>
+<span class="go">FLRW Cosmology with the following parameters: </span>
+<span class="go">    h:        0.7 </span>
+<span class="go">    Omega_b:  0.045 </span>
+<span class="go">    Omega_m:  0.2 </span>
+<span class="go">    Omega_de: 0.8 </span>
+<span class="go">    w0:       -0.95 </span>
+<span class="go">    wa:       0.0 </span>
+<span class="go">    n:        1.0 </span>
+<span class="go">    tau:      0.09 </span>
+<span class="go">    sigma8:   0.8</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="compute-distances">
+<h2>Compute distances<a class="headerlink" href="#compute-distances" title="Permalink to this headline">¶</a></h2>
+<p>Now that we have seen how to create a <a class="reference internal" href="../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology" title="cosmicpy.cosmology.cosmology"><tt class="xref py py-class docutils literal"><span class="pre">cosmology</span></tt></a> object with the desired cosmological parameters, let&#8217;s use it to compute some distances.</p>
+<p><a class="reference internal" href="../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology" title="cosmicpy.cosmology.cosmology"><tt class="xref py py-class docutils literal"><span class="pre">cosmology</span></tt></a> offers a number of different methods to compute various cosmological distances:</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.a2chi" title="cosmicpy.cosmology.cosmology.a2chi"><tt class="xref py py-obj docutils literal"><span class="pre">cosmology.a2chi</span></tt></a>(a)</td>
+<td>Radial comoving distance in [Mpc/h] for a given scale factor.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.f_k" title="cosmicpy.cosmology.cosmology.f_k"><tt class="xref py py-obj docutils literal"><span class="pre">cosmology.f_k</span></tt></a>(a)</td>
+<td>Transverse comoving distance in [Mpc/h] for a given scale factor.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.d_A" title="cosmicpy.cosmology.cosmology.d_A"><tt class="xref py py-obj docutils literal"><span class="pre">cosmology.d_A</span></tt></a>(a)</td>
+<td>Angular diameter distance in [Mpc/h] for a given scale factor.</td>
+</tr>
+</tbody>
+</table>
+<p>These methods all compute a distance as a function of the scale factor <span class="math">\(a\)</span>.</p>
+<p>It is often usefull to work with redshifts instead of
+scale factors. The conversion between the two quantities is performed by the 2 utility functions:</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="../cosmicpy/utils.html#cosmicpy.utils.z2a" title="cosmicpy.utils.z2a"><tt class="xref py py-obj docutils literal"><span class="pre">cosmicpy.utils.z2a</span></tt></a>(z)</td>
+<td>converts from redshift to scale factor</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../cosmicpy/utils.html#cosmicpy.utils.a2z" title="cosmicpy.utils.a2z"><tt class="xref py py-obj docutils literal"><span class="pre">cosmicpy.utils.a2z</span></tt></a>(a)</td>
+<td>converts from scale factor to  redshift</td>
+</tr>
+</tbody>
+</table>
+<p>Here is an example to compute the radial comoving distance for an array of redshifts between 0 and 10:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [10]: </span><span class="n">z</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span>
+
+<span class="gp">In [11]: </span><span class="n">figure</span><span class="p">();</span>
+
+<span class="go"># The z2a function is used to convert z to scale factors</span>
+<span class="gp">In [12]: </span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">cosmo</span><span class="o">.</span><span class="n">a2chi</span><span class="p">(</span><span class="n">z2a</span><span class="p">(</span><span class="n">z</span><span class="p">)));</span> <span class="n">grid</span><span class="p">();</span>
+
+<span class="gp">In [13]: </span><span class="n">title</span><span class="p">(</span><span class="s">&#39;Radial comoving distance as a function of redshift&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../_images/start-1.png" src="../_images/start-1.png" />
+</div>
+<div class="section" id="compute-the-matter-power-spectrum">
+<h2>Compute the matter power spectrum<a class="headerlink" href="#compute-the-matter-power-spectrum" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology" title="cosmicpy.cosmology.cosmology"><tt class="xref py py-class docutils literal"><span class="pre">cosmology</span></tt></a> implements several methods to compute the linear and non linear matter power spectrum:</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.pk_lin" title="cosmicpy.cosmology.cosmology.pk_lin"><tt class="xref py py-obj docutils literal"><span class="pre">cosmology.pk_lin</span></tt></a>(k[,&nbsp;a])</td>
+<td>Computes the linear matter power spectrum.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.pk" title="cosmicpy.cosmology.cosmology.pk"><tt class="xref py py-obj docutils literal"><span class="pre">cosmology.pk</span></tt></a>(k[,&nbsp;a,&nbsp;nl_type])</td>
+<td>Computes the full non linear matter power spectrum.</td>
+</tr>
+</tbody>
+</table>
+<p>By default, these two functions will compute the power spectrum at <span class="math">\(a=1\)</span>
+and using the Eisenstein &amp; Hu transfer function with oscillations. The non-linear
+correction implemented in <a class="reference internal" href="../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.pk" title="cosmicpy.cosmology.cosmology.pk"><tt class="xref py py-meth docutils literal"><span class="pre">cosmology.pk()</span></tt></a> is computed based on <a class="reference internal" href="#smith" id="id1">[SmithPeacockJenkins+03]</a>.</p>
+<p>Here is an example to compute these two power spectra:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="go"># Creating a vector of wavenumbers</span>
+<span class="gp">In [14]: </span><span class="n">k</span> <span class="o">=</span> <span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="gp">In [15]: </span><span class="n">loglog</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">cosmo</span><span class="o">.</span><span class="n">pk</span><span class="p">(</span><span class="n">k</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s">&#39;Smith et al. $P(k)$&#39;</span><span class="p">);</span>
+
+<span class="gp">In [16]: </span><span class="n">loglog</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">cosmo</span><span class="o">.</span><span class="n">pk_lin</span><span class="p">(</span><span class="n">k</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s">&#39;Linear $P(k)$&#39;</span><span class="p">);</span>
+
+<span class="gp">In [17]: </span><span class="n">legend</span><span class="p">();</span> <span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;k [h/Mpc]&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../_images/start-2.png" src="../_images/start-2.png" />
+<p>Both power spectra can be computed with or without baryonic oscillations by setting the <strong>type</strong> keyword to
+either:</p>
+<ul class="simple">
+<li>&#8216;eisenhu_osc&#8217; : Include BAOs (default behavior)</li>
+<li>&#8216;eisenhu&#8217; : Without BAOs</li>
+</ul>
+<p>This example shows the matter power spectrum, with non-linear corrections, with and without BAO wiggles:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [18]: </span><span class="n">loglog</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">cosmo</span><span class="o">.</span><span class="n">pk</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s">&#39;eisenhu&#39;</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s">&#39;eisenhu&#39;</span><span class="p">);</span>
+
+<span class="gp">In [19]: </span><span class="n">loglog</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">cosmo</span><span class="o">.</span><span class="n">pk</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s">&#39;eisenhu_osc&#39;</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s">&#39;eisenhu_osc&#39;</span><span class="p">);</span>
+
+<span class="gp">In [20]: </span><span class="n">legend</span><span class="p">();</span> <span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;k [h/Mpc]&#39;</span><span class="p">);</span> <span class="n">title</span><span class="p">(</span><span class="s">&#39;Matter power spectrum&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../_images/start-3.png" src="../_images/start-3.png" />
+<p>Finally, the power spectrum can be computed at different scale factors:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="go"># Create an array of scale factors corresponding to z=0, 1 ,2 and 5</span>
+<span class="gp">In [21]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">z2a</span><span class="p">(</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]))</span>
+
+<span class="gp">In [22]: </span><span class="n">loglog</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">cosmo</span><span class="o">.</span><span class="n">pk</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">a</span><span class="p">));</span>
+
+<span class="gp">In [23]: </span><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;k [h/Mpc]&#39;</span><span class="p">);</span> <span class="n">title</span><span class="p">(</span><span class="s">&#39;Matter power spectrum at z=0, 1, 2, 5&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../_images/start-4.png" src="../_images/start-4.png" />
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p id="bibtex-bibliography-tutorials/gettingStarted-0"><table class="docutils citation" frame="void" id="smith" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[SmithPeacockJenkins+03]</a></td><td>R.&nbsp;E. Smith, J.&nbsp;A. Peacock, A.&nbsp;Jenkins, S.&nbsp;D.&nbsp;M. White, C.&nbsp;S. Frenk, F.&nbsp;R. Pearce, P.&nbsp;A. Thomas, G.&nbsp;Efstathiou, and H.&nbsp;M.&nbsp;P. Couchman. Stable clustering, the halo model and non-linear cosmological power spectra. <em>MNRAS</em>, 341:1311–1332, June 2003. <a class="reference external" href="http://arxiv.org/abs/astro-ph/0207664">arXiv:astro-ph/0207664</a>, <a class="reference external" href="http://dx.doi.org/10.1046/j.1365-8711.2003.06503.x">doi:10.1046/j.1365-8711.2003.06503.x</a>.</td></tr>
+</tbody>
+</table>
+</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2015, Francois Lanusse, Anais Rassat, Jean-Luc Starck.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3.<br/>
+    </p>
+  </div>
+</footer>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58875004-1', 'auto');
+  ga('send', 'pageview');
+  
+</script>
+
+
+  </body>
+</html>

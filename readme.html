@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Installation &mdash; CosmicPy 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.2.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.2.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/my-styles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="top" title="CosmicPy 0.1 documentation" href="index.html" />
+    <link rel="next" title="Source Code Documentation" href="cosmicpy/index.html" />
+    <link rel="prev" title="CosmicPy Documentation" href="index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+  
+  <a href="https://github.com/cosmicpy/cosmicpy"
+     class="visible-desktop hidden-xs"><img
+    id="gh-banner"
+    style="position: absolute; top: 50px; right: 0; border: 0;"
+    src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
+    alt="Fork me on GitHub"></a>
+  <script>
+    // Adjust banner height.
+    $(function () {
+      var navHeight = $(".navbar .container").css("height");
+      $("#gh-banner").css("top", navHeight);
+    });
+  </script>
+
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          CosmicPy</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="about.html">About</a></li>
+                <li><a href="contribute.html">Contribute</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#download-from-github">Download from GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install">Install</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicpy/index.html">Source Code Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cosmicpy/cosmology.html"><tt class="docutils literal"><span class="pre">cosmicpy.cosmology</span></tt> &#8211; Cosmology module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cosmicpy/survey.html"><tt class="docutils literal"><span class="pre">cosmicpy.survey</span></tt> &#8211; Galaxy survey representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cosmicpy/spectra.html"><tt class="docutils literal"><span class="pre">cosmicpy.spectra</span></tt> &#8211; Clustering and lensing power spectra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cosmicpy/fisher.html"><tt class="docutils literal"><span class="pre">cosmicpy.fisher</span></tt> &#8211; Fisher forecasts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cosmicpy/utils.html"><tt class="docutils literal"><span class="pre">cosmicpy.utils</span></tt> &#8211; Utility functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cosmicpy/tests.html">Testing module (<cite>cosmicpy.tests</cite>)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developer/index.html">Developer Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer/index.html#building-the-documentation">Building the documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="developer/index.html#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer/index.html#making-the-build">Making the build</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer/index.html#documentation-guidelines">Documentation guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="developer/index.html#testing-cosmicpy">Testing cosmicpy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="developer/index.html#testing-against-icosmo">Testing against iCosmo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#download-from-github">Download from GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install">Install</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cosmicpy/index.html">Source Code Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer/index.html">Developer Documentation</a></li>
+</ul>
+
+<div id="sourcelink">
+  <a href="_sources/readme.txt"
+     rel="nofollow">Source</a>
+</div>
+        </div>
+      </div>
+    <div class="col-md-9">
+      
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>CosmicPy requires the following softwares and libraries:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.cmake.org">CMake</a> version 2.6 or above</li>
+<li><a class="reference external" href="http://www.python.org/">Python</a> version 2.7</li>
+<li><a class="reference external" href="http://www.boost.org">Boost</a> version 1.50 or above, boost.math and boost.python packages required</li>
+<li><a class="reference external" href="http://www.gnu.org/software/gsl">GSL</a> version 1.16 or above recommended</li>
+<li><a class="reference external" href="http://www.numpy.org">Numpy</a> version 1.8 or above recommended</li>
+<li><a class="reference external" href="http://www.scipy.org/scipylib/index.html">SciPy</a> version 0.14 or above recommended</li>
+<li><a class="reference external" href="http://matplotlib.org/">Matplotlib</a> version 1.4.2 or above recommended</li>
+</ul>
+<p>It is also extremely recommended to install the <a class="reference external" href="http://ipython.org">ipython</a> shell. The different requirements can
+easily be installed on your system using a package manager:</p>
+<ul>
+<li><p class="first">Setting up requirements on <strong>Linux</strong>:</p>
+<p>On <cite>Linux</cite>, just use your favorite package manager to install the dependencies.
+For instance, on Ubuntu Linux:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo apt-get install cmake boost gsl ipython numpy scipy matplotlib
+</pre></div>
+</div>
+</li>
+<li><p class="first">Setting up requirements on <strong>Mac OS X</strong>:</p>
+<p>The recommended way of installing the dependencies for CosmicPy on a Mac is through <a class="reference external" href="http://www.macports.org/">MacPorts</a>.
+Provided that MacPorts is installed on your system, all the dependencies can be installed with the following command:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo port install cmake boost gsl py27-ipython py27-numpy py27-scipy py27-matplotlib pkgconfig
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Due to the Apple&#8217;s removal of gcc in OSX Mavericks and Yosemite, the default macports compiler is now clang.
+Because <strong>clang lacks OpenMP support</strong>, it is not currently easily possible to compile CosmicPy with OpenMP
+parallelisation under Mac OS X. It is possible but requires compiling boost with gcc.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="download-from-github">
+<h2>Download from GitHub<a class="headerlink" href="#download-from-github" title="Permalink to this headline">¶</a></h2>
+<p>CosmicPy is hosted on a public GitHub repository at this address: <a class="reference external" href="https://git.orioncloud.fr/work/cosmicpy">https://git.orioncloud.fr/work/cosmicpy</a></p>
+<p>The package can be retrieved with the following command:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ git clone https://git.orioncloud.fr/work/cosmicpy.git
+</pre></div>
+</div>
+<p>This will clone the latest release of the code into a local folder <strong>cosmicpy.git</strong>.</p>
+</div>
+<div class="section" id="install">
+<h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
+<p>Once the requirements are installed and the CosmicPy package is downloaded, go to the cosmicpy source folder:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ cd cosmicpy.git
+</pre></div>
+</div>
+<p>and run the following command:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo python setup.py install
+</pre></div>
+</div>
+<p>This should compile and install CosmicPy on your computer and it should be ready to use.</p>
+<p>You can check that CosmicPy has correctly been installed by starting <strong class="program">ipython</strong> and running</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">cosmicpy</span>
+</pre></div>
+</div>
+<p>If no error message appears then the package is correctly installed.</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2015, Francois Lanusse, Anais Rassat, Jean-Luc Starck.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

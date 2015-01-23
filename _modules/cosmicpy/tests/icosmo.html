@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>cosmicpy.tests.icosmo &mdash; CosmicPy 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-3.2.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-3.2.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/my-styles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-sphinx.js"></script>
+    <link rel="author" title="About these documents" href="../../../about.html" />
+    <link rel="top" title="CosmicPy 0.1 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+  
+  <a href="https://github.com/cosmicpy/cosmicpy"
+     class="visible-desktop hidden-xs"><img
+    id="gh-banner"
+    style="position: absolute; top: 50px; right: 0; border: 0;"
+    src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
+    alt="Fork me on GitHub"></a>
+  <script>
+    // Adjust banner height.
+    $(function () {
+      var navHeight = $(".navbar .container").css("height");
+      $("#gh-banner").css("top", navHeight);
+    });
+  </script>
+
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          CosmicPy</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../../../about.html">About</a></li>
+                <li><a href="../../../contribute.html">Contribute</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#download-from-github">Download from GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install.html#install">Install</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/gettingStarted.html">Getting Started with CosmicPy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/gettingStarted.html#create-and-modify-a-cosmology">Create and modify a cosmology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/gettingStarted.html#compute-distances">Compute distances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/gettingStarted.html#compute-the-matter-power-spectrum">Compute the matter power spectrum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/gettingStarted.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/BAO.html">3D Spherical Analysis of BAOs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/BAO.html#setting-up-the-cosmology-and-the-surveys">Setting up the cosmology and the surveys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/BAO.html#impact-of-the-depth-of-the-survey-on-the-sfb-window">Impact of the depth of the survey on the SFB window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/BAO.html#impact-of-baos-on-the-power-spectrum">Impact of BAOs on the power spectrum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/BAO.html#impact-of-baos-on-the-sfb-power-spectrum">Impact of BAOs on the SFB power spectrum</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/3DSFB.html">3D SFB galaxy clustering</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/3DSFB.html#setting-up-the-cosmology-and-the-surveys">Setting up the cosmology and the surveys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/3DSFB.html#computing-3d-power-spectra">Computing 3D power spectra</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorials/3DSFB.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cosmicpy/index.html">Source Code Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../cosmicpy/cosmology.html"><tt class="docutils literal"><span class="pre">cosmicpy.cosmology</span></tt> &#8211; Cosmology module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cosmicpy/survey.html"><tt class="docutils literal"><span class="pre">cosmicpy.survey</span></tt> &#8211; Galaxy survey representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cosmicpy/spectra.html"><tt class="docutils literal"><span class="pre">cosmicpy.spectra</span></tt> &#8211; Clustering and lensing power spectra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cosmicpy/fisher.html"><tt class="docutils literal"><span class="pre">cosmicpy.fisher</span></tt> &#8211; Fisher forecasts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cosmicpy/utils.html"><tt class="docutils literal"><span class="pre">cosmicpy.utils</span></tt> &#8211; Utility functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cosmicpy/tests.html">Testing module (<cite>cosmicpy.tests</cite>)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/index.html">Developer Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer/index.html#building-the-documentation">Building the documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer/index.html#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer/index.html#making-the-build">Making the build</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer/index.html#documentation-guidelines">Documentation guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../developer/index.html#testing-cosmicpy">Testing cosmicpy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../developer/index.html#testing-against-icosmo">Testing against iCosmo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cosmicpy/index.html">Source Code Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer/index.html">Developer Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    <div class="col-md-9">
+      
+  <h1>Source code for cosmicpy.tests.icosmo</h1><div class="highlight"><pre>
+<span class="c"># Copyright (c) 2014-2015, CosmicPy Developers</span>
+<span class="c"># Licensed under CeCILL 2.1 - see LICENSE.rst</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.io</span> <span class="kn">import</span> <span class="n">readsav</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">romberg</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">brentq</span>
+<span class="kn">import</span> <span class="nn">cosmicpy</span>
+
+
+<span class="k">def</span> <span class="nf">_print_diff</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">param1</span><span class="p">,</span> <span class="n">param2</span><span class="p">):</span>
+    <span class="sd">r&quot;&quot;&quot; Helper function used to display differences between values.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">div</span> <span class="o">=</span> <span class="n">param1</span>
+    <span class="k">if</span> <span class="n">div</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">div</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">name</span> <span class="o">+</span> <span class="s">&#39;: {:15f} | {:15f} | {:15f} | {:.2%}&#39;</span>\
+          <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">param1</span><span class="p">,</span>
+                  <span class="n">param2</span><span class="p">,</span>
+                  <span class="nb">abs</span><span class="p">(</span><span class="n">param1</span> <span class="o">-</span> <span class="n">param2</span><span class="p">),</span>
+                  <span class="nb">abs</span><span class="p">((</span><span class="n">param1</span> <span class="o">-</span> <span class="n">param2</span><span class="p">)</span> <span class="o">/</span> <span class="n">div</span><span class="p">)))</span>
+
+
+<div class="viewcode-block" id="import_cosmology"><a class="viewcode-back" href="../../../cosmicpy/tests.html#cosmicpy.tests.icosmo.import_cosmology">[docs]</a><span class="k">def</span> <span class="nf">import_cosmology</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">structure_name</span><span class="o">=</span><span class="s">&quot;fid&quot;</span><span class="p">):</span>
+    <span class="sd">r&quot;&quot;&quot; Loads an icosmo cosmology from a fiducial structure stored in an</span>
+<span class="sd">    idl save file into a cosmicpy cosmology.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    filename : str</span>
+<span class="sd">        Name of the idl save from which to load the cosmology.</span>
+<span class="sd">    structure_name : str, optional</span>
+<span class="sd">        Name of the icosmo fiducial structure stored in the save file.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    cosmo : cosmology</span>
+<span class="sd">        cosmicpy cosmology corresponding to the icosmo input.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">icosmo_file</span> <span class="o">=</span> <span class="n">readsav</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="n">icosmo</span> <span class="o">=</span> <span class="n">icosmo_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">structure_name</span><span class="p">)</span>
+
+    <span class="n">h</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="s">&#39;cosmo&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;h&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">Omega_m</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="s">&#39;cosmo&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;omega_m&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">Omega_de</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="s">&#39;cosmo&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;omega_l&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">Omega_b</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="s">&#39;cosmo&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;omega_b&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">w0</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="s">&#39;cosmo&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;w0&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">wa</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="s">&#39;cosmo&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;wa&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">tau</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="s">&#39;cosmo&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;tau&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="s">&#39;cosmo&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;n&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">sigma8</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="s">&#39;cosmo&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;sigma8&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">cosmo</span> <span class="o">=</span> <span class="n">cosmicpy</span><span class="o">.</span><span class="n">cosmology</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">h</span><span class="p">,</span> <span class="n">Omega_m</span><span class="o">=</span><span class="n">Omega_m</span><span class="p">,</span> <span class="n">Omega_de</span><span class="o">=</span><span class="n">Omega_de</span><span class="p">,</span>
+                              <span class="n">Omega_b</span><span class="o">=</span><span class="n">Omega_b</span><span class="p">,</span> <span class="n">w0</span><span class="o">=</span><span class="n">w0</span><span class="p">,</span> <span class="n">wa</span><span class="o">=</span><span class="n">wa</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="n">tau</span><span class="p">,</span>
+                              <span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">sigma8</span><span class="o">=</span><span class="n">sigma8</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">cosmo</span>
+
+</div>
+<div class="viewcode-block" id="import_survey"><a class="viewcode-back" href="../../../cosmicpy/tests.html#cosmicpy.tests.icosmo.import_survey">[docs]</a><span class="k">def</span> <span class="nf">import_survey</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">structure_name</span><span class="o">=</span><span class="s">&quot;fid&quot;</span><span class="p">,</span> <span class="n">expt_name</span><span class="o">=</span><span class="s">&quot;sv1&quot;</span><span class="p">):</span>
+    <span class="sd">r&quot;&quot;&quot; Loads an icosmo survey from a fiducial structure stored in an</span>
+<span class="sd">    idl save file into a cosmicpy survey.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    filename : str</span>
+<span class="sd">        Name of the idl save from which to load the cosmology.</span>
+<span class="sd">    structure_name : str, optional</span>
+<span class="sd">        Name of the icosmo fiducial structure stored in the save file.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    surv : survey</span>
+<span class="sd">        cosmicpy survey corresponding to the icosmo input.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">icosmo_file</span> <span class="o">=</span> <span class="n">readsav</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="n">icosmo</span> <span class="o">=</span> <span class="n">icosmo_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">structure_name</span><span class="p">)[</span><span class="s">&#39;expt&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">nzbins</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="n">expt_name</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;n_zbin&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">zerror</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="n">expt_name</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;zerror&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">ng</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="n">expt_name</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;ng&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">a_survey</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="n">expt_name</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;a_survey&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">dndztype</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="n">expt_name</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;dndztype&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">dndztype</span> <span class="o">!=</span> <span class="n">b</span><span class="s">&quot;smail&quot;</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;unsupported galaxy distribution&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">None</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="n">expt_name</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;dndzp&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="n">expt_name</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;dndzp&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">zmed</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="n">expt_name</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;z_med&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">biastype</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="n">expt_name</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;biastype&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">biastype</span> <span class="o">==</span> <span class="n">b</span><span class="s">&#39;bias0&#39;</span><span class="p">:</span>
+        <span class="n">btype</span> <span class="o">=</span> <span class="s">&#39;constant&#39;</span>
+    <span class="k">elif</span> <span class="n">biastype</span> <span class="o">==</span> <span class="n">b</span><span class="s">&#39;bias1&#39;</span><span class="p">:</span>
+        <span class="n">btype</span> <span class="o">=</span> <span class="s">&#39;sqrt&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;unsupported bias type&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">None</span>
+
+    <span class="c"># Compute fsky</span>
+    <span class="n">fsky</span> <span class="o">=</span> <span class="n">a_survey</span><span class="o">/</span><span class="p">(</span><span class="mf">180.</span><span class="o">/</span><span class="n">pi</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mf">4.0</span><span class="o">*</span><span class="n">pi</span><span class="p">)</span>
+
+    <span class="c"># find z0 corresponding to zmedian</span>
+    <span class="k">def</span> <span class="nf">med_smail</span><span class="p">(</span><span class="n">z0</span><span class="p">):</span>
+        <span class="n">smail</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">z</span><span class="o">**</span><span class="n">a</span> <span class="o">*</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">z</span><span class="o">/</span><span class="n">z0</span><span class="p">)</span><span class="o">**</span><span class="n">b</span><span class="p">)</span>
+        <span class="n">smail_norm</span> <span class="o">=</span> <span class="n">romberg</span><span class="p">(</span><span class="n">smail</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+        <span class="n">smailn</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="p">(</span><span class="n">z</span><span class="o">**</span><span class="n">a</span> <span class="o">*</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">z</span><span class="o">/</span><span class="n">z0</span><span class="p">)</span><span class="o">**</span><span class="n">b</span><span class="p">))</span> <span class="o">/</span> <span class="n">smail_norm</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">romberg</span><span class="p">(</span><span class="n">smailn</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span>
+        <span class="k">return</span> <span class="n">brentq</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-</span> <span class="n">zmed</span>
+    <span class="n">z0</span> <span class="o">=</span> <span class="n">brentq</span><span class="p">(</span><span class="n">med_smail</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+    <span class="n">surv</span> <span class="o">=</span> <span class="n">cosmicpy</span><span class="o">.</span><span class="n">survey</span><span class="p">(</span><span class="n">nzbins</span><span class="o">=</span><span class="n">nzbins</span><span class="p">,</span>
+                          <span class="n">ngal</span><span class="o">=</span><span class="n">ng</span><span class="p">,</span>
+                          <span class="n">zphot_sig</span><span class="o">=</span><span class="n">zerror</span><span class="p">,</span>
+                          <span class="n">fsky</span><span class="o">=</span><span class="n">fsky</span><span class="p">,</span>
+                          <span class="n">biastype</span><span class="o">=</span><span class="n">btype</span><span class="p">,</span>
+                          <span class="n">nzparams</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;type&#39;</span><span class="p">:</span> <span class="s">&#39;smail&#39;</span><span class="p">,</span>
+                                    <span class="s">&#39;a&#39;</span><span class="p">:</span> <span class="n">a</span><span class="p">,</span>
+                                    <span class="s">&#39;b&#39;</span><span class="p">:</span> <span class="n">b</span><span class="p">,</span>
+                                    <span class="s">&#39;z0&#39;</span><span class="p">:</span> <span class="n">z0</span><span class="p">})</span>
+    <span class="k">return</span> <span class="n">surv</span>
+</div>
+<div class="viewcode-block" id="check_cosmology"><a class="viewcode-back" href="../../../cosmicpy/tests.html#cosmicpy.tests.icosmo.check_cosmology">[docs]</a><span class="k">def</span> <span class="nf">check_cosmology</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">structure_name</span><span class="o">=</span><span class="s">&quot;cosmo&quot;</span><span class="p">):</span>
+    <span class="sd">r&quot;&quot;&quot; Loads an icosmo cosmology from an idl save file and compares the</span>
+<span class="sd">    content of the cosmology structure with results from cosmicpy.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    filename : str</span>
+<span class="sd">        Name of the idl save from which to load the cosmology.</span>
+<span class="sd">    structure_name : str, optional</span>
+<span class="sd">        Name of the icosmo cosmology structure stored in the save file.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">icosmo_file</span> <span class="o">=</span> <span class="n">readsav</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="n">icosmo</span> <span class="o">=</span> <span class="n">icosmo_file</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">structure_name</span><span class="p">)</span>
+
+    <span class="c"># Reading cosmological parameters and creating corresponding</span>
+    <span class="c"># cosmicpy object</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="s">&#39;const&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;h&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">Omega_m</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="s">&#39;const&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;omega_m&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">Omega_de</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="s">&#39;const&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;omega_l&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">Omega_b</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="s">&#39;const&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;omega_b&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">w0</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="s">&#39;const&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;w0&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">wa</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="s">&#39;const&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;wa&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">tau</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="s">&#39;const&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;tau&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="s">&#39;const&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;n&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">sigma8</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="s">&#39;const&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;sigma8&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">cosmo</span> <span class="o">=</span> <span class="n">cosmicpy</span><span class="o">.</span><span class="n">cosmology</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="n">h</span><span class="p">,</span> <span class="n">Omega_m</span><span class="o">=</span><span class="n">Omega_m</span><span class="p">,</span> <span class="n">Omega_de</span><span class="o">=</span><span class="n">Omega_de</span><span class="p">,</span>
+                      <span class="n">Omega_b</span><span class="o">=</span><span class="n">Omega_b</span><span class="p">,</span> <span class="n">w0</span><span class="o">=</span><span class="n">w0</span><span class="p">,</span> <span class="n">wa</span><span class="o">=</span><span class="n">wa</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="n">tau</span><span class="p">,</span>
+                      <span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">sigma8</span><span class="o">=</span><span class="n">sigma8</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">cosmo</span><span class="p">)</span>
+
+    <span class="c"># Comparing derived quantities</span>
+    <span class="n">Omega_k</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="s">&#39;const&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;omega_k&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">r0</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="s">&#39;const&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;r0&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">h</span>
+    <span class="n">gamma</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="s">&#39;const&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;gamma&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">sh</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="s">&#39;const&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;sh&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">h</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Comparing derived constants :&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;parameter:        [icosmo] |       [cosmicpy] |&quot;</span>
+          <span class="s">&quot;            diff | relative error in percents &quot;</span><span class="p">)</span>
+    <span class="n">_print_diff</span><span class="p">(</span><span class="s">&quot;Omega_k  &quot;</span><span class="p">,</span> <span class="n">Omega_k</span><span class="p">,</span> <span class="n">cosmo</span><span class="o">.</span><span class="n">Omega_k</span><span class="p">)</span>
+    <span class="n">_print_diff</span><span class="p">(</span><span class="s">&quot;gamma    &quot;</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">cosmo</span><span class="o">.</span><span class="n">gamma</span><span class="p">)</span>
+    <span class="n">_print_diff</span><span class="p">(</span><span class="s">&quot;sh       &quot;</span><span class="p">,</span> <span class="n">sh</span><span class="p">,</span> <span class="n">cosmo</span><span class="o">.</span><span class="n">sh_r</span><span class="p">)</span>
+
+    <span class="c"># Comparing evolved quantities</span>
+    <span class="n">rh</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="s">&#39;const&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;rh&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">h</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="s">&#39;evol&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;z&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="s">&#39;evol&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;a&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">chi</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="s">&#39;evol&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;chi&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">rh</span>
+    <span class="n">hc</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="s">&#39;evol&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;hc&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">h</span>
+    <span class="n">Omega_m</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="s">&#39;evol&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;omega_m_a&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">Omega_de_a</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="s">&#39;evol&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;omega_l_a&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">dzdr</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="s">&#39;evol&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;dzdr&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">h</span>
+    <span class="n">da</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="s">&#39;evol&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;da&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">h</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Comparing evolved quantities, maximum relative error:&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Radial Comoving Distance  :  &quot;</span> <span class="o">+</span>
+          <span class="nb">str</span><span class="p">(</span><span class="nb">abs</span><span class="p">((</span><span class="n">chi</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">cosmo</span><span class="o">.</span><span class="n">a2chi</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span> <span class="o">/</span> <span class="n">chi</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span><span class="o">.</span><span class="n">max</span><span class="p">()))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Angular Diameter Distance :  &quot;</span> <span class="o">+</span>
+          <span class="nb">str</span><span class="p">(</span><span class="nb">abs</span><span class="p">((</span><span class="n">da</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">*</span> <span class="n">cosmo</span><span class="o">.</span><span class="n">f_k</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span> <span class="o">/</span> <span class="n">da</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span><span class="o">.</span><span class="n">max</span><span class="p">()))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Hubble constant           :  &quot;</span> <span class="o">+</span>
+          <span class="nb">str</span><span class="p">(</span><span class="nb">abs</span><span class="p">((</span><span class="n">hc</span> <span class="o">-</span> <span class="n">cosmo</span><span class="o">.</span><span class="n">H</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="o">/</span> <span class="n">hc</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Omega_m(a)                :  &quot;</span> <span class="o">+</span>
+           <span class="nb">str</span><span class="p">(</span><span class="nb">abs</span><span class="p">((</span><span class="n">Omega_m</span> <span class="o">-</span> <span class="n">cosmo</span><span class="o">.</span><span class="n">Omega_m_a</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="o">/</span> <span class="n">Omega_m</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Omega_de(a)               :  &quot;</span> <span class="o">+</span>
+           <span class="nb">str</span><span class="p">(</span><span class="nb">abs</span><span class="p">((</span><span class="n">Omega_de_a</span> <span class="o">-</span> <span class="n">cosmo</span><span class="o">.</span><span class="n">Omega_de_a</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="o">/</span> <span class="n">Omega_de_a</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;dzdr                      :  &quot;</span> <span class="o">+</span>
+           <span class="nb">str</span><span class="p">(</span><span class="nb">abs</span><span class="p">((</span><span class="n">dzdr</span> <span class="o">-</span> <span class="n">cosmo</span><span class="o">.</span><span class="n">dzoverda</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">/</span>
+                    <span class="n">cosmo</span><span class="o">.</span><span class="n">dchioverda</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="o">/</span> <span class="n">dzdr</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()))</span>
+
+    <span class="c"># Comparing Power spectrum</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="s">&#39;pk&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;k&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">zpk</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="s">&#39;pk&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;z&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">pk</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="s">&#39;pk&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;pk&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">pk_l</span> <span class="o">=</span> <span class="n">icosmo</span><span class="p">[</span><span class="s">&#39;pk&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;pk_l&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Comparing linear power spectra&quot;</span><span class="p">)</span>
+    <span class="n">pk2</span> <span class="o">=</span> <span class="n">cosmo</span><span class="o">.</span><span class="n">pk_lin</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">cosmicpy</span><span class="o">.</span><span class="n">z2a</span><span class="p">(</span><span class="n">zpk</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">zpk</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">pk2</span><span class="o">.</span><span class="n">T</span> <span class="o">-</span> <span class="n">pk_l</span><span class="p">)</span> <span class="o">/</span> <span class="n">pk_l</span><span class="p">,</span> <span class="mi">250</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">r&quot;Scale in Mpc/h&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">r&quot;Redshift&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s">&#39;log&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">&#39;Relative Error in linear power specrum computation&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Maximum relative error on linear power specrum : &quot;</span> <span class="o">+</span>
+          <span class="nb">str</span><span class="p">((</span><span class="nb">abs</span><span class="p">(</span><span class="n">pk2</span><span class="o">.</span><span class="n">T</span> <span class="o">-</span> <span class="n">pk_l</span><span class="p">)</span> <span class="o">/</span> <span class="n">pk_l</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()))</span>
+</pre></div></div>
+
+    </div>
+      
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2015, Francois Lanusse, Anais Rassat, Jean-Luc Starck.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3.<br/>
+    </p>
+  </div>
+</footer>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58875004-1', 'auto');
+  ga('send', 'pageview');
+  
+</script>
+
+
+  </body>
+</html>

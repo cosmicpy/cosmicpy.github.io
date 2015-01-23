@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>cosmicpy.spectra &mdash; CosmicPy 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-3.2.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-3.2.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/my-styles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="top" title="CosmicPy 0.1 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+  
+  <a href="https://github.com/cosmicpy/cosmicpy"
+     class="visible-desktop hidden-xs"><img
+    id="gh-banner"
+    style="position: absolute; top: 50px; right: 0; border: 0;"
+    src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
+    alt="Fork me on GitHub"></a>
+  <script>
+    // Adjust banner height.
+    $(function () {
+      var navHeight = $(".navbar .container").css("height");
+      $("#gh-banner").css("top", navHeight);
+    });
+  </script>
+
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          CosmicPy</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../../about.html">About</a></li>
+                <li><a href="../../contribute.html">Contribute</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../install.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../install.html#download-from-github">Download from GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../install.html#install">Install</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/gettingStarted.html">Getting Started with CosmicPy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/gettingStarted.html#create-and-modify-a-cosmology">Create and modify a cosmology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/gettingStarted.html#compute-distances">Compute distances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/gettingStarted.html#compute-the-matter-power-spectrum">Compute the matter power spectrum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/gettingStarted.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/BAO.html">3D Spherical Analysis of BAOs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/BAO.html#setting-up-the-cosmology-and-the-surveys">Setting up the cosmology and the surveys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/BAO.html#impact-of-the-depth-of-the-survey-on-the-sfb-window">Impact of the depth of the survey on the SFB window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/BAO.html#impact-of-baos-on-the-power-spectrum">Impact of BAOs on the power spectrum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/BAO.html#impact-of-baos-on-the-sfb-power-spectrum">Impact of BAOs on the SFB power spectrum</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials/3DSFB.html">3D SFB galaxy clustering</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/3DSFB.html#setting-up-the-cosmology-and-the-surveys">Setting up the cosmology and the surveys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/3DSFB.html#computing-3d-power-spectra">Computing 3D power spectra</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../tutorials/3DSFB.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicpy/index.html">Source Code Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../cosmicpy/cosmology.html"><tt class="docutils literal"><span class="pre">cosmicpy.cosmology</span></tt> &#8211; Cosmology module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cosmicpy/survey.html"><tt class="docutils literal"><span class="pre">cosmicpy.survey</span></tt> &#8211; Galaxy survey representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cosmicpy/spectra.html"><tt class="docutils literal"><span class="pre">cosmicpy.spectra</span></tt> &#8211; Clustering and lensing power spectra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cosmicpy/fisher.html"><tt class="docutils literal"><span class="pre">cosmicpy.fisher</span></tt> &#8211; Fisher forecasts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cosmicpy/utils.html"><tt class="docutils literal"><span class="pre">cosmicpy.utils</span></tt> &#8211; Utility functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cosmicpy/tests.html">Testing module (<cite>cosmicpy.tests</cite>)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/index.html">Developer Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../developer/index.html#building-the-documentation">Building the documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../developer/index.html#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../developer/index.html#making-the-build">Making the build</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../developer/index.html#documentation-guidelines">Documentation guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../developer/index.html#testing-cosmicpy">Testing cosmicpy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../developer/index.html#testing-against-icosmo">Testing against iCosmo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cosmicpy/index.html">Source Code Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer/index.html">Developer Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    <div class="col-md-9">
+      
+  <h1>Source code for cosmicpy.spectra</h1><div class="highlight"><pre>
+<span class="c"># Copyright (c) 2014-2015, CosmicPy Developers</span>
+<span class="c"># Licensed under CeCILL 2.1 - see LICENSE.rst</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">:mod:`cosmicpy.spectra` -- Clustering and lensing power spectra</span>
+<span class="sd">==============================================================</span>
+
+<span class="sd">.. module:: cosmicpy.spectra</span>
+<span class="sd">    :synopsis: Computes galaxy spectra</span>
+<span class="sd">.. moduleauthor:: Francois Lanusse &lt;francois.lanusse@cea.fr&gt;</span>
+<span class="sd">.. moduleauthor:: Anais Rassat &lt;anais.rassat@epfl.ch&gt;</span>
+<span class="sd">.. Created on Jun 14, 2013 by Francois Lanusse</span>
+
+<span class="sd">.. autosummary::</span>
+
+<span class="sd">    spectra</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">.tools</span> <span class="kn">import</span> <span class="n">BesselWindow</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">constants</span> <span class="k">as</span> <span class="n">const</span>
+<span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">jn_zeros</span>
+
+
+<div class="viewcode-block" id="spectra"><a class="viewcode-back" href="../../cosmicpy/spectra.html#cosmicpy.spectra.spectra">[docs]</a><span class="k">class</span> <span class="nc">spectra</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Computes and stores all the window functions &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cosmo</span><span class="p">,</span> <span class="n">surv</span><span class="p">,</span> <span class="n">lmax</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span> <span class="o">=</span> <span class="n">cosmo</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">surv</span> <span class="o">=</span> <span class="n">surv</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_n_a</span> <span class="o">=</span> <span class="mi">256</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_lmax</span> <span class="o">=</span> <span class="n">lmax</span>
+        <span class="c"># Number of points in the dsbt</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_chimax</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">surv</span><span class="o">.</span><span class="n">chimax</span><span class="p">(</span><span class="n">cosmo</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_kmax_bessel</span> <span class="o">=</span> <span class="mf">0.5</span>
+
+        <span class="n">bess_zeros</span> <span class="o">=</span> <span class="n">jn_zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nmax</span> <span class="o">=</span> <span class="n">where</span><span class="p">(</span><span class="n">bess_zeros</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_kmax_bessel</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chimax</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">besselWindow</span> <span class="o">=</span> <span class="n">BesselWindow</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_nmax</span><span class="p">,</span>
+                                         <span class="bp">self</span><span class="o">.</span><span class="n">_lmax</span><span class="p">,</span>
+                                         <span class="bp">self</span><span class="o">.</span><span class="n">_kmax_bessel</span><span class="p">,</span>
+                                         <span class="s">&quot;qlnTable.dat&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">surv</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="c"># initializes the tabulation arrays</span>
+        <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_a</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_da</span><span class="p">)</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="n">z2a</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">surv</span><span class="o">.</span><span class="n">zmax</span><span class="p">),</span>
+                                       <span class="n">z2a</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">surv</span><span class="o">.</span><span class="n">zmin</span><span class="p">),</span>
+                                       <span class="bp">self</span><span class="o">.</span><span class="n">_n_a</span><span class="p">,</span>
+                                       <span class="n">retstep</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                                       <span class="n">endpoint</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_z</span> <span class="o">=</span> <span class="n">a2z</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_a</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_chi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">a2chi</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_a</span><span class="p">)</span>
+
+<div class="viewcode-block" id="spectra.g"><a class="viewcode-back" href="../../cosmicpy/spectra.html#cosmicpy.spectra.spectra.g">[docs]</a>    <span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; galaxy clustering window function &quot;&quot;&quot;</span>
+        <span class="c"># Checks that the bin index is correct</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">surv</span><span class="o">.</span><span class="n">nzbins</span><span class="p">):</span>
+            <span class="k">print</span> <span class="p">(</span><span class="s">&quot;Error, bin number &quot;</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="s">&quot; is out of range.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="mf">0.0</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">atleast_1d</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="n">atleast_1d</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">z</span><span class="p">)))</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">a2chi</span><span class="p">(</span><span class="n">z2a</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
+
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">z</span><span class="p">)):</span>
+            <span class="n">k</span> <span class="o">=</span> <span class="p">(</span><span class="n">l</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">/</span> <span class="n">r</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+            <span class="n">b</span><span class="p">[:,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">surv</span><span class="o">.</span><span class="n">zbins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">nz</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">surv</span><span class="o">.</span><span class="n">bias</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">k</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">b</span>
+</div>
+<div class="viewcode-block" id="spectra.cl_gg"><a class="viewcode-back" href="../../cosmicpy/spectra.html#cosmicpy.spectra.spectra.cl_gg">[docs]</a>    <span class="k">def</span> <span class="nf">cl_gg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">shotNoise</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">linear</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; galaxy-galaxy angular power spectrum in the Limber approximation&quot;&quot;&quot;</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="n">atleast_1d</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+        <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">da</span><span class="p">)</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="n">z2a</span><span class="p">(</span><span class="nb">max</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">surv</span><span class="o">.</span><span class="n">zbins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">zmax</span><span class="p">,</span>
+                                    <span class="bp">self</span><span class="o">.</span><span class="n">surv</span><span class="o">.</span><span class="n">zbins</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">zmax</span><span class="p">])),</span>
+                           <span class="n">z2a</span><span class="p">(</span><span class="nb">min</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">surv</span><span class="o">.</span><span class="n">zbins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">zmin</span><span class="p">,</span>
+                                    <span class="bp">self</span><span class="o">.</span><span class="n">surv</span><span class="o">.</span><span class="n">zbins</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">zmin</span><span class="p">])),</span>
+                           <span class="bp">self</span><span class="o">.</span><span class="n">_n_a</span><span class="p">,</span> <span class="n">retstep</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+        <span class="n">clintegrand</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">dchioverda</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span>
+                             <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">f_k</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">a</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">linear</span><span class="p">:</span>
+            <span class="n">pl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">pl_lin</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">pl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">pl</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">romb</span><span class="p">(</span><span class="n">clintegrand</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">g</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">a2z</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">g</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">a2z</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="o">*</span>
+                                  <span class="n">pl</span><span class="p">),</span> <span class="n">da</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">shotNoise</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">+=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">surv</span><span class="o">.</span><span class="n">zbins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">ngal</span>
+
+        <span class="k">return</span> <span class="n">res</span>
+</div>
+<div class="viewcode-block" id="spectra.W"><a class="viewcode-back" href="../../cosmicpy/spectra.html#cosmicpy.spectra.spectra.W">[docs]</a>    <span class="k">def</span> <span class="nf">W</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">k1</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">k2</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">evol</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">fid_cosmo</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">kmax</span><span class="o">=</span><span class="mf">0.25</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot;</span>
+<span class="sd">        Computes the Spherical Fourier-Bessel window function for the survey</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        l : int</span>
+<span class="sd">            Order of the Bessel functions.</span>
+<span class="sd">        k1 : array_like, optional</span>
+<span class="sd">            Value of the scale at which to evaluate the window function</span>
+<span class="sd">            in h/Mpc. If None is provided, the window function is evaluated</span>
+<span class="sd">            at discrete points defined by the zeroes of the Bessel</span>
+<span class="sd">            functions up to the kmax parameter (def : None).</span>
+<span class="sd">        k2 : array_like, optional</span>
+<span class="sd">            Value of the scale at which to evaluate the window function</span>
+<span class="sd">            in h/Mpc. If None is provided, a symmetric Bessel window is</span>
+<span class="sd">            computed :math:`W_l(k1, k1)`  (def : None).</span>
+<span class="sd">        evol : boolean, optional</span>
+<span class="sd">            Flag to include the time dependent linear bias and growth in</span>
+<span class="sd">            the computation of the window function (def : True).</span>
+<span class="sd">        fid_cosmo : Cosmology, optional</span>
+<span class="sd">            Fiducial cosmology to use for the computation of redshift to</span>
+<span class="sd">            comoving distance in the case of a real survey. If None is</span>
+<span class="sd">            provided, the true cosmology is used (def : None).</span>
+<span class="sd">        kmax : float, optional</span>
+<span class="sd">            Maximum scale at which to compute the window if k1 is not</span>
+<span class="sd">            provided. This is usefull to avoid computing the</span>
+<span class="sd">            window at non linear scales which would be cut afterwards</span>
+<span class="sd">            (def : 0.25).</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+
+<span class="sd">        :math:: W_l (k1,k2) = \int k1 \phi(r)</span>
+<span class="sd">                j_l(k1 r) j_l(k2 r) r^2 dr</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c"># Computing the selection function for the requested modes l</span>
+        <span class="n">chi_l</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">besselWindow</span><span class="o">.</span><span class="n">rgrid</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+        <span class="n">phi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">surv</span><span class="o">.</span><span class="n">phi</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="p">,</span> <span class="n">chi_l</span><span class="p">)</span>
+
+        <span class="c"># Include growth and bias if requested</span>
+        <span class="k">if</span> <span class="n">evol</span><span class="p">:</span>
+            <span class="c"># Include growth</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">chi2a</span><span class="p">(</span><span class="n">chi_l</span><span class="p">)</span>
+            <span class="n">g</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">G</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+            <span class="n">phi</span> <span class="o">*=</span> <span class="n">g</span>
+            <span class="c"># Include scale dependent bias, either using the provided k or</span>
+            <span class="c"># using the default k_ln grid</span>
+            <span class="k">if</span> <span class="n">k2</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="n">k</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">besselWindow</span><span class="o">.</span><span class="n">kgrid</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chimax</span><span class="p">)</span>
+                <span class="n">b</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">surv</span><span class="o">.</span><span class="n">bias</span><span class="p">(</span><span class="n">a2z</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">k</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">b</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">surv</span><span class="o">.</span><span class="n">bias</span><span class="p">(</span><span class="n">a2z</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">k2</span><span class="p">)</span>
+            <span class="n">phi</span> <span class="o">=</span> <span class="n">einsum</span><span class="p">(</span><span class="s">&#39;i,ij-&gt;ij&#39;</span><span class="p">,</span> <span class="n">phi</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">k2</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="n">k</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">besselWindow</span><span class="o">.</span><span class="n">kgrid</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chimax</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">k</span> <span class="o">=</span> <span class="n">k2</span>
+            <span class="n">phi</span> <span class="o">=</span> <span class="n">einsum</span><span class="p">(</span><span class="s">&#39;i,ij-&gt;ij&#39;</span><span class="p">,</span> <span class="n">phi</span><span class="p">,</span> <span class="n">ones</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">phi</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">k</span><span class="p">))))</span>
+
+        <span class="c"># Computing the comoving distance for a redshift space survey</span>
+        <span class="c"># according to a fiducial cosmology</span>
+        <span class="k">if</span> <span class="n">fid_cosmo</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">chi_l</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">fid_cosmo</span><span class="o">.</span><span class="n">a2chi</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">chi2a</span><span class="p">(</span><span class="n">chi_l</span><span class="p">))</span>
+
+        <span class="c"># First case, if k1 is not specified, the window is computed for W_l(k_{l n}, k2)</span>
+        <span class="c"># with an adapted step in k2 to correctly sample the main lobe of the</span>
+        <span class="c"># window</span>
+        <span class="k">if</span> <span class="n">k1</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">besselWindow</span><span class="o">.</span><span class="n">tabulated</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chimax</span><span class="p">,</span>
+                                               <span class="n">kmax</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">phi</span><span class="p">)</span>
+
+        <span class="n">k1</span> <span class="o">=</span> <span class="n">atleast_1d</span><span class="p">(</span><span class="n">k1</span><span class="p">)</span>
+
+        <span class="c"># Second case, k1 is provided, not k2. In this case,</span>
+        <span class="c"># an optimal window is computed</span>
+        <span class="k">if</span> <span class="n">k2</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">besselWindow</span><span class="o">.</span><span class="n">optimal</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chimax</span><span class="p">,</span> <span class="n">k1</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">phi</span><span class="p">)</span>
+
+        <span class="n">k2</span> <span class="o">=</span> <span class="n">atleast_1d</span><span class="p">(</span><span class="n">k2</span><span class="p">)</span>
+
+        <span class="c"># 3rd case, k1 and k2 are provided</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">besselWindow</span><span class="o">.</span><span class="n">custom</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">k1</span><span class="p">,</span> <span class="n">k2</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">phi</span><span class="p">)</span>
+</div>
+    <span class="k">def</span> <span class="nf">cl_sfb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">shotNoise</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">onlyNoise</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+               <span class="n">evol</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">fid_cosmo</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">kmax</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+        <span class="n">l</span> <span class="o">=</span> <span class="n">atleast_1d</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+        <span class="n">kmax</span> <span class="o">=</span> <span class="n">atleast_1d</span><span class="p">(</span><span class="n">kmax</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">kmax</span><span class="o">.</span><span class="n">size</span> <span class="o">!=</span> <span class="n">l</span><span class="o">.</span><span class="n">size</span><span class="p">:</span>
+            <span class="n">kmax</span> <span class="o">=</span> <span class="n">ones_like</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="o">*</span> <span class="n">kmax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">k</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="c"># Computing linear scale cut</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)):</span>
+                <span class="n">k1</span><span class="p">,</span> <span class="n">k2</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">W</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">evol</span><span class="o">=</span><span class="n">evol</span><span class="p">,</span> <span class="n">kmax</span><span class="o">=</span><span class="n">kmax</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                                   <span class="n">fid_cosmo</span><span class="o">=</span><span class="n">fid_cosmo</span><span class="p">)</span>
+                <span class="n">pk</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">pk_lin</span><span class="p">(</span><span class="n">k2</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+                <span class="n">mat</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">k1</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">k1</span><span class="p">)))</span>
+                <span class="n">integrand</span> <span class="o">=</span> <span class="n">w</span><span class="o">*</span><span class="n">k2</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">pk</span>
+                <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">k1</span><span class="p">)):</span>
+                    <span class="n">integ</span> <span class="o">=</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">/</span> <span class="n">pi</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">simps</span><span class="p">(</span><span class="n">integrand</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="p">:]</span> <span class="o">*</span> <span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="p">:],</span> <span class="n">x</span><span class="o">=</span><span class="n">k2</span><span class="p">)</span>
+                    <span class="n">mat</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">integ</span>
+                    <span class="n">mat</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">integ</span>
+                <span class="k">if</span> <span class="n">shotNoise</span><span class="p">:</span>
+                    <span class="n">mat</span> <span class="o">+=</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">k1</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">W</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">k1</span><span class="p">,</span> <span class="n">k1</span><span class="p">,</span> <span class="n">evol</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">surv</span><span class="o">.</span><span class="n">N</span>
+
+                <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">k1</span><span class="p">,</span> <span class="n">mat</span><span class="p">])</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">res</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">k</span> <span class="o">=</span> <span class="n">atleast_1d</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">((</span><span class="n">l</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">k</span><span class="o">.</span><span class="n">size</span><span class="p">))</span>
+            <span class="n">noise</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">((</span><span class="n">l</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">k</span><span class="o">.</span><span class="n">size</span><span class="p">))</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">onlyNoise</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)):</span>
+                    <span class="n">kw</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">W</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">k</span><span class="p">,</span> <span class="n">evol</span><span class="o">=</span><span class="n">evol</span><span class="p">)</span>
+                    <span class="n">pk</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cosmo</span><span class="o">.</span><span class="n">pk_lin</span><span class="p">(</span><span class="n">kw</span><span class="p">[:,</span> <span class="p">:],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+                    <span class="n">integrand</span> <span class="o">=</span> <span class="n">square</span><span class="p">(</span><span class="n">kw</span> <span class="o">*</span> <span class="n">w</span><span class="p">)</span> <span class="o">*</span> <span class="n">pk</span>
+                    <span class="n">res</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">/</span> <span class="n">pi</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">trapz</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">integrand</span><span class="p">),</span> <span class="n">x</span><span class="o">=</span><span class="n">kw</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">shotNoise</span> <span class="ow">or</span> <span class="n">onlyNoise</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
+                    <span class="n">w</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="n">diag</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">W</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">evol</span><span class="o">=</span><span class="bp">False</span><span class="p">))</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">surv</span><span class="o">.</span><span class="n">N</span>
+                    <span class="n">noise</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">w</span>
+
+            <span class="k">if</span> <span class="n">onlyNoise</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">noise</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+            <span class="k">elif</span> <span class="n">shotNoise</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">(</span><span class="n">res</span> <span class="o">+</span> <span class="n">noise</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span></div>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2015, Francois Lanusse, Anais Rassat, Jean-Luc Starck.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3.<br/>
+    </p>
+  </div>
+</footer>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58875004-1', 'auto');
+  ga('send', 'pageview');
+  
+</script>
+
+
+  </body>
+</html>

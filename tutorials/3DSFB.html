@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>3D SFB galaxy clustering &mdash; CosmicPy 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.2.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.2.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/my-styles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CosmicPy 0.1 documentation" href="../index.html" />
+    <link rel="up" title="Tutorials" href="index.html" />
+    <link rel="next" title="Source Code Documentation" href="../cosmicpy/index.html" />
+    <link rel="prev" title="3D Spherical Analysis of BAOs" href="BAO.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+  
+  <a href="https://github.com/cosmicpy/cosmicpy"
+     class="visible-desktop hidden-xs"><img
+    id="gh-banner"
+    style="position: absolute; top: 50px; right: 0; border: 0;"
+    src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
+    alt="Fork me on GitHub"></a>
+  <script>
+    // Adjust banner height.
+    $(function () {
+      var navHeight = $(".navbar .container").css("height");
+      $("#gh-banner").css("top", navHeight);
+    });
+  </script>
+
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          CosmicPy</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../contribute.html">Contribute</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#download-from-github">Download from GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#install">Install</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="gettingStarted.html">Getting Started with CosmicPy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gettingStarted.html#create-and-modify-a-cosmology">Create and modify a cosmology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gettingStarted.html#compute-distances">Compute distances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gettingStarted.html#compute-the-matter-power-spectrum">Compute the matter power spectrum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gettingStarted.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="BAO.html">3D Spherical Analysis of BAOs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="BAO.html#setting-up-the-cosmology-and-the-surveys">Setting up the cosmology and the surveys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BAO.html#impact-of-the-depth-of-the-survey-on-the-sfb-window">Impact of the depth of the survey on the SFB window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BAO.html#impact-of-baos-on-the-power-spectrum">Impact of BAOs on the power spectrum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BAO.html#impact-of-baos-on-the-sfb-power-spectrum">Impact of BAOs on the SFB power spectrum</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">3D SFB galaxy clustering</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-the-cosmology-and-the-surveys">Setting up the cosmology and the surveys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#computing-3d-power-spectra">Computing 3D power spectra</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cosmicpy/index.html">Source Code Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/cosmology.html"><tt class="docutils literal"><span class="pre">cosmicpy.cosmology</span></tt> &#8211; Cosmology module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/survey.html"><tt class="docutils literal"><span class="pre">cosmicpy.survey</span></tt> &#8211; Galaxy survey representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/spectra.html"><tt class="docutils literal"><span class="pre">cosmicpy.spectra</span></tt> &#8211; Clustering and lensing power spectra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/fisher.html"><tt class="docutils literal"><span class="pre">cosmicpy.fisher</span></tt> &#8211; Fisher forecasts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/utils.html"><tt class="docutils literal"><span class="pre">cosmicpy.utils</span></tt> &#8211; Utility functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/tests.html">Testing module (<cite>cosmicpy.tests</cite>)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/index.html">Developer Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/index.html#building-the-documentation">Building the documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/index.html#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/index.html#making-the-build">Making the build</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/index.html#documentation-guidelines">Documentation guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/index.html#testing-cosmicpy">Testing cosmicpy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/index.html#testing-against-icosmo">Testing against iCosmo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="gettingStarted.html">Getting Started with CosmicPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BAO.html">3D Spherical Analysis of BAOs</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">3D SFB galaxy clustering</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-the-cosmology-and-the-surveys">Setting up the cosmology and the surveys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#computing-3d-power-spectra">Computing 3D power spectra</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cosmicpy/index.html">Source Code Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/index.html">Developer Documentation</a></li>
+</ul>
+
+<div id="sourcelink">
+  <a href="../_sources/tutorials/3DSFB.txt"
+     rel="nofollow">Source</a>
+</div>
+        </div>
+      </div>
+    <div class="col-md-9">
+      
+  <div class="section" id="d-sfb-galaxy-clustering">
+<h1>3D SFB galaxy clustering<a class="headerlink" href="#d-sfb-galaxy-clustering" title="Permalink to this headline">¶</a></h1>
+<p>In this tutorial we use cosmicpy to recover some of the results from <a class="reference internal" href="#yoo" id="id1">[YooDesjacques13]</a>.</p>
+<div class="section" id="setting-up-the-cosmology-and-the-surveys">
+<h2>Setting up the cosmology and the surveys<a class="headerlink" href="#setting-up-the-cosmology-and-the-surveys" title="Permalink to this headline">¶</a></h2>
+<p>For this tutorial, we are going to use galaxy surveys following a Gaussian selection function of the form:</p>
+<div class="math">
+\[\Phi(r) = e^{-(r/r_0)^2}\]</div>
+<p>Here, we are using <span class="math">\(r_0 = 2354 \quad h^{-1}\)</span> Mpc. The resulting volume of the survey is computed
+for a Gaussian selection function using <span class="math">\(V = \pi^{3/2} r_0^3\)</span>.</p>
+<p>The average galaxy density is set to <span class="math">\(\bar{n} = 10^{-4} (h^{-1} \mathrm{Mpc})^{-3}\)</span> which corresponds
+to a total number of galaxies in survey <span class="math">\(N\)</span> computed as:</p>
+<div class="math">
+\[N = \bar{n} V = 7,263,470\]</div>
+<p>We create a survey following these parameters in cosmicpy using:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">cosmicpy</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="gp">In [2]: </span><span class="n">cosmo</span> <span class="o">=</span> <span class="n">cosmology</span><span class="p">()</span>
+
+<span class="gp">In [3]: </span><span class="n">r0</span> <span class="o">=</span> <span class="mf">2354.0</span>
+
+<span class="gp">In [4]: </span><span class="n">survey_volume</span> <span class="o">=</span> <span class="n">pi</span><span class="o">**</span><span class="p">(</span><span class="mf">3.0</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">r0</span><span class="o">**</span><span class="mi">3</span>
+
+<span class="gp">In [5]: </span><span class="n">N</span> <span class="o">=</span> <span class="n">survey_volume</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="gp">In [6]: </span><span class="n">ngal</span> <span class="o">=</span> <span class="n">N</span> <span class="o">/</span><span class="p">(</span><span class="mf">4.0</span><span class="o">*</span> <span class="n">pi</span><span class="p">)</span><span class="o">/</span><span class="p">((</span><span class="mf">180.0</span><span class="o">/</span><span class="n">pi</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">60.0</span><span class="o">*</span><span class="mf">60.0</span><span class="p">)</span> <span class="c"># Conversion to gal/ arcmin^2</span>
+
+<span class="gp">In [7]: </span><span class="n">surv</span> <span class="o">=</span> <span class="n">survey</span><span class="p">(</span><span class="n">nzparams</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;type&#39;</span><span class="p">:</span><span class="s">&#39;gaussian&#39;</span><span class="p">,</span><span class="s">&#39;cosmology&#39;</span><span class="p">:</span><span class="n">cosmo</span><span class="p">,</span> <span class="s">&#39;r0&#39;</span><span class="p">:</span><span class="mf">2354.0</span><span class="p">},</span> <span class="n">zmax</span><span class="o">=</span><span class="mf">7.0</span><span class="p">,</span> <span class="n">fsky</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">ngal</span><span class="o">=</span><span class="n">ngal</span><span class="p">,</span> <span class="n">biastype</span><span class="o">=</span><span class="s">&#39;constant&#39;</span><span class="p">)</span>
+
+<span class="gp">In [8]: </span><span class="n">surv</span><span class="o">.</span><span class="n">N</span>     <span class="c"># Checking the number of galaxies in the survey</span>
+<span class="gh">Out[8]: </span><span class="go">7263470.626200338</span>
+
+<span class="gp">In [9]: </span><span class="n">surv</span><span class="o">.</span><span class="n">ngal</span> <span class="c"># Checking the mean galaxy density per square arcmin</span>
+<span class="gh">Out[9]: </span><span class="go">0.048908749054432946</span>
+</pre></div>
+</div>
+<p>Below, we plot the selection function along with the normalized galaxy density distribution:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [10]: </span><span class="n">z</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span><span class="mf">7.0</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span>
+
+<span class="gp">In [11]: </span><span class="n">pz</span> <span class="o">=</span> <span class="n">surv</span><span class="o">.</span><span class="n">nz</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+
+<span class="gp">In [12]: </span><span class="n">r</span> <span class="o">=</span> <span class="n">cosmo</span><span class="o">.</span><span class="n">a2chi</span><span class="p">(</span><span class="n">z2a</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>     <span class="c"># Convert redshift array into comoving distance</span>
+
+<span class="gp">In [13]: </span><span class="n">phi</span> <span class="o">=</span> <span class="n">surv</span><span class="o">.</span><span class="n">phi</span><span class="p">(</span><span class="n">cosmo</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>     <span class="c"># Compute selection function for both survey</span>
+
+<span class="gp">In [14]: </span><span class="n">figure</span><span class="p">();</span> <span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">);</span>
+
+<span class="gp">In [15]: </span><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Redshift&#39;</span><span class="p">);</span> <span class="n">grid</span><span class="p">();</span> <span class="n">title</span><span class="p">(</span><span class="s">&#39;Galaxy density probability distributions&#39;</span><span class="p">);</span>
+
+<span class="gp">In [16]: </span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">pz</span><span class="p">);</span>
+
+<span class="gp">In [17]: </span><span class="n">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">);</span>
+
+<span class="gp">In [18]: </span><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Comoving distance [Mpc/h]&#39;</span><span class="p">);</span> <span class="n">grid</span><span class="p">();</span>  <span class="n">title</span><span class="p">(</span><span class="s">r&#39;Selection functions&#39;</span><span class="p">);</span>
+
+<span class="gp">In [19]: </span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">phi</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../_images/3DSFB-1.png" src="../_images/3DSFB-1.png" />
+</div>
+<div class="section" id="computing-3d-power-spectra">
+<h2>Computing 3D power spectra<a class="headerlink" href="#computing-3d-power-spectra" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [20]: </span><span class="n">sp</span> <span class="o">=</span> <span class="n">spectra</span><span class="p">(</span><span class="n">cosmo</span><span class="p">,</span><span class="n">surv</span><span class="p">)</span>
+
+<span class="gp">In [21]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>             <span class="c"># Array of angular multipoles</span>
+
+<span class="gp">In [22]: </span><span class="n">k</span> <span class="o">=</span> <span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mf">0.65</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="c"># Array of wavenumbers</span>
+
+<span class="gp">In [23]: </span><span class="n">cl</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">cl_sfb</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">shotNoise</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">evol</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">survey_volume</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">r0</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">))</span>
+
+<span class="gp">In [24]: </span><span class="n">cl_evol</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">cl_sfb</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">shotNoise</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">evol</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">survey_volume</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">r0</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">))</span>
+
+<span class="gp">In [25]: </span><span class="n">cln</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">cl_sfb</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">onlyNoise</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">survey_volume</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">r0</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">))</span>
+
+<span class="gp">In [26]: </span><span class="n">figure</span><span class="p">();</span> <span class="n">subplot</span><span class="p">(</span><span class="mi">321</span><span class="p">);</span>
+
+<span class="gp">In [27]: </span><span class="n">loglog</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">cl</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]);</span> <span class="n">loglog</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">cln</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]);</span> <span class="n">loglog</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">cosmo</span><span class="o">.</span><span class="n">pk_lin</span><span class="p">(</span><span class="n">k</span><span class="p">));</span>
+
+<span class="gp">In [28]: </span><span class="n">ylim</span><span class="p">(</span><span class="mf">1e2</span><span class="p">,</span><span class="mf">6e4</span><span class="p">);</span> <span class="n">xlim</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">,</span><span class="mf">0.23</span><span class="p">);</span>
+
+<span class="gp">In [29]: </span><span class="n">subplot</span><span class="p">(</span><span class="mi">323</span><span class="p">);</span>
+
+<span class="gp">In [30]: </span><span class="n">loglog</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">cl</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]);</span>  <span class="n">loglog</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">cln</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]);</span> <span class="n">loglog</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">cosmo</span><span class="o">.</span><span class="n">pk_lin</span><span class="p">(</span><span class="n">k</span><span class="p">));</span>
+
+<span class="gp">In [31]: </span><span class="n">ylim</span><span class="p">(</span><span class="mf">1e2</span><span class="p">,</span><span class="mf">6e4</span><span class="p">);</span> <span class="n">xlim</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">,</span><span class="mf">0.23</span><span class="p">);</span>
+
+<span class="gp">In [32]: </span><span class="n">subplot</span><span class="p">(</span><span class="mi">325</span><span class="p">);</span>
+
+<span class="gp">In [33]: </span><span class="n">loglog</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">cl</span><span class="p">[</span><span class="mi">2</span><span class="p">,:]);</span> <span class="n">loglog</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">cln</span><span class="p">[</span><span class="mi">2</span><span class="p">,:]);</span> <span class="n">loglog</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">cosmo</span><span class="o">.</span><span class="n">pk_lin</span><span class="p">(</span><span class="n">k</span><span class="p">));</span>
+
+<span class="gp">In [34]: </span><span class="n">ylim</span><span class="p">(</span><span class="mf">1e2</span><span class="p">,</span><span class="mf">6e4</span><span class="p">);</span> <span class="n">xlim</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">,</span><span class="mf">0.23</span><span class="p">);</span>
+
+<span class="gp">In [35]: </span><span class="n">subplot</span><span class="p">(</span><span class="mi">322</span><span class="p">);</span>
+
+<span class="gp">In [36]: </span><span class="n">loglog</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">cl_evol</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]);</span> <span class="n">loglog</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">cln</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]);</span> <span class="n">loglog</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">cosmo</span><span class="o">.</span><span class="n">pk_lin</span><span class="p">(</span><span class="n">k</span><span class="p">));</span>
+
+<span class="gp">In [37]: </span><span class="n">ylim</span><span class="p">(</span><span class="mf">1e2</span><span class="p">,</span><span class="mf">6e4</span><span class="p">);</span> <span class="n">xlim</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">,</span><span class="mf">0.23</span><span class="p">);</span>
+
+<span class="gp">In [38]: </span><span class="n">subplot</span><span class="p">(</span><span class="mi">324</span><span class="p">);</span>
+
+<span class="gp">In [39]: </span><span class="n">loglog</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">cl_evol</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]);</span> <span class="n">loglog</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">cln</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]);</span> <span class="n">loglog</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">cosmo</span><span class="o">.</span><span class="n">pk_lin</span><span class="p">(</span><span class="n">k</span><span class="p">));</span>
+
+<span class="gp">In [40]: </span><span class="n">ylim</span><span class="p">(</span><span class="mf">1e2</span><span class="p">,</span><span class="mf">6e4</span><span class="p">);</span> <span class="n">xlim</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">,</span><span class="mf">0.23</span><span class="p">);</span>
+
+<span class="gp">In [41]: </span><span class="n">subplot</span><span class="p">(</span><span class="mi">326</span><span class="p">);</span>
+
+<span class="gp">In [42]: </span><span class="n">loglog</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">cl_evol</span><span class="p">[</span><span class="mi">2</span><span class="p">,:]);</span> <span class="n">loglog</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">cln</span><span class="p">[</span><span class="mi">2</span><span class="p">,:]);</span> <span class="n">loglog</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">cosmo</span><span class="o">.</span><span class="n">pk_lin</span><span class="p">(</span><span class="n">k</span><span class="p">));</span>
+
+<span class="gp">In [43]: </span><span class="n">ylim</span><span class="p">(</span><span class="mf">1e2</span><span class="p">,</span><span class="mf">6e4</span><span class="p">);</span> <span class="n">xlim</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">,</span><span class="mf">0.23</span><span class="p">);</span>
+
+<span class="gp">In [44]: </span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../_images/3DSFB-2.png" src="../_images/3DSFB-2.png" />
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p id="bibtex-bibliography-tutorials/3DSFB-0"><table class="docutils citation" frame="void" id="yoo" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[YooDesjacques13]</a></td><td>J.&nbsp;Yoo and V.&nbsp;Desjacques. All-sky analysis of the general relativistic galaxy power spectrum. <em>PhysRevD</em>, 88(2):023502, July 2013. <a class="reference external" href="http://arxiv.org/abs/1301.4501">arXiv:1301.4501</a>, <a class="reference external" href="http://dx.doi.org/10.1103/PhysRevD.88.023502">doi:10.1103/PhysRevD.88.023502</a>.</td></tr>
+</tbody>
+</table>
+</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2015, Francois Lanusse, Anais Rassat, Jean-Luc Starck.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3.<br/>
+    </p>
+  </div>
+</footer>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58875004-1', 'auto');
+  ga('send', 'pageview');
+  
+</script>
+
+
+  </body>
+</html>

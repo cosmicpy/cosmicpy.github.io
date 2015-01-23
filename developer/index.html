@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Developer Documentation &mdash; CosmicPy 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.2.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.2.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/my-styles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="CosmicPy 0.1 documentation" href="../index.html" />
+    <link rel="prev" title="Testing module (cosmicpy.tests)" href="../cosmicpy/tests.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+  
+  <a href="https://github.com/cosmicpy/cosmicpy"
+     class="visible-desktop hidden-xs"><img
+    id="gh-banner"
+    style="position: absolute; top: 50px; right: 0; border: 0;"
+    src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
+    alt="Fork me on GitHub"></a>
+  <script>
+    // Adjust banner height.
+    $(function () {
+      var navHeight = $(".navbar .container").css("height");
+      $("#gh-banner").css("top", navHeight);
+    });
+  </script>
+
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          CosmicPy</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../contribute.html">Contribute</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#download-from-github">Download from GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install.html#install">Install</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/gettingStarted.html">Getting Started with CosmicPy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/gettingStarted.html#create-and-modify-a-cosmology">Create and modify a cosmology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/gettingStarted.html#compute-distances">Compute distances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/gettingStarted.html#compute-the-matter-power-spectrum">Compute the matter power spectrum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/gettingStarted.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/BAO.html">3D Spherical Analysis of BAOs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/BAO.html#setting-up-the-cosmology-and-the-surveys">Setting up the cosmology and the surveys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/BAO.html#impact-of-the-depth-of-the-survey-on-the-sfb-window">Impact of the depth of the survey on the SFB window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/BAO.html#impact-of-baos-on-the-power-spectrum">Impact of BAOs on the power spectrum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/BAO.html#impact-of-baos-on-the-sfb-power-spectrum">Impact of BAOs on the SFB power spectrum</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/3DSFB.html">3D SFB galaxy clustering</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/3DSFB.html#setting-up-the-cosmology-and-the-surveys">Setting up the cosmology and the surveys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/3DSFB.html#computing-3d-power-spectra">Computing 3D power spectra</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tutorials/3DSFB.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cosmicpy/index.html">Source Code Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/cosmology.html"><tt class="docutils literal"><span class="pre">cosmicpy.cosmology</span></tt> &#8211; Cosmology module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/survey.html"><tt class="docutils literal"><span class="pre">cosmicpy.survey</span></tt> &#8211; Galaxy survey representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/spectra.html"><tt class="docutils literal"><span class="pre">cosmicpy.spectra</span></tt> &#8211; Clustering and lensing power spectra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/fisher.html"><tt class="docutils literal"><span class="pre">cosmicpy.fisher</span></tt> &#8211; Fisher forecasts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/utils.html"><tt class="docutils literal"><span class="pre">cosmicpy.utils</span></tt> &#8211; Utility functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/tests.html">Testing module (<cite>cosmicpy.tests</cite>)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Developer Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#building-the-documentation">Building the documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#making-the-build">Making the build</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#documentation-guidelines">Documentation guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#testing-cosmicpy">Testing cosmicpy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#testing-against-icosmo">Testing against iCosmo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cosmicpy/index.html">Source Code Documentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Developer Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#building-the-documentation">Building the documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#making-the-build">Making the build</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#documentation-guidelines">Documentation guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#testing-cosmicpy">Testing cosmicpy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#testing-against-icosmo">Testing against iCosmo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div id="sourcelink">
+  <a href="../_sources/developer/index.txt"
+     rel="nofollow">Source</a>
+</div>
+        </div>
+      </div>
+    <div class="col-md-9">
+      
+  <div class="section" id="developer-documentation">
+<h1>Developer Documentation<a class="headerlink" href="#developer-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="building-the-documentation">
+<h2>Building the documentation<a class="headerlink" href="#building-the-documentation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="requirements">
+<h3>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h3>
+<p>To be able to build the documentation, the following softwares are required:</p>
+<ul class="simple">
+<li>Sphinx</li>
+<li><a class="reference external" href="https://pypi.python.org/pypi/sphinxcontrib-naopleon">sphinxcontrib-napoleon</a></li>
+<li><a class="reference external" href="https://pypi.python.org/pypi/sphinxcontrib-bibtex/">sphinxcontrib-bibtex</a></li>
+<li><a class="reference external" href="https://pypi.python.org/pypi/sphinx-bootstrap-theme/">sphinx-bootstrap-theme</a></li>
+</ul>
+<p>On a <cite>Mac</cite>, Sphinx and Matplotlib can be installed through Macports:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo port install py27-sphinx py27-matplotlib
+</pre></div>
+</div>
+<p>To be able to add bibtex references, you need the sphinxcontrib-bibtex software. The numpydoc module allows the use of human readable
+documentation markings that are still able to be processed by sphinx. Installing both of these extensions can be easily done using the following command:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo pip install sphinx-bootstrap-theme sphinxcontrib-napoleon sphinxcontrib-bibtex
+</pre></div>
+</div>
+<p>And that&#8217;s it, your should now be able to build the documentation.</p>
+</div>
+<div class="section" id="making-the-build">
+<h3>Making the build<a class="headerlink" href="#making-the-build" title="Permalink to this headline">¶</a></h3>
+<p>To build the documentation, go to the <cite>doc</cite> folder and execute:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ make html
+</pre></div>
+</div>
+<p>This should execute sphinx and the documentation should be generated in the doc/build directory. To open the documentation:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ open buid/html/index.html
+</pre></div>
+</div>
+</div>
+<div class="section" id="documentation-guidelines">
+<h3>Documentation guidelines<a class="headerlink" href="#documentation-guidelines" title="Permalink to this headline">¶</a></h3>
+<p>The documentation style followed in cosmicpy is taken from the Numpy documentation.
+Guidelines for the documentation are discussed <a class="reference external" href="https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt">here</a>.
+An example is provided by Numpy in <a class="reference external" href="http://github.com/numpy/numpy/blob/master/doc/example.py">example.py</a>.</p>
+</div>
+</div>
+<div class="section" id="testing-cosmicpy">
+<h2>Testing cosmicpy<a class="headerlink" href="#testing-cosmicpy" title="Permalink to this headline">¶</a></h2>
+<p>A test module is included in cosmicpy to check the results of the computations.</p>
+<div class="section" id="testing-against-icosmo">
+<h3>Testing against iCosmo<a class="headerlink" href="#testing-against-icosmo" title="Permalink to this headline">¶</a></h3>
+<p>A testing suite is implemented to compare cosmicpy against
+<a class="reference external" href="http://icosmo.ethz.ch/Initiative_Web/Initiative.html">iCosmo</a>.
+If you have <strong class="program">iCosmo</strong> installed, you can save a cosmology structure into
+an <strong class="program">IDL</strong> save file using the following commands:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ idl
+IDL&gt; FID = SET_FIDUCIAL()
+IDL&gt; COSMO = MK_COSMO(FID)
+IDL&gt; SAVE, COSMO, FILENAME=&#39;icosmo.xdr&#39;
+</pre></div>
+</div>
+<p>In cosmicpy, the function to test the cosmology in implemented in
+<a class="reference internal" href="../cosmicpy/tests.html#cosmicpy.tests.icosmo.check_cosmology" title="cosmicpy.tests.icosmo.check_cosmology"><tt class="xref py py-meth docutils literal"><span class="pre">cosmicpy.tests.icosmo.check_cosmology()</span></tt></a>:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">cosmicpy.tests.icosmo</span> <span class="kn">as</span> <span class="nn">test</span>
+
+<span class="gp">In [2]: </span><span class="n">test</span><span class="o">.</span><span class="n">check_cosmology</span><span class="p">(</span><span class="s">&#39;icosmo.xdr&#39;</span><span class="p">)</span>
+<span class="go">FLRW Cosmology with the following parameters:</span>
+<span class="go">    h:        0.7</span>
+<span class="go">    Omega_b:  0.045</span>
+<span class="go">    Omega_m:  0.25</span>
+<span class="go">    Omega_de: 0.75</span>
+<span class="go">    w0:       -0.95</span>
+<span class="go">    wa:       0.0</span>
+<span class="go">    n:        1.0</span>
+<span class="go">    tau:      0.09</span>
+<span class="go">    sigma8:   0.8</span>
+
+<span class="go">Comparing derived constants :</span>
+<span class="go">    parameter:        [icosmo] |       [cosmicpy] |            diff | relative error in percents</span>
+<span class="go">    Omega_k  :        0.000000 |        0.000000 |        0.000000 | 0.00%</span>
+<span class="go">    gamma    :        0.135207 |        0.135207 |        0.000000 | 0.00%</span>
+<span class="go">    sh       :      105.273820 |      105.273820 |        0.000000 | 0.00%</span>
+
+<span class="go">Comparing evolved quantities, maximum relative error:</span>
+<span class="go">    Radial Comoving Distance  :  2.27991896578e-08</span>
+<span class="go">    Angular Diameter Distance :  2.27991896578e-08</span>
+<span class="go">    Hubble constant           :  2.31725750094e-16</span>
+<span class="go">    Omega_m(a)                :  4.23296149845e-16</span>
+<span class="go">    Omega_de(a)               :  3.50323656321e-16</span>
+<span class="go">    dzdr                      :  4.0784692469e-16</span>
+
+<span class="go">Comparing linear power spectra</span>
+<span class="go">Maximum relative error on linear power specrum : 0.000379879249849</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2015, Francois Lanusse, Anais Rassat, Jean-Luc Starck.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3.<br/>
+    </p>
+  </div>
+</footer>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58875004-1', 'auto');
+  ga('send', 'pageview');
+  
+</script>
+
+
+  </body>
+</html>
