@@ -90,8 +90,8 @@
       aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#download-from-github">Download from GitHub</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#install">Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-cosmicpy-from-pypi">Install CosmicPy from PyPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-cosmicpy-from-github">Install CosmicPy from GitHub</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a><ul>
@@ -170,8 +170,8 @@
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#download-from-github">Download from GitHub</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#install">Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-cosmicpy-from-pypi">Install CosmicPy from PyPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-cosmicpy-from-github">Install CosmicPy from GitHub</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a></li>
@@ -195,48 +195,50 @@
 <ul class="simple">
 <li><a class="reference external" href="http://www.cmake.org">CMake</a> version 2.6 or above</li>
 <li><a class="reference external" href="http://www.python.org/">Python</a> version 2.7</li>
-<li><a class="reference external" href="http://www.boost.org">Boost</a> version 1.50 or above, boost.math and boost.python packages required</li>
-<li><a class="reference external" href="http://www.gnu.org/software/gsl">GSL</a> version 1.16 or above recommended</li>
 <li><a class="reference external" href="http://www.numpy.org">Numpy</a> version 1.8 or above recommended</li>
 <li><a class="reference external" href="http://www.scipy.org/scipylib/index.html">SciPy</a> version 0.14 or above recommended</li>
 <li><a class="reference external" href="http://matplotlib.org/">Matplotlib</a> version 1.4.2 or above recommended</li>
+<li><a class="reference external" href="http://www.gnu.org/software/gsl">GSL</a> version 1.16 (Optional)</li>
 </ul>
-<p>It is also extremely recommended to install the <a class="reference external" href="http://ipython.org">ipython</a> shell. The different requirements can
-easily be installed on your system using a package manager:</p>
+<p>It is also extremely recommended to install the <a class="reference external" href="http://ipython.org">ipython</a> shell.</p>
+<p>All dependencies can be resolved using PyPI except for CMake which can be installed on your system
+using a package manager:</p>
 <ul>
 <li><p class="first">Setting up requirements on <strong>Linux</strong>:</p>
 <p>On <cite>Linux</cite>, just use your favorite package manager to install the dependencies.
 For instance, on Ubuntu Linux:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ sudo apt-get install cmake boost gsl ipython numpy scipy matplotlib
+<div class="highlight-python"><div class="highlight"><pre>$ sudo apt-get install cmake libgsl0-dev
 </pre></div>
 </div>
 </li>
 <li><p class="first">Setting up requirements on <strong>Mac OS X</strong>:</p>
 <p>The recommended way of installing the dependencies for CosmicPy on a Mac is through <a class="reference external" href="http://www.macports.org/">MacPorts</a>.
 Provided that MacPorts is installed on your system, all the dependencies can be installed with the following command:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ sudo port install cmake boost gsl py27-ipython py27-numpy py27-scipy py27-matplotlib pkgconfig
+<div class="highlight-python"><div class="highlight"><pre>$ sudo port install cmake libgsl0-dev pkgconfig
 </pre></div>
-</div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Due to the Apple&#8217;s removal of gcc in OSX Mavericks and Yosemite, the default macports compiler is now clang.
-Because <strong>clang lacks OpenMP support</strong>, it is not currently easily possible to compile CosmicPy with OpenMP
-parallelisation under Mac OS X. It is possible but requires compiling boost with gcc.</p>
 </div>
 </li>
 </ul>
 </div>
-<div class="section" id="download-from-github">
-<h2>Download from GitHub<a class="headerlink" href="#download-from-github" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="install-cosmicpy-from-pypi">
+<h2>Install CosmicPy from PyPI<a class="headerlink" href="#install-cosmicpy-from-pypi" title="Permalink to this headline">¶</a></h2>
+<p>To install CosmicPy, the simplest option is to use the following command</p>
+<blockquote>
+<div>$ pip install cosmicpy</div></blockquote>
+<p>You can check that CosmicPy has correctly been installed by starting <strong class="program">ipython</strong> and running</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">cosmicpy</span>
+</pre></div>
+</div>
+<p>If no error message appears then the package is correctly installed.</p>
+</div>
+<div class="section" id="install-cosmicpy-from-github">
+<h2>Install CosmicPy from GitHub<a class="headerlink" href="#install-cosmicpy-from-github" title="Permalink to this headline">¶</a></h2>
 <p>CosmicPy is hosted on a public GitHub repository at this address: <a class="reference external" href="https://github.com/cosmicpy/cosmicpy.git">https://github.com/cosmicpy/cosmicpy.git</a></p>
 <p>The package can be retrieved with the following command:</p>
 <div class="highlight-python"><div class="highlight"><pre>$ git clone https://github.com/cosmicpy/cosmicpy.git
 </pre></div>
 </div>
 <p>This will clone the latest release of the code into a local folder <strong>cosmicpy</strong>.</p>
-</div>
-<div class="section" id="install">
-<h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
 <p>Once the requirements are installed and the CosmicPy package is downloaded, go to the cosmicpy source folder:</p>
 <div class="highlight-python"><div class="highlight"><pre>$ cd cosmicpy
 </pre></div>
@@ -246,11 +248,6 @@ parallelisation under Mac OS X. It is possible but requires compiling boost with
 </pre></div>
 </div>
 <p>This should compile and install CosmicPy on your computer and it should be ready to use.</p>
-<p>You can check that CosmicPy has correctly been installed by starting <strong class="program">ipython</strong> and running</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">cosmicpy</span>
-</pre></div>
-</div>
-<p>If no error message appears then the package is correctly installed.</p>
 </div>
 </div>
 
@@ -268,19 +265,19 @@ parallelisation under Mac OS X. It is possible but requires compiling boost with
     </p>
     <p>
         &copy; Copyright 2015, Francois Lanusse, Anais Rassat, Jean-Luc Starck.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.3.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.2.<br/>
     </p>
   </div>
 </footer>
 <script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-58875004-1', 'auto');
-  ga('send', 'pageview');
-  
+    ga('create', 'UA-58875004-1', 'auto');
+    ga('require', 'linkid', 'linkid.js');
+    ga('send', 'pageview');
 </script>
 
 
