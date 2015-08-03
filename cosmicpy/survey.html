@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>&lt;no title&gt; &mdash; CosmicPy 0.1 documentation</title>
+    <title>cosmicpy.survey – Galaxy survey representation &mdash; CosmicPy 0.1 documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -34,8 +34,8 @@
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="top" title="CosmicPy 0.1 documentation" href="../index.html" />
     <link rel="up" title="Source Code Documentation" href="index.html" />
-    <link rel="next" title="&lt;no title&gt;" href="spectra.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="cosmology.html" />
+    <link rel="next" title="cosmicpy.spectra – Clustering and lensing power spectra" href="spectra.html" />
+    <link rel="prev" title="cosmicpy.cosmology – Cosmology module" href="cosmology.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -88,7 +88,7 @@
      href="../index.html">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul>
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../install.html#requirements">Requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../install.html#install-cosmicpy-from-pypi">Install CosmicPy from PyPI</a></li>
@@ -118,7 +118,12 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="index.html">Source Code Documentation</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Source Code Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cosmology.html"><tt class="docutils literal"><span class="pre">cosmicpy.cosmology</span></tt> &#8211; Cosmology module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href=""><tt class="docutils literal"><span class="pre">cosmicpy.survey</span></tt> &#8211; Galaxy survey representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spectra.html"><tt class="docutils literal"><span class="pre">cosmicpy.spectra</span></tt> &#8211; Clustering and lensing power spectra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fisher.html"><tt class="docutils literal"><span class="pre">cosmicpy.fisher</span></tt> &#8211; Fisher forecasts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html"><tt class="docutils literal"><span class="pre">cosmicpy.utils</span></tt> &#8211; Utility functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tests.html">Testing module (<cite>cosmicpy.tests</cite>)</a></li>
 </ul>
 </li>
@@ -163,10 +168,18 @@
 <div class="container">
   <div class="row">
       <div class="col-md-3">
-        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html">Source Code Documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Source Code Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cosmology.html"><tt class="docutils literal"><span class="pre">cosmicpy.cosmology</span></tt> &#8211; Cosmology module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href=""><tt class="docutils literal"><span class="pre">cosmicpy.survey</span></tt> &#8211; Galaxy survey representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spectra.html"><tt class="docutils literal"><span class="pre">cosmicpy.spectra</span></tt> &#8211; Clustering and lensing power spectra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fisher.html"><tt class="docutils literal"><span class="pre">cosmicpy.fisher</span></tt> &#8211; Fisher forecasts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html"><tt class="docutils literal"><span class="pre">cosmicpy.utils</span></tt> &#8211; Utility functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html">Testing module (<cite>cosmicpy.tests</cite>)</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../developer/index.html">Developer Documentation</a></li>
 </ul>
 
@@ -178,7 +191,373 @@
       </div>
     <div class="col-md-9">
       
-  
+  <span class="target" id="module-cosmicpy.survey"></span><div class="section" id="cosmicpy-survey-galaxy-survey-representation">
+<h1><a class="reference internal" href="#module-cosmicpy.survey" title="cosmicpy.survey: Contains surveys related objects and functions"><tt class="xref py py-mod docutils literal"><span class="pre">cosmicpy.survey</span></tt></a> &#8211; Galaxy survey representation<a class="headerlink" href="#cosmicpy-survey-galaxy-survey-representation" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-cosmicpy.survey"></span><table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#cosmicpy.survey.survey" title="cosmicpy.survey.survey"><tt class="xref py py-obj docutils literal"><span class="pre">survey</span></tt></a>([nuisances])</td>
+<td>Contains all the parameters corresponding to a survey.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cosmicpy.survey.redshift_bin" title="cosmicpy.survey.redshift_bin"><tt class="xref py py-obj docutils literal"><span class="pre">redshift_bin</span></tt></a>(surv,&nbsp;**kwargs)</td>
+<td>Represents a redshift bin</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#cosmicpy.survey.nuisance" title="cosmicpy.survey.nuisance"><tt class="xref py py-obj docutils literal"><span class="pre">nuisance</span></tt></a>(name,&nbsp;function,&nbsp;Nx,&nbsp;Ny,&nbsp;xlim,&nbsp;ylim)</td>
+<td>Generic nuisance representation of a 2D function</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#cosmicpy.survey.grid_nuisance" title="cosmicpy.survey.grid_nuisance"><tt class="xref py py-obj docutils literal"><span class="pre">grid_nuisance</span></tt></a>(name,&nbsp;function,&nbsp;Nx,&nbsp;Ny,&nbsp;xlim,&nbsp;ylim)</td>
+<td>Generic nuisance parametrisation on a grid</td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="cosmicpy.survey.grid_nuisance">
+<em class="property">class </em><tt class="descclassname">cosmicpy.survey.</tt><tt class="descname">grid_nuisance</tt><big>(</big><em>name</em>, <em>function</em>, <em>Nx</em>, <em>Ny</em>, <em>xlim</em>, <em>ylim</em><big>)</big><a class="reference internal" href="../_modules/cosmicpy/survey.html#grid_nuisance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicpy.survey.grid_nuisance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cosmicpy.survey.nuisance" title="cosmicpy.survey.nuisance"><tt class="xref py py-class docutils literal"><span class="pre">cosmicpy.survey.nuisance</span></tt></a></p>
+<p>Generic nuisance parametrisation on a grid</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="cosmicpy.survey.nuisance">
+<em class="property">class </em><tt class="descclassname">cosmicpy.survey.</tt><tt class="descname">nuisance</tt><big>(</big><em>name</em>, <em>function</em>, <em>Nx</em>, <em>Ny</em>, <em>xlim</em>, <em>ylim</em><big>)</big><a class="reference internal" href="../_modules/cosmicpy/survey.html#nuisance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicpy.survey.nuisance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p>Generic nuisance representation of a 2D function</p>
+<dl class="attribute">
+<dt id="cosmicpy.survey.nuisance.Np">
+<tt class="descname">Np</tt><a class="reference internal" href="../_modules/cosmicpy/survey.html#nuisance.Np"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicpy.survey.nuisance.Np" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of nuisance parameters</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicpy.survey.nuisance.__call__">
+<tt class="descname">__call__</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="reference internal" href="../_modules/cosmicpy/survey.html#nuisance.__call__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicpy.survey.nuisance.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluates the function for the given set of nuisance parameters</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicpy.survey.nuisance.update">
+<tt class="descname">update</tt><big>(</big><em>**kwargs</em><big>)</big><a class="reference internal" href="../_modules/cosmicpy/survey.html#nuisance.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicpy.survey.nuisance.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the nuisance parameters</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cosmicpy.survey.redshift_bin">
+<em class="property">class </em><tt class="descclassname">cosmicpy.survey.</tt><tt class="descname">redshift_bin</tt><big>(</big><em>surv</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../_modules/cosmicpy/survey.html#redshift_bin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicpy.survey.redshift_bin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p>Represents a redshift bin</p>
+<dl class="attribute">
+<dt id="cosmicpy.survey.redshift_bin.kmax_lin">
+<tt class="descname">kmax_lin</tt><a class="reference internal" href="../_modules/cosmicpy/survey.html#redshift_bin.kmax_lin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicpy.survey.redshift_bin.kmax_lin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum linear scale at the median redshift in h^-1 Mpc</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cosmicpy.survey.redshift_bin.ngal">
+<tt class="descname">ngal</tt><a class="reference internal" href="../_modules/cosmicpy/survey.html#redshift_bin.ngal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicpy.survey.redshift_bin.ngal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of galaxies in this photo-z bin in steradian</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cosmicpy.survey.redshift_bin.norm">
+<tt class="descname">norm</tt><a class="reference internal" href="../_modules/cosmicpy/survey.html#redshift_bin.norm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicpy.survey.redshift_bin.norm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalisation of the distribution</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicpy.survey.redshift_bin.nz_unorm">
+<tt class="descname">nz_unorm</tt><big>(</big><em>z</em><big>)</big><a class="reference internal" href="../_modules/cosmicpy/survey.html#redshift_bin.nz_unorm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicpy.survey.redshift_bin.nz_unorm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the un-normalized n(z)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicpy.survey.redshift_bin.phi">
+<tt class="descname">phi</tt><big>(</big><em>cosmo</em>, <em>chi</em><big>)</big><a class="reference internal" href="../_modules/cosmicpy/survey.html#redshift_bin.phi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicpy.survey.redshift_bin.phi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the normalised selection function for the bin at
+a given comoving distance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>cosmo</strong> (<em>cosmology</em>) &#8211; Cosmology object required to convert comoving distances.</li>
+<li><strong>chi</strong> (<em>array_like</em>) &#8211; Comoving distance.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>phi</strong> &#8211; Normalised selection function of the bin.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray, or float if input is scalar</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>The normalised survey selection function <span class="math">\(\phi\)</span> verifies:</p>
+<div class="math">
+\[\int d^3 r \phi (r) = 1\]</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicpy.survey.redshift_bin.subdivide">
+<tt class="descname">subdivide</tt><big>(</big><em>nbins</em>, <em>bintype='eq_dens'</em><big>)</big><a class="reference internal" href="../_modules/cosmicpy/survey.html#redshift_bin.subdivide"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicpy.survey.redshift_bin.subdivide" title="Permalink to this definition">¶</a></dt>
+<dd><p>Divide this redshift bins into sub-bins
+nbins : Number of bins to generate
+bintype : &#8216;eq_dens&#8217; or &#8216;eq_size&#8217;</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cosmicpy.survey.redshift_bin.zmean">
+<tt class="descname">zmean</tt><a class="reference internal" href="../_modules/cosmicpy/survey.html#redshift_bin.zmean"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicpy.survey.redshift_bin.zmean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mean of the distribution</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cosmicpy.survey.redshift_bin.zmed">
+<tt class="descname">zmed</tt><a class="reference internal" href="../_modules/cosmicpy/survey.html#redshift_bin.zmed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicpy.survey.redshift_bin.zmed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Median of the redshift distribution</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cosmicpy.survey.survey">
+<em class="property">class </em><tt class="descclassname">cosmicpy.survey.</tt><tt class="descname">survey</tt><big>(</big><em>nuisances=</em>, <span class="optional">[</span><span class="optional">]</span><em>**kwargs</em><big>)</big><a class="reference internal" href="../_modules/cosmicpy/survey.html#survey"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicpy.survey.survey" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></a></p>
+<p>Contains all the parameters corresponding to a survey.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nzparams</strong> (<em>dict, optional</em>) &#8211; Dictionary containing the parameters of the desired redshift
+distribution.</li>
+<li><strong>nzbins</strong> (<em>int, optional</em>) &#8211; Number of redshift bins in the survey (def: 1).</li>
+<li><strong>bintype</strong> (<em>str, optional</em>) &#8211; Type of redshift binning. Either &#8216;eq_dens&#8217; or &#8216;eq_size&#8217;
+(def: &#8216;eq_dens&#8217;).</li>
+<li><strong>ngal</strong> (<em>float, optional</em>) &#8211; Number of galaxies per square arcmins (def: 40).</li>
+<li><strong>zmin</strong> (<em>float, optional</em>) &#8211; Minimum redshift considered in the survey (def: 0).</li>
+<li><strong>zmax</strong> (<em>float, optional</em>) &#8211; Maximum redshift considered in the survey (def: 5).</li>
+<li><strong>chicut</strong> (<em>float, optional</em>) &#8211; Level of the cut to apply to the selection function, relative to
+the maximum of the selection fuction. If 0, <span class="math">\(\chi_\max\)</span> is set to
+<span class="math">\(\chi(z_\max)\)</span> (def : 1e-5).</li>
+<li><strong>zphot_sig</strong> (<em>float, optional</em>) &#8211; Standard variation of photometric redshift errors (def: 0.05).</li>
+<li><strong>zphot_bias</strong> (<em>float, optional</em>) &#8211; Bias of photometric redshift errors (def: 0).</li>
+<li><strong>fsky</strong> (<em>float, optional</em>) &#8211; Sky fraction covered by the survey (def: 0.4848).</li>
+<li><strong>biastype</strong> (<em>str, optional</em>) &#8211; Type of galaxy bias. Either &#8216;constant&#8217; or &#8216;sqrt&#8217; (def: &#8216;sqrt&#8217;)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<dl class="docutils">
+<dt>Several parametrisations for the redshifts can be specified:</dt>
+<dd><ul class="first last simple">
+<li>&#8216;smail&#8217;    : n(z) = z^a exp( - (z/z0)^b)</li>
+<li>&#8216;gaussian&#8217; : n(z) = exp(-(r/r0)^2) * r ^2 * dr/dz</li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="cosmicpy.survey.survey.addNuisance">
+<tt class="descname">addNuisance</tt><big>(</big><em>params</em><big>)</big><a class="reference internal" href="../_modules/cosmicpy/survey.html#survey.addNuisance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicpy.survey.survey.addNuisance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds nuisance parameters to the survey
+params is of the form
+{&#8216;name&#8217;:&#8217;bias&#8217;, &#8216;type&#8217;:&#8217;grid&#8217;, &#8216;Nx&#8217;:3,&#8217;Ny&#8217;:4,&#8217;xlim&#8217;:[0.001,1],&#8217;ylim&#8217;:[0.001,0.1]}</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicpy.survey.survey.bias">
+<tt class="descname">bias</tt><big>(</big><em>z</em>, <em>k</em><big>)</big><a class="reference internal" href="../_modules/cosmicpy/survey.html#survey.bias"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicpy.survey.survey.bias" title="Permalink to this definition">¶</a></dt>
+<dd><p>Galaxy bias b(z,k)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>z</strong> (<em>array_like</em>) &#8211; Redshift</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>b</strong> &#8211; Galaxy bias evaluated at the specified redshift</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">ndarray, or float if input is scalar</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>The galaxy bias follows the</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicpy.survey.survey.chimax">
+<tt class="descname">chimax</tt><big>(</big><em>cosmo</em><big>)</big><a class="reference internal" href="../_modules/cosmicpy/survey.html#survey.chimax"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicpy.survey.survey.chimax" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the maximum comoving distance for the survey by
+corresponding to the point where the selection function reaches the cut
+level.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>cosmo</strong> (<em>cosmology</em>) &#8211; Cosmology object required to convert comoving distances.</li>
+<li><strong>cut</strong> (<em>float, optional</em>) &#8211; Level of the cut to apply to the selection function, relative to
+the maximum of the selection fuction (def : 1e-5)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>chi</strong> &#8211; Maximum survey comoving distance</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cosmicpy.survey.survey.norm">
+<tt class="descname">norm</tt><a class="reference internal" href="../_modules/cosmicpy/survey.html#survey.norm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicpy.survey.survey.norm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalisation factor of the redshift distribution</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicpy.survey.survey.nz">
+<tt class="descname">nz</tt><big>(</big><em>z</em><big>)</big><a class="reference internal" href="../_modules/cosmicpy/survey.html#survey.nz"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicpy.survey.survey.nz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the normalized n(z)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>z</strong> (<em>array_like</em>) &#8211; Redshift</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>n</strong> &#8211; Normalised redshift distribution evaluated at the specified
+redshift</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">ndarray, or float if input scalar</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="#cosmicpy.survey.survey.nz_unorm" title="cosmicpy.survey.survey.nz_unorm"><tt class="xref py py-meth docutils literal"><span class="pre">nz_unorm()</span></tt></a></dt>
+<dd>Non normalised n(z)</dd>
+</dl>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicpy.survey.survey.nz_unorm">
+<tt class="descname">nz_unorm</tt><big>(</big><em>z</em><big>)</big><a class="reference internal" href="../_modules/cosmicpy/survey.html#survey.nz_unorm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicpy.survey.survey.nz_unorm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the non normalized n(z)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>z</strong> (<em>array_like</em>) &#8211; Redshift</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>n</strong> &#8211; Non normalised redshift distribution evaluated at the specified
+redshift</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">ndarray, or float if input scalar</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicpy.survey.survey.phi">
+<tt class="descname">phi</tt><big>(</big><em>cosmo</em>, <em>chi</em><big>)</big><a class="reference internal" href="../_modules/cosmicpy/survey.html#survey.phi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicpy.survey.survey.phi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the normalised survey selection function at
+a given comoving distance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>cosmo</strong> (<em>cosmology</em>) &#8211; Cosmology object required to convert comoving distances.</li>
+<li><strong>chi</strong> (<em>array_like</em>) &#8211; Comoving distance.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>phi</strong> &#8211; Normalised selection function of the survey.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray, or float if input is scalar</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>The survey selection function <span class="math">\(\phi\)</span> verifies:</p>
+<div class="math">
+\[\int d^3 r \phi (r) = V\]</div>
+<p>where <span class="math">\(V\)</span> is a characteristic volume of the survey chosen such
+that <span class="math">\(\phi \rightarrow 1\)</span> as <span class="math">\(V \rightarrow \infty\)</span>.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This function returns the selection function scaled by
+the survey volume i.e. <span class="math">\(\frac{\phi}{V}\)</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="cosmicpy.survey.survey.update">
+<tt class="descname">update</tt><big>(</big><em>**kwargs</em><big>)</big><a class="reference internal" href="../_modules/cosmicpy/survey.html#survey.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicpy.survey.survey.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the survey after parameters have been modified.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nzparams</strong> (<em>dict, optional</em>) &#8211; Dictionary containing the parameters of the desired redshift
+distribution.</li>
+<li><strong>nzbins</strong> (<em>int, optional</em>) &#8211; Number of redshift bins in the survey.</li>
+<li><strong>bintype</strong> (<em>str, optional</em>) &#8211; Type of redshift binning. Either &#8216;eq_dens&#8217; or &#8216;eq_size&#8217;.</li>
+<li><strong>ngal</strong> (<em>float, optional</em>) &#8211; Number of galaxies per square arcmins.</li>
+<li><strong>zmin</strong> (<em>float, optional</em>) &#8211; Minimum redshift considered in the survey.</li>
+<li><strong>zmax</strong> (<em>float, optional</em>) &#8211; Maximum redshift considered in the survey.</li>
+<li><strong>chicut</strong> (<em>float, optional</em>) &#8211; Level of the cut to apply to the selection function, relative to
+the maximum of the selection fuction. If 0, <span class="math">\(\chi_\max\)</span> is
+set to <span class="math">\(\chi(z_\max)\)</span> (def : 1e-5).</li>
+<li><strong>zphot_sig</strong> (<em>float, optional</em>) &#8211; Standard variation of photometric redshift errors.</li>
+<li><strong>zphot_bias</strong> (<em>float, optional</em>) &#8211; Bias of photometric redshift errors.</li>
+<li><strong>fsky</strong> (<em>float, optional</em>) &#8211; Sky fraction covered by the survey.</li>
+<li><strong>biastype</strong> (<em>str, optional</em>) &#8211; Type of galaxy bias. Either &#8216;constant&#8217; or &#8216;sqrt&#8217;.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cosmicpy.survey.survey.zmean">
+<tt class="descname">zmean</tt><a class="reference internal" href="../_modules/cosmicpy/survey.html#survey.zmean"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicpy.survey.survey.zmean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mean of the redshift distribution.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cosmicpy.survey.survey.zmed">
+<tt class="descname">zmed</tt><a class="reference internal" href="../_modules/cosmicpy/survey.html#survey.zmed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicpy.survey.survey.zmed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Median of the redshift distribution.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cosmicpy.survey.survey.zmin">
+<tt class="descname">zmin</tt><a class="reference internal" href="../_modules/cosmicpy/survey.html#survey.zmin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cosmicpy.survey.survey.zmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Minimun Redshift</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
 
     </div>
       
