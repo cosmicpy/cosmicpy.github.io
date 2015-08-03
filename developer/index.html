@@ -9,8 +9,8 @@
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-3.2.0/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-3.2.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.4/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.4/css/bootstrap-theme.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/my-styles.css" type="text/css" />
     
@@ -29,7 +29,7 @@
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="top" title="CosmicPy 0.1 documentation" href="../index.html" />
@@ -117,11 +117,6 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../cosmicpy/index.html">Source Code Documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/cosmology.html"><tt class="docutils literal"><span class="pre">cosmicpy.cosmology</span></tt> &#8211; Cosmology module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/survey.html"><tt class="docutils literal"><span class="pre">cosmicpy.survey</span></tt> &#8211; Galaxy survey representation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/spectra.html"><tt class="docutils literal"><span class="pre">cosmicpy.spectra</span></tt> &#8211; Clustering and lensing power spectra</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/fisher.html"><tt class="docutils literal"><span class="pre">cosmicpy.fisher</span></tt> &#8211; Fisher forecasts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/utils.html"><tt class="docutils literal"><span class="pre">cosmicpy.utils</span></tt> &#8211; Utility functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cosmicpy/tests.html">Testing module (<cite>cosmicpy.tests</cite>)</a></li>
 </ul>
 </li>
@@ -251,7 +246,7 @@ IDL&gt; SAVE, COSMO, FILENAME=&#39;icosmo.xdr&#39;
 </pre></div>
 </div>
 <p>In cosmicpy, the function to test the cosmology in implemented in
-<a class="reference internal" href="../cosmicpy/tests.html#cosmicpy.tests.icosmo.check_cosmology" title="cosmicpy.tests.icosmo.check_cosmology"><tt class="xref py py-meth docutils literal"><span class="pre">cosmicpy.tests.icosmo.check_cosmology()</span></tt></a>:</p>
+<tt class="xref py py-meth docutils literal"><span class="pre">cosmicpy.tests.icosmo.check_cosmology()</span></tt>:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">cosmicpy.tests.icosmo</span> <span class="kn">as</span> <span class="nn">test</span>
 
 <span class="gp">In [2]: </span><span class="n">test</span><span class="o">.</span><span class="n">check_cosmology</span><span class="p">(</span><span class="s">&#39;icosmo.xdr&#39;</span><span class="p">)</span>
@@ -302,7 +297,7 @@ IDL&gt; SAVE, COSMO, FILENAME=&#39;icosmo.xdr&#39;
     </p>
     <p>
         &copy; Copyright 2015, Francois Lanusse, Anais Rassat, Jean-Luc Starck.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.2.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.<br/>
     </p>
   </div>
 </footer>

@@ -9,8 +9,8 @@
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-3.2.0/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-3.2.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.4/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.4/css/bootstrap-theme.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/my-styles.css" type="text/css" />
     
@@ -29,7 +29,7 @@
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="top" title="CosmicPy 0.1 documentation" href="../index.html" />
@@ -119,11 +119,6 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../cosmicpy/index.html">Source Code Documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/cosmology.html"><tt class="docutils literal"><span class="pre">cosmicpy.cosmology</span></tt> &#8211; Cosmology module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/survey.html"><tt class="docutils literal"><span class="pre">cosmicpy.survey</span></tt> &#8211; Galaxy survey representation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/spectra.html"><tt class="docutils literal"><span class="pre">cosmicpy.spectra</span></tt> &#8211; Clustering and lensing power spectra</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/fisher.html"><tt class="docutils literal"><span class="pre">cosmicpy.fisher</span></tt> &#8211; Fisher forecasts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/utils.html"><tt class="docutils literal"><span class="pre">cosmicpy.utils</span></tt> &#8211; Utility functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cosmicpy/tests.html">Testing module (<cite>cosmicpy.tests</cite>)</a></li>
 </ul>
 </li>
@@ -210,8 +205,34 @@ which corresponds to a total number of galaxies in survey <span class="math">\(N
 \[N = \bar{n} V = 7,263,470\]</div>
 <p>We create a survey following these parameters in cosmicpy using:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">cosmicpy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ImportError</span><span class="g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-1-312eeadb40ea&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">cosmicpy</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="nn">/home/travis/build/cosmicpy/cosmicpy/cosmicpy/__init__.py</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span> <span class="nn">cosmicpy.survey</span> <span class="kn">import</span> <span class="n">survey</span>
+<span class="g-Whitespace">     </span><span class="mi">11</span> <span class="kn">from</span> <span class="nn">cosmicpy.survey</span> <span class="kn">import</span> <span class="n">redshift_bin</span>
+<span class="ne">---&gt; </span><span class="mi">12</span> <span class="kn">from</span> <span class="nn">cosmicpy.spectra</span> <span class="kn">import</span> <span class="n">spectra</span>
+<span class="g-Whitespace">     </span><span class="mi">13</span> <span class="kn">from</span> <span class="nn">cosmicpy.fisher</span> <span class="kn">import</span> <span class="n">fisherTomo</span>
+<span class="g-Whitespace">     </span><span class="mi">14</span> <span class="kn">from</span> <span class="nn">cosmicpy.fisher</span> <span class="kn">import</span> <span class="n">fisher3d</span>
+
+<span class="nn">/home/travis/build/cosmicpy/cosmicpy/cosmicpy/spectra.py</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="g-Whitespace">     </span><span class="mi">20</span> <span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span>
+<span class="g-Whitespace">     </span><span class="mi">21</span> <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="ne">---&gt; </span><span class="mi">22</span> <span class="kn">from</span> <span class="nn">.tools</span> <span class="kn">import</span> <span class="n">BesselWindow</span>
+<span class="g-Whitespace">     </span><span class="mi">23</span> <span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="g-Whitespace">     </span><span class="mi">24</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">constants</span> <span class="k">as</span> <span class="n">const</span>
+
+<span class="ne">ImportError</span>: No module named tools
 
 <span class="gp">In [2]: </span><span class="n">cosmo</span> <span class="o">=</span> <span class="n">cosmology</span><span class="p">()</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-2-6266b1f4335b&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cosmo</span> <span class="o">=</span> <span class="n">cosmology</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;cosmology&#39; is not defined
 
 <span class="gp">In [3]: </span><span class="n">r0</span> <span class="o">=</span> <span class="mf">2354.0</span>
 
@@ -222,22 +243,56 @@ which corresponds to a total number of galaxies in survey <span class="math">\(N
 <span class="gp">In [6]: </span><span class="n">ngal</span> <span class="o">=</span> <span class="n">N</span> <span class="o">/</span><span class="p">(</span><span class="mf">4.0</span><span class="o">*</span> <span class="n">pi</span><span class="p">)</span><span class="o">/</span><span class="p">((</span><span class="mf">180.0</span><span class="o">/</span><span class="n">pi</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">60.0</span><span class="o">*</span><span class="mf">60.0</span><span class="p">)</span> <span class="c"># Conversion to gal/ arcmin^2</span>
 
 <span class="gp">In [7]: </span><span class="n">surv</span> <span class="o">=</span> <span class="n">survey</span><span class="p">(</span><span class="n">nzparams</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;type&#39;</span><span class="p">:</span><span class="s">&#39;gaussian&#39;</span><span class="p">,</span><span class="s">&#39;cosmology&#39;</span><span class="p">:</span><span class="n">cosmo</span><span class="p">,</span> <span class="s">&#39;r0&#39;</span><span class="p">:</span><span class="mf">2354.0</span><span class="p">},</span> <span class="n">zmax</span><span class="o">=</span><span class="mf">7.0</span><span class="p">,</span> <span class="n">fsky</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">ngal</span><span class="o">=</span><span class="n">ngal</span><span class="p">,</span> <span class="n">biastype</span><span class="o">=</span><span class="s">&#39;constant&#39;</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-7-1c33fde327f6&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">surv</span> <span class="o">=</span> <span class="n">survey</span><span class="p">(</span><span class="n">nzparams</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;type&#39;</span><span class="p">:</span><span class="s">&#39;gaussian&#39;</span><span class="p">,</span><span class="s">&#39;cosmology&#39;</span><span class="p">:</span><span class="n">cosmo</span><span class="p">,</span> <span class="s">&#39;r0&#39;</span><span class="p">:</span><span class="mf">2354.0</span><span class="p">},</span> <span class="n">zmax</span><span class="o">=</span><span class="mf">7.0</span><span class="p">,</span> <span class="n">fsky</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">ngal</span><span class="o">=</span><span class="n">ngal</span><span class="p">,</span> <span class="n">biastype</span><span class="o">=</span><span class="s">&#39;constant&#39;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;survey&#39; is not defined
 
 <span class="gp">In [8]: </span><span class="n">surv</span><span class="o">.</span><span class="n">N</span>     <span class="c"># Checking the number of galaxies in the survey</span>
-<span class="gh">Out[8]: </span><span class="go">7263470.626200338</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-8-466a7ead21f2&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">surv</span><span class="o">.</span><span class="n">N</span>     <span class="c"># Checking the number of galaxies in the survey</span>
+
+<span class="ne">NameError</span>: name &#39;surv&#39; is not defined
 
 <span class="gp">In [9]: </span><span class="n">surv</span><span class="o">.</span><span class="n">ngal</span> <span class="c"># Checking the mean galaxy density per square arcmin</span>
-<span class="gh">Out[9]: </span><span class="go">0.048908749054432946</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-9-1d71789aee5b&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">surv</span><span class="o">.</span><span class="n">ngal</span> <span class="c"># Checking the mean galaxy density per square arcmin</span>
+
+<span class="ne">NameError</span>: name &#39;surv&#39; is not defined
 </pre></div>
 </div>
 <p>Below, we plot the selection function along with the normalized galaxy density distribution:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [10]: </span><span class="n">z</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span><span class="mf">7.0</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span>
 
 <span class="gp">In [11]: </span><span class="n">pz</span> <span class="o">=</span> <span class="n">surv</span><span class="o">.</span><span class="n">nz</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-11-1f4f618d3c91&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">pz</span> <span class="o">=</span> <span class="n">surv</span><span class="o">.</span><span class="n">nz</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;surv&#39; is not defined
 
 <span class="gp">In [12]: </span><span class="n">r</span> <span class="o">=</span> <span class="n">cosmo</span><span class="o">.</span><span class="n">a2chi</span><span class="p">(</span><span class="n">z2a</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>     <span class="c"># Convert redshift array into comoving distance</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-12-8d32615dd644&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">r</span> <span class="o">=</span> <span class="n">cosmo</span><span class="o">.</span><span class="n">a2chi</span><span class="p">(</span><span class="n">z2a</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>     <span class="c"># Convert redshift array into comoving distance</span>
+
+<span class="ne">NameError</span>: name &#39;cosmo&#39; is not defined
 
 <span class="gp">In [13]: </span><span class="n">phi</span> <span class="o">=</span> <span class="n">surv</span><span class="o">.</span><span class="n">phi</span><span class="p">(</span><span class="n">cosmo</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>     <span class="c"># Compute selection function for both survey</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-13-312b91ac00be&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">phi</span> <span class="o">=</span> <span class="n">surv</span><span class="o">.</span><span class="n">phi</span><span class="p">(</span><span class="n">cosmo</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>     <span class="c"># Compute selection function for both survey</span>
+
+<span class="ne">NameError</span>: name &#39;surv&#39; is not defined
 
 <span class="gp">In [14]: </span><span class="n">figure</span><span class="p">();</span> <span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">);</span>
 
@@ -257,16 +312,40 @@ which corresponds to a total number of galaxies in survey <span class="math">\(N
 <div class="section" id="computing-3d-power-spectra">
 <h2>Computing 3D power spectra<a class="headerlink" href="#computing-3d-power-spectra" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [20]: </span><span class="n">sp</span> <span class="o">=</span> <span class="n">spectra</span><span class="p">(</span><span class="n">cosmo</span><span class="p">,</span><span class="n">surv</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-20-dce5bbbc97f4&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">sp</span> <span class="o">=</span> <span class="n">spectra</span><span class="p">(</span><span class="n">cosmo</span><span class="p">,</span><span class="n">surv</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;spectra&#39; is not defined
 
 <span class="gp">In [21]: </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>             <span class="c"># Array of angular multipoles</span>
 
 <span class="gp">In [22]: </span><span class="n">k</span> <span class="o">=</span> <span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mf">0.65</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="c"># Array of wavenumbers</span>
 
 <span class="gp">In [23]: </span><span class="n">cl</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">cl_sfb</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">shotNoise</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">evol</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">survey_volume</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">r0</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">))</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-23-85dd6837e1e1&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cl</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">cl_sfb</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">shotNoise</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">evol</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">survey_volume</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">r0</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">))</span>
+
+<span class="ne">NameError</span>: name &#39;sp&#39; is not defined
 
 <span class="gp">In [24]: </span><span class="n">cl_evol</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">cl_sfb</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">shotNoise</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">evol</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">survey_volume</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">r0</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">))</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-24-0b44c4a594b9&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cl_evol</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">cl_sfb</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">shotNoise</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">evol</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">survey_volume</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">r0</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">))</span>
+
+<span class="ne">NameError</span>: name &#39;sp&#39; is not defined
 
 <span class="gp">In [25]: </span><span class="n">cln</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">cl_sfb</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">onlyNoise</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">survey_volume</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">r0</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">))</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-25-70b1104fb77f&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cln</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">cl_sfb</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">onlyNoise</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">survey_volume</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">r0</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">))</span>
+
+<span class="ne">NameError</span>: name &#39;sp&#39; is not defined
 
 <span class="gp">In [26]: </span><span class="n">figure</span><span class="p">();</span> <span class="n">subplot</span><span class="p">(</span><span class="mi">321</span><span class="p">);</span>
 
@@ -335,7 +414,7 @@ which corresponds to a total number of galaxies in survey <span class="math">\(N
     </p>
     <p>
         &copy; Copyright 2015, Francois Lanusse, Anais Rassat, Jean-Luc Starck.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.2.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.<br/>
     </p>
   </div>
 </footer>

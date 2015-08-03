@@ -9,8 +9,8 @@
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-3.2.0/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-3.2.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.4/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.4/css/bootstrap-theme.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/my-styles.css" type="text/css" />
     
@@ -29,7 +29,7 @@
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="top" title="CosmicPy 0.1 documentation" href="../index.html" />
@@ -119,11 +119,6 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../cosmicpy/index.html">Source Code Documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/cosmology.html"><tt class="docutils literal"><span class="pre">cosmicpy.cosmology</span></tt> &#8211; Cosmology module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/survey.html"><tt class="docutils literal"><span class="pre">cosmicpy.survey</span></tt> &#8211; Galaxy survey representation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/spectra.html"><tt class="docutils literal"><span class="pre">cosmicpy.spectra</span></tt> &#8211; Clustering and lensing power spectra</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/fisher.html"><tt class="docutils literal"><span class="pre">cosmicpy.fisher</span></tt> &#8211; Fisher forecasts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/utils.html"><tt class="docutils literal"><span class="pre">cosmicpy.utils</span></tt> &#8211; Utility functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cosmicpy/tests.html">Testing module (<cite>cosmicpy.tests</cite>)</a></li>
 </ul>
 </li>
@@ -204,12 +199,50 @@
 \[\Phi(r) = e^{-(r/r_0)^2}\]</div>
 <p>We define 2 such surveys, one shallow with <span class="math">\(r_0 = 100 \quad h^{-1}\)</span> Mpc and one deep with <span class="math">\(r_0 = 1400 \quad h^{-1}\)</span> Mpc:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">cosmicpy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ImportError</span><span class="g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-1-312eeadb40ea&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">cosmicpy</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="nn">/home/travis/build/cosmicpy/cosmicpy/cosmicpy/__init__.py</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span> <span class="nn">cosmicpy.survey</span> <span class="kn">import</span> <span class="n">survey</span>
+<span class="g-Whitespace">     </span><span class="mi">11</span> <span class="kn">from</span> <span class="nn">cosmicpy.survey</span> <span class="kn">import</span> <span class="n">redshift_bin</span>
+<span class="ne">---&gt; </span><span class="mi">12</span> <span class="kn">from</span> <span class="nn">cosmicpy.spectra</span> <span class="kn">import</span> <span class="n">spectra</span>
+<span class="g-Whitespace">     </span><span class="mi">13</span> <span class="kn">from</span> <span class="nn">cosmicpy.fisher</span> <span class="kn">import</span> <span class="n">fisherTomo</span>
+<span class="g-Whitespace">     </span><span class="mi">14</span> <span class="kn">from</span> <span class="nn">cosmicpy.fisher</span> <span class="kn">import</span> <span class="n">fisher3d</span>
+
+<span class="nn">/home/travis/build/cosmicpy/cosmicpy/cosmicpy/spectra.py</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="g-Whitespace">     </span><span class="mi">20</span> <span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span>
+<span class="g-Whitespace">     </span><span class="mi">21</span> <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="ne">---&gt; </span><span class="mi">22</span> <span class="kn">from</span> <span class="nn">.tools</span> <span class="kn">import</span> <span class="n">BesselWindow</span>
+<span class="g-Whitespace">     </span><span class="mi">23</span> <span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="g-Whitespace">     </span><span class="mi">24</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">constants</span> <span class="k">as</span> <span class="n">const</span>
+
+<span class="ne">ImportError</span>: No module named tools
 
 <span class="gp">In [2]: </span><span class="n">cosmo</span> <span class="o">=</span> <span class="n">cosmology</span><span class="p">()</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-2-6266b1f4335b&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cosmo</span> <span class="o">=</span> <span class="n">cosmology</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;cosmology&#39; is not defined
 
 <span class="gp">In [3]: </span><span class="n">surv_deep</span> <span class="o">=</span> <span class="n">survey</span><span class="p">(</span><span class="n">nzparams</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;type&#39;</span><span class="p">:</span><span class="s">&#39;gaussian&#39;</span><span class="p">,</span> <span class="s">&#39;cosmology&#39;</span><span class="p">:</span><span class="n">cosmo</span><span class="p">,</span> <span class="s">&#39;r0&#39;</span><span class="p">:</span><span class="mi">1400</span><span class="p">},</span> <span class="n">zmax</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">fsky</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-3-631473f54201&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">surv_deep</span> <span class="o">=</span> <span class="n">survey</span><span class="p">(</span><span class="n">nzparams</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;type&#39;</span><span class="p">:</span><span class="s">&#39;gaussian&#39;</span><span class="p">,</span> <span class="s">&#39;cosmology&#39;</span><span class="p">:</span><span class="n">cosmo</span><span class="p">,</span> <span class="s">&#39;r0&#39;</span><span class="p">:</span><span class="mi">1400</span><span class="p">},</span> <span class="n">zmax</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">fsky</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;survey&#39; is not defined
 
 <span class="gp">In [4]: </span><span class="n">surv_shallow</span> <span class="o">=</span> <span class="n">survey</span><span class="p">(</span><span class="n">nzparams</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;type&#39;</span><span class="p">:</span><span class="s">&#39;gaussian&#39;</span><span class="p">,</span> <span class="s">&#39;cosmology&#39;</span><span class="p">:</span><span class="n">cosmo</span><span class="p">,</span> <span class="s">&#39;r0&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">},</span> <span class="n">zmax</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">fsky</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">chicut</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-4-bd9b7c69b776&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">surv_shallow</span> <span class="o">=</span> <span class="n">survey</span><span class="p">(</span><span class="n">nzparams</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;type&#39;</span><span class="p">:</span><span class="s">&#39;gaussian&#39;</span><span class="p">,</span> <span class="s">&#39;cosmology&#39;</span><span class="p">:</span><span class="n">cosmo</span><span class="p">,</span> <span class="s">&#39;r0&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">},</span> <span class="n">zmax</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">fsky</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">chicut</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;survey&#39; is not defined
 </pre></div>
 </div>
 <p>Now, we plot the selection functions along with the galaxy density probability distribution for these 2 surveys normalized by their maximum values:</p>
@@ -218,16 +251,46 @@
 
 <span class="go"># Convert redshift array into comoving distance</span>
 <span class="gp">In [6]: </span><span class="n">r</span> <span class="o">=</span> <span class="n">cosmo</span><span class="o">.</span><span class="n">a2chi</span><span class="p">(</span><span class="n">z2a</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-6-8551d618d5a3&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">r</span> <span class="o">=</span> <span class="n">cosmo</span><span class="o">.</span><span class="n">a2chi</span><span class="p">(</span><span class="n">z2a</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
 
-<span class="go"># Compute n(z) for both survey</span>
+<span class="ne">NameError</span>: name &#39;cosmo&#39; is not defined
+
+<span class="c"># Compute n(z) for both survey</span>
 <span class="gp">In [7]: </span><span class="n">pzd</span> <span class="o">=</span> <span class="n">surv_deep</span><span class="o">.</span><span class="n">nz</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-7-ff33a6eda03f&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">pzd</span> <span class="o">=</span> <span class="n">surv_deep</span><span class="o">.</span><span class="n">nz</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;surv_deep&#39; is not defined
 
 <span class="gp">In [8]: </span><span class="n">pzs</span> <span class="o">=</span> <span class="n">surv_shallow</span><span class="o">.</span><span class="n">nz</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-8-fbe7b01b6ab2&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">pzs</span> <span class="o">=</span> <span class="n">surv_shallow</span><span class="o">.</span><span class="n">nz</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
 
-<span class="go"># Compute selection function for both survey</span>
+<span class="ne">NameError</span>: name &#39;surv_shallow&#39; is not defined
+
+<span class="c"># Compute selection function for both survey</span>
 <span class="gp">In [9]: </span><span class="n">phid</span> <span class="o">=</span> <span class="n">surv_deep</span><span class="o">.</span><span class="n">phi</span><span class="p">(</span><span class="n">cosmo</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-9-2663ae189ed0&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">phid</span> <span class="o">=</span> <span class="n">surv_deep</span><span class="o">.</span><span class="n">phi</span><span class="p">(</span><span class="n">cosmo</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;surv_deep&#39; is not defined
 
 <span class="gp">In [10]: </span><span class="n">phis</span> <span class="o">=</span> <span class="n">surv_shallow</span><span class="o">.</span><span class="n">phi</span><span class="p">(</span><span class="n">cosmo</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-10-a1406d2b1cdd&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">phis</span> <span class="o">=</span> <span class="n">surv_shallow</span><span class="o">.</span><span class="n">phi</span><span class="p">(</span><span class="n">cosmo</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;surv_shallow&#39; is not defined
 </pre></div>
 </div>
 <p>Now, let us plot the selection functions and galaxy distributions for both surveys:</p>
@@ -259,8 +322,20 @@ We illustrate this by computing the window function for <span class="math">\(\el
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [20]: </span><span class="n">k</span> <span class="o">=</span> <span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="n">log</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span><span class="o">/</span><span class="n">log</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="mi">512</span><span class="p">)</span>
 
 <span class="gp">In [21]: </span><span class="n">sp_deep</span> <span class="o">=</span> <span class="n">spectra</span><span class="p">(</span><span class="n">cosmo</span><span class="p">,</span><span class="n">surv_deep</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-21-3a19d929dd78&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">sp_deep</span> <span class="o">=</span> <span class="n">spectra</span><span class="p">(</span><span class="n">cosmo</span><span class="p">,</span><span class="n">surv_deep</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;spectra&#39; is not defined
 
 <span class="gp">In [22]: </span><span class="n">sp_shallow</span> <span class="o">=</span> <span class="n">spectra</span><span class="p">(</span><span class="n">cosmo</span><span class="p">,</span><span class="n">surv_shallow</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-22-4471182974c0&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">sp_shallow</span> <span class="o">=</span> <span class="n">spectra</span><span class="p">(</span><span class="n">cosmo</span><span class="p">,</span><span class="n">surv_shallow</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;spectra&#39; is not defined
 
 <span class="gp">In [23]: </span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">);</span> <span class="n">xscale</span><span class="p">(</span><span class="s">&#39;log&#39;</span><span class="p">)</span> <span class="p">;</span> <span class="n">yscale</span><span class="p">(</span><span class="s">&#39;log&#39;</span><span class="p">)</span>
 
@@ -280,10 +355,22 @@ We illustrate this by computing the window function for <span class="math">\(\el
 <div class="section" id="impact-of-baos-on-the-power-spectrum">
 <h2>Impact of BAOs on the power spectrum<a class="headerlink" href="#impact-of-baos-on-the-power-spectrum" title="Permalink to this headline">¶</a></h2>
 <p>To emphasize the BAO features on the power spectrum, we can plot the ratio of linear power spectra today with and without BAOs. The fitting formulae used here are
-taken from <a class="reference internal" href="../cosmicpy/cosmology.html#eisensteinhu" id="id2">[EisensteinHu98]</a> . The 2 kinds of power spectra are easily computed using the <a class="reference internal" href="../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.pk_lin" title="cosmicpy.cosmology.cosmology.pk_lin"><tt class="xref py py-meth docutils literal"><span class="pre">cosmology.pk_lin()</span></tt></a> method:</p>
+taken from [1998:EisensteinHu] . The 2 kinds of power spectra are easily computed using the <tt class="xref py py-meth docutils literal"><span class="pre">cosmology.pk_lin()</span></tt> method:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [29]: </span><span class="n">pk_osc</span> <span class="o">=</span> <span class="n">cosmo</span><span class="o">.</span><span class="n">pk_lin</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="nb">type</span><span class="o">=</span><span class="s">&#39;eisenhu_osc&#39;</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-29-d0ff45be9f29&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">pk_osc</span> <span class="o">=</span> <span class="n">cosmo</span><span class="o">.</span><span class="n">pk_lin</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="nb">type</span><span class="o">=</span><span class="s">&#39;eisenhu_osc&#39;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;cosmo&#39; is not defined
 
 <span class="gp">In [30]: </span><span class="n">pk</span> <span class="o">=</span> <span class="n">cosmo</span><span class="o">.</span><span class="n">pk_lin</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="nb">type</span><span class="o">=</span><span class="s">&#39;eisenhu&#39;</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-30-f3910d2d7e78&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">pk</span> <span class="o">=</span> <span class="n">cosmo</span><span class="o">.</span><span class="n">pk_lin</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="nb">type</span><span class="o">=</span><span class="s">&#39;eisenhu&#39;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;cosmo&#39; is not defined
 
 <span class="gp">In [31]: </span><span class="n">figure</span><span class="p">();</span> <span class="n">grid</span><span class="p">();</span>
 
@@ -306,8 +393,20 @@ smooth part of the SFB power spectrum. Here we use the <tt class="xref py py-met
 <span class="gp">In [35]: </span><span class="n">l</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">65</span><span class="p">)</span>
 
 <span class="gp">In [36]: </span><span class="n">R_deep</span> <span class="o">=</span> <span class="n">sp_deep</span><span class="o">.</span><span class="n">cl_sfb</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">shotNoise</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="nb">type</span><span class="o">=</span><span class="s">&#39;eisenhu_osc&#39;</span><span class="p">)</span><span class="o">/</span><span class="n">sp_deep</span><span class="o">.</span><span class="n">cl_sfb</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">shotNoise</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="nb">type</span><span class="o">=</span><span class="s">&#39;eisenhu&#39;</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-36-b86cd99338a9&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">R_deep</span> <span class="o">=</span> <span class="n">sp_deep</span><span class="o">.</span><span class="n">cl_sfb</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">shotNoise</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="nb">type</span><span class="o">=</span><span class="s">&#39;eisenhu_osc&#39;</span><span class="p">)</span><span class="o">/</span><span class="n">sp_deep</span><span class="o">.</span><span class="n">cl_sfb</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">shotNoise</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="nb">type</span><span class="o">=</span><span class="s">&#39;eisenhu&#39;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;sp_deep&#39; is not defined
 
 <span class="gp">In [37]: </span><span class="n">R_shallow</span> <span class="o">=</span> <span class="n">sp_shallow</span><span class="o">.</span><span class="n">cl_sfb</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">shotNoise</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="nb">type</span><span class="o">=</span><span class="s">&#39;eisenhu_osc&#39;</span><span class="p">)</span><span class="o">/</span><span class="n">sp_shallow</span><span class="o">.</span><span class="n">cl_sfb</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">shotNoise</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="nb">type</span><span class="o">=</span><span class="s">&#39;eisenhu&#39;</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-37-7b426ac54bec&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">R_shallow</span> <span class="o">=</span> <span class="n">sp_shallow</span><span class="o">.</span><span class="n">cl_sfb</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">shotNoise</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="nb">type</span><span class="o">=</span><span class="s">&#39;eisenhu_osc&#39;</span><span class="p">)</span><span class="o">/</span><span class="n">sp_shallow</span><span class="o">.</span><span class="n">cl_sfb</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">shotNoise</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="nb">type</span><span class="o">=</span><span class="s">&#39;eisenhu&#39;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;sp_shallow&#39; is not defined
 
 <span class="gp">In [38]: </span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">);</span> <span class="n">xscale</span><span class="p">(</span><span class="s">&#39;log&#39;</span><span class="p">)</span> <span class="p">;</span> <span class="n">yscale</span><span class="p">(</span><span class="s">&#39;log&#39;</span><span class="p">);</span> <span class="n">xlim</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">65</span><span class="p">]);</span>
 
@@ -340,7 +439,7 @@ smooth part of the SFB power spectrum. Here we use the <tt class="xref py py-met
     </p>
     <p>
         &copy; Copyright 2015, Francois Lanusse, Anais Rassat, Jean-Luc Starck.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.2.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.<br/>
     </p>
   </div>
 </footer>

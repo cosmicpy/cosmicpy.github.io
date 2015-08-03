@@ -9,8 +9,8 @@
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-3.2.0/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootstrap-3.2.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.4/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.4/css/bootstrap-theme.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/my-styles.css" type="text/css" />
     
@@ -29,7 +29,7 @@
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="top" title="CosmicPy 0.1 documentation" href="../index.html" />
@@ -119,11 +119,6 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../cosmicpy/index.html">Source Code Documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/cosmology.html"><tt class="docutils literal"><span class="pre">cosmicpy.cosmology</span></tt> &#8211; Cosmology module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/survey.html"><tt class="docutils literal"><span class="pre">cosmicpy.survey</span></tt> &#8211; Galaxy survey representation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/spectra.html"><tt class="docutils literal"><span class="pre">cosmicpy.spectra</span></tt> &#8211; Clustering and lensing power spectra</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/fisher.html"><tt class="docutils literal"><span class="pre">cosmicpy.fisher</span></tt> &#8211; Fisher forecasts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cosmicpy/utils.html"><tt class="docutils literal"><span class="pre">cosmicpy.utils</span></tt> &#8211; Utility functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cosmicpy/tests.html">Testing module (<cite>cosmicpy.tests</cite>)</a></li>
 </ul>
 </li>
@@ -204,80 +199,125 @@
 interactive plotting environment.</p>
 <p>Once <strong class="program">ipython</strong> is running, you can import the cosmicpy package:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">cosmicpy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ImportError</span><span class="g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-1-312eeadb40ea&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">cosmicpy</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="nn">/home/travis/build/cosmicpy/cosmicpy/cosmicpy/__init__.py</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span> <span class="nn">cosmicpy.survey</span> <span class="kn">import</span> <span class="n">survey</span>
+<span class="g-Whitespace">     </span><span class="mi">11</span> <span class="kn">from</span> <span class="nn">cosmicpy.survey</span> <span class="kn">import</span> <span class="n">redshift_bin</span>
+<span class="ne">---&gt; </span><span class="mi">12</span> <span class="kn">from</span> <span class="nn">cosmicpy.spectra</span> <span class="kn">import</span> <span class="n">spectra</span>
+<span class="g-Whitespace">     </span><span class="mi">13</span> <span class="kn">from</span> <span class="nn">cosmicpy.fisher</span> <span class="kn">import</span> <span class="n">fisherTomo</span>
+<span class="g-Whitespace">     </span><span class="mi">14</span> <span class="kn">from</span> <span class="nn">cosmicpy.fisher</span> <span class="kn">import</span> <span class="n">fisher3d</span>
+
+<span class="nn">/home/travis/build/cosmicpy/cosmicpy/cosmicpy/spectra.py</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="g-Whitespace">     </span><span class="mi">20</span> <span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span>
+<span class="g-Whitespace">     </span><span class="mi">21</span> <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="ne">---&gt; </span><span class="mi">22</span> <span class="kn">from</span> <span class="nn">.tools</span> <span class="kn">import</span> <span class="n">BesselWindow</span>
+<span class="g-Whitespace">     </span><span class="mi">23</span> <span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="g-Whitespace">     </span><span class="mi">24</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">constants</span> <span class="k">as</span> <span class="n">const</span>
+
+<span class="ne">ImportError</span>: No module named tools
 </pre></div>
 </div>
 <div class="section" id="create-and-modify-a-cosmology">
 <h2>Create and modify a cosmology<a class="headerlink" href="#create-and-modify-a-cosmology" title="Permalink to this headline">¶</a></h2>
-<p>The next step is to create a <a class="reference internal" href="../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology" title="cosmicpy.cosmology.cosmology"><tt class="xref py py-class docutils literal"><span class="pre">cosmology</span></tt></a> object. Let us start with a default cosmology:</p>
+<p>The next step is to create a <tt class="xref py py-class docutils literal"><span class="pre">cosmology</span></tt> object. Let us start with a default cosmology:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [2]: </span><span class="n">cosmo</span> <span class="o">=</span> <span class="n">cosmology</span><span class="p">()</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-2-6266b1f4335b&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cosmo</span> <span class="o">=</span> <span class="n">cosmology</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;cosmology&#39; is not defined
 </pre></div>
 </div>
 <p>To get a summary of the cosmological parameters defined in this object, you can use the <a class="reference external" href="http://docs.python.org/library/functions.html#print" title="(in Python v2.7)"><tt class="xref py py-func docutils literal"><span class="pre">print()</span></tt></a> fucntion:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [3]: </span><span class="k">print</span> <span class="n">cosmo</span>
-<span class="go">FLRW Cosmology with the following parameters: </span>
-<span class="go">    h:        0.7 </span>
-<span class="go">    Omega_b:  0.045 </span>
-<span class="go">    Omega_m:  0.25 </span>
-<span class="go">    Omega_de: 0.75 </span>
-<span class="go">    w0:       -0.95 </span>
-<span class="go">    wa:       0.0 </span>
-<span class="go">    n:        1.0 </span>
-<span class="go">    tau:      0.09 </span>
-<span class="go">    sigma8:   0.8</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-3-73fce170cbad&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">print</span> <span class="n">cosmo</span>
+
+<span class="ne">NameError</span>: name &#39;cosmo&#39; is not defined
 </pre></div>
 </div>
-<p>All the cosmological parameters are accessible as attributes of the <a class="reference internal" href="../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology" title="cosmicpy.cosmology.cosmology"><tt class="xref py py-class docutils literal"><span class="pre">cosmology</span></tt></a> object. For instance, to check the value of the matter density today <span class="math">\(\Omega_m\)</span> run:</p>
+<p>All the cosmological parameters are accessible as attributes of the <tt class="xref py py-class docutils literal"><span class="pre">cosmology</span></tt> object. For instance, to check the value of the matter density today <span class="math">\(\Omega_m\)</span> run:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [4]: </span><span class="n">cosmo</span><span class="o">.</span><span class="n">Omega_m</span>
-<span class="gh">Out[4]: </span><span class="go">0.25</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-4-d6985762753b&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cosmo</span><span class="o">.</span><span class="n">Omega_m</span>
+
+<span class="ne">NameError</span>: name &#39;cosmo&#39; is not defined
 </pre></div>
 </div>
 <p>The values for the cosmological parameters can be modified which will automatically trigger an update of all the derived quantities.</p>
 <p>To illustrate this, let&#8217;s see the value of the sound horizon at recombination <span class="math">\(s_h\)</span> with the default cosmology, update <span class="math">\(\Omega_m\)</span> and check that the value of <span class="math">\(s_h\)</span> has changed:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [5]: </span><span class="n">cosmo</span><span class="o">.</span><span class="n">sh_r</span>
-<span class="gh">Out[5]: </span><span class="go">105.27381988350771</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-5-935512fac199&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cosmo</span><span class="o">.</span><span class="n">sh_r</span>
+
+<span class="ne">NameError</span>: name &#39;cosmo&#39; is not defined
 
 <span class="gp">In [6]: </span><span class="n">cosmo</span><span class="o">.</span><span class="n">Omega_m</span> <span class="o">=</span> <span class="mf">0.3</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-6-f1effa3be4bc&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cosmo</span><span class="o">.</span><span class="n">Omega_m</span> <span class="o">=</span> <span class="mf">0.3</span>
+
+<span class="ne">NameError</span>: name &#39;cosmo&#39; is not defined
 
 <span class="gp">In [7]: </span><span class="n">cosmo</span><span class="o">.</span><span class="n">sh_r</span>
-<span class="gh">Out[7]: </span><span class="go">100.59308203228834</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-7-935512fac199&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cosmo</span><span class="o">.</span><span class="n">sh_r</span>
+
+<span class="ne">NameError</span>: name &#39;cosmo&#39; is not defined
 </pre></div>
 </div>
-<p>The cosmological parameters can also be set at the creation of the <a class="reference internal" href="../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology" title="cosmicpy.cosmology.cosmology"><tt class="xref py py-class docutils literal"><span class="pre">cosmology</span></tt></a> object by specifying their values to the constructor.
+<p>The cosmological parameters can also be set at the creation of the <tt class="xref py py-class docutils literal"><span class="pre">cosmology</span></tt> object by specifying their values to the constructor.
 For instance, to create a cosmology with <span class="math">\(\Omega_m = 0.2\)</span> and <span class="math">\(\Omega_{de} = 0.8\)</span>:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [8]: </span><span class="n">cosmo2</span> <span class="o">=</span> <span class="n">cosmology</span><span class="p">(</span><span class="n">Omega_m</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">Omega_de</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-8-a406f91d1005&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cosmo2</span> <span class="o">=</span> <span class="n">cosmology</span><span class="p">(</span><span class="n">Omega_m</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">Omega_de</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;cosmology&#39; is not defined
 
 <span class="gp">In [9]: </span><span class="k">print</span> <span class="n">cosmo2</span>
-<span class="go">FLRW Cosmology with the following parameters: </span>
-<span class="go">    h:        0.7 </span>
-<span class="go">    Omega_b:  0.045 </span>
-<span class="go">    Omega_m:  0.2 </span>
-<span class="go">    Omega_de: 0.8 </span>
-<span class="go">    w0:       -0.95 </span>
-<span class="go">    wa:       0.0 </span>
-<span class="go">    n:        1.0 </span>
-<span class="go">    tau:      0.09 </span>
-<span class="go">    sigma8:   0.8</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-9-dff3cd71c979&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">print</span> <span class="n">cosmo2</span>
+
+<span class="ne">NameError</span>: name &#39;cosmo2&#39; is not defined
 </pre></div>
 </div>
 </div>
 <div class="section" id="compute-distances">
 <h2>Compute distances<a class="headerlink" href="#compute-distances" title="Permalink to this headline">¶</a></h2>
-<p>Now that we have seen how to create a <a class="reference internal" href="../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology" title="cosmicpy.cosmology.cosmology"><tt class="xref py py-class docutils literal"><span class="pre">cosmology</span></tt></a> object with the desired cosmological parameters, let&#8217;s use it to compute some distances.</p>
-<p><a class="reference internal" href="../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology" title="cosmicpy.cosmology.cosmology"><tt class="xref py py-class docutils literal"><span class="pre">cosmology</span></tt></a> offers a number of different methods to compute various cosmological distances:</p>
+<p>Now that we have seen how to create a <tt class="xref py py-class docutils literal"><span class="pre">cosmology</span></tt> object with the desired cosmological parameters, let&#8217;s use it to compute some distances.</p>
+<p><tt class="xref py py-class docutils literal"><span class="pre">cosmology</span></tt> offers a number of different methods to compute various cosmological distances:</p>
 <table border="1" class="longtable docutils">
 <colgroup>
 <col width="10%" />
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.a2chi" title="cosmicpy.cosmology.cosmology.a2chi"><tt class="xref py py-obj docutils literal"><span class="pre">cosmology.a2chi</span></tt></a>(a)</td>
-<td>Radial comoving distance in [Mpc/h] for a given scale factor.</td>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">cosmology.a2chi</span></tt></td>
+<td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.f_k" title="cosmicpy.cosmology.cosmology.f_k"><tt class="xref py py-obj docutils literal"><span class="pre">cosmology.f_k</span></tt></a>(a)</td>
-<td>Transverse comoving distance in [Mpc/h] for a given scale factor.</td>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">cosmology.f_k</span></tt></td>
+<td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.d_A" title="cosmicpy.cosmology.cosmology.d_A"><tt class="xref py py-obj docutils literal"><span class="pre">cosmology.d_A</span></tt></a>(a)</td>
-<td>Angular diameter distance in [Mpc/h] for a given scale factor.</td>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">cosmology.d_A</span></tt></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -290,11 +330,11 @@ scale factors. The conversion between the two quantities is performed by the 2 u
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="../cosmicpy/utils.html#cosmicpy.utils.z2a" title="cosmicpy.utils.z2a"><tt class="xref py py-obj docutils literal"><span class="pre">cosmicpy.utils.z2a</span></tt></a>(z)</td>
-<td>converts from redshift to scale factor</td>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">cosmicpy.utils.z2a</span></tt></td>
+<td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="../cosmicpy/utils.html#cosmicpy.utils.a2z" title="cosmicpy.utils.a2z"><tt class="xref py py-obj docutils literal"><span class="pre">cosmicpy.utils.a2z</span></tt></a>(a)</td>
-<td>converts from scale factor to  redshift</td>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">cosmicpy.utils.a2z</span></tt></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -313,24 +353,24 @@ scale factors. The conversion between the two quantities is performed by the 2 u
 </div>
 <div class="section" id="compute-the-matter-power-spectrum">
 <h2>Compute the matter power spectrum<a class="headerlink" href="#compute-the-matter-power-spectrum" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference internal" href="../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology" title="cosmicpy.cosmology.cosmology"><tt class="xref py py-class docutils literal"><span class="pre">cosmology</span></tt></a> implements several methods to compute the linear and non linear matter power spectrum:</p>
+<p><tt class="xref py py-class docutils literal"><span class="pre">cosmology</span></tt> implements several methods to compute the linear and non linear matter power spectrum:</p>
 <table border="1" class="longtable docutils">
 <colgroup>
 <col width="10%" />
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.pk_lin" title="cosmicpy.cosmology.cosmology.pk_lin"><tt class="xref py py-obj docutils literal"><span class="pre">cosmology.pk_lin</span></tt></a>(k[,&nbsp;a])</td>
-<td>Computes the linear matter power spectrum.</td>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">cosmology.pk_lin</span></tt></td>
+<td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.pk" title="cosmicpy.cosmology.cosmology.pk"><tt class="xref py py-obj docutils literal"><span class="pre">cosmology.pk</span></tt></a>(k[,&nbsp;a,&nbsp;nl_type])</td>
-<td>Computes the full non linear matter power spectrum.</td>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">cosmology.pk</span></tt></td>
+<td></td>
 </tr>
 </tbody>
 </table>
 <p>By default, these two functions will compute the power spectrum at <span class="math">\(a=1\)</span>
 and using the Eisenstein &amp; Hu transfer function with oscillations. The non-linear
-correction implemented in <a class="reference internal" href="../cosmicpy/cosmology.html#cosmicpy.cosmology.cosmology.pk" title="cosmicpy.cosmology.cosmology.pk"><tt class="xref py py-meth docutils literal"><span class="pre">cosmology.pk()</span></tt></a> is computed based on <a class="reference internal" href="#smith" id="id1">[SmithPeacockJenkins+03]</a>.</p>
+correction implemented in <tt class="xref py py-meth docutils literal"><span class="pre">cosmology.pk()</span></tt> is computed based on <a class="reference internal" href="#smith" id="id1">[SmithPeacockJenkins+03]</a>.</p>
 <p>Here is an example to compute these two power spectra:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="go"># Creating a vector of wavenumbers</span>
 <span class="gp">In [14]: </span><span class="n">k</span> <span class="o">=</span> <span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
@@ -361,6 +401,12 @@ either:</p>
 <p>Finally, the power spectrum can be computed at different scale factors:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="go"># Create an array of scale factors corresponding to z=0, 1 ,2 and 5</span>
 <span class="gp">In [21]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">z2a</span><span class="p">(</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]))</span>
+<span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-21-6fe89af0419c&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">a</span> <span class="o">=</span> <span class="n">z2a</span><span class="p">(</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]))</span>
+
+<span class="ne">NameError</span>: name &#39;z2a&#39; is not defined
 
 <span class="gp">In [22]: </span><span class="n">loglog</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">cosmo</span><span class="o">.</span><span class="n">pk</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">a</span><span class="p">));</span>
 
@@ -395,7 +441,7 @@ either:</p>
     </p>
     <p>
         &copy; Copyright 2015, Francois Lanusse, Anais Rassat, Jean-Luc Starck.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.2.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.<br/>
     </p>
   </div>
 </footer>
